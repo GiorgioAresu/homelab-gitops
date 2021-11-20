@@ -119,7 +119,7 @@ Now it's the time to bootstrap flux:
 flux bootstrap github \
   --owner=GiorgioAresu \
   --repository=homelab-gitops \
-  --path=clusters/k8s \
+  --path=cluster/base \
   --personal
 ```
 
