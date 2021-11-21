@@ -65,10 +65,12 @@ sudo apt install -y curl nfs-common
 ## Master setup
 
 ```bash
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--disable traefik --disable servicelb --disable metrics-server" sh -
+curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--disable traefik --disable servicelb --disable metrics-server" sh -s - --kube-apiserver-arg feature-gates=MixedProtocolLBService=true
 sudo cat /var/lib/rancher/k3s/server/node-token
 ```
 
+We need `--kube-apiserver-arg feature-gates=MixedProtocolLBService=true` to enable the same LoadBalancer service to use multiple protocols.
+[See docs for more info](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/).
 
 ## Worker setup
 
