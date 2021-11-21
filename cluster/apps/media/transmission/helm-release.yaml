@@ -50,11 +50,9 @@ spec:
           http:
             port: 9091
           utptcp:
-            enabled: true
             port: 51413
             protocol: TCP
           utpudp:
-            enabled: true
             port: 51413
             protocol: UDP
     persistence:
