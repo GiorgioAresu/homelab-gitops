@@ -35,6 +35,10 @@ spec:
           runAsUser: 568
           runAsGroup: 568
     service:
+      main:
+        ports:
+          http:
+            port: 9091
       utptcp:
         enabled: true
         type: LoadBalancer
@@ -47,7 +51,7 @@ spec:
         enabled: true
         type: LoadBalancer
         ports:
-          utptcp:
+          utpudp:
             enabled: true
             port: 51413
             protocol: UDP
