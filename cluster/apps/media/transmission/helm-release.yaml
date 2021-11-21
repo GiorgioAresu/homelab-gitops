@@ -21,19 +21,19 @@ spec:
       TRANSMISSION_RPC_PASSWORD: "CHANGEME"
       TRANSMISSION_WEB_HOME: "/config/flood-for-transmission/"
     initContainers:
-      custom-webui:
-        name: custom-webui
-        image: curlimages/curl:7.76.1
-        command:
-          - "/bin/sh"
-          - "-c"
-          - "curl -o- -sL https://github.com/johman10/flood-for-transmission/releases/download/latest/flood-for-transmission.tar.gz | tar xzf - -C /config"
-        volumeMounts:
-          - name: config
-            mountPath: /config
-        securityContext:
-          runAsUser: 568
-          runAsGroup: 568
+      # custom-webui:
+      #   name: custom-webui
+      #   image: curlimages/curl:7.76.1
+      #   command:
+      #     - "/bin/sh"
+      #     - "-c"
+      #     - "curl -o- -sL https://github.com/johman10/flood-for-transmission/releases/download/latest/flood-for-transmission.tar.gz | tar xzf - -C /config"
+      #   volumeMounts:
+      #     - name: config
+      #       mountPath: /config
+      #   securityContext:
+      #     runAsUser: 568
+      #     runAsGroup: 568
     service:
       main:
         type: LoadBalancer
@@ -49,9 +49,9 @@ spec:
             port: 51413
             protocol: UDP
     persistence:
-      config:
-        enabled: true
-        type: emptyDir
+      # config:
+      #   enabled: true
+      #   type: emptyDir
       # downloads:
       #   enabled: true
       #   mountPath: /downloads
