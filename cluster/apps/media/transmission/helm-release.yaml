@@ -19,7 +19,7 @@ spec:
       TZ: "Europe/Rome"
       TRANSMISSION_INCOMPLETE_DIR_ENABLED: true
       TRANSMISSION_RPC_PASSWORD: "CHANGEME"
-      TRANSMISSION_WEB_HOME: "/config/flood-for-transmission/"
+      # TRANSMISSION_WEB_HOME: "/config/flood-for-transmission/"
     initContainers:
       # custom-webui:
       #   name: custom-webui
