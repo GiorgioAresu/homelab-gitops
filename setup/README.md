@@ -42,7 +42,7 @@ Edit to the grub config in
 sudo vim /etc/default/grub
 ```
 
-and add 
+and add
 `cgroup_memory=1 cgroup_enable=memory swapaccount=1` to the `GRUB_CMDLINE_LINUX` line. It will be something like:
 
 ```
@@ -75,7 +75,7 @@ sudo cat /var/lib/rancher/k3s/server/node-token
 Using $K3S_TOKEN from the master
 
 ```bash
-curl -sfL https://get.k3s.io | K3S_URL=https://kube-master-p1:6443 K3S_TOKEN=${K3S_TOKEN} sh - 
+curl -sfL https://get.k3s.io | K3S_URL=https://kube-master-p1:6443 K3S_TOKEN=${K3S_TOKEN} sh -
 ```
 
 
@@ -122,4 +122,3 @@ flux bootstrap github \
   --path=cluster/base \
   --personal
 ```
-
