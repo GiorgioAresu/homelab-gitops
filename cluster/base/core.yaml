@@ -10,7 +10,7 @@ spec:
     secretRef:
       name: sops-gpg
   interval: 10m0s
-  path: ./clusters/core
+  path: ./cluster/core
   prune: true
   sourceRef:
     kind: GitRepository
