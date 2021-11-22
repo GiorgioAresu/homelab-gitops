@@ -13,7 +13,7 @@ spec:
         name: k8s-at-home
         namespace: flux-system
       version: 8.0.1
-  interval: 10m0s
+  interval: 5m0s
   values:
     env:
       TZ: "Europe/Rome"
@@ -27,7 +27,6 @@ spec:
       TRANSMISSION_INCOMPLETE_DIR_ENABLED: true
       TRANSMISSION_RATIO_LIMIT_ENABLED: true
       TRANSMISSION_RATIO_LIMIT: 0
-      TRANSMISSION_SPEED_LIMIT_DOWN_ENABLED: true
       TRANSMISSION_WEB_HOME: "/config/flood-for-transmission/"
     initContainers:
       custom-webui:
