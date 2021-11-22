@@ -7,6 +7,7 @@ metadata:
 spec:
   chart:
     spec:
+      # renovate: registryUrl=https://metallb.github.io/metallb
       chart: metallb
       sourceRef:
         kind: HelmRepository
