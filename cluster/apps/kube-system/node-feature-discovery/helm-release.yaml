@@ -20,7 +20,10 @@ spec:
       #   configmap.reloader.stakater.com/reload: "nfd-worker-conf"
       config: |-
         core:
-          sources: [all]
+          sources:
+          - custom
+          - pci
+          - usb
         sources:
           usb:
             deviceClassWhitelist:
