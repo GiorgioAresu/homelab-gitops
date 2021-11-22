@@ -35,6 +35,12 @@ Automatic provisioner that use your existing and already configured NFS server t
 NFD detects hardware features available on each node in a Kubernetes cluster, and advertises those features using node labels.
 These labels can then be used to help with scheduling workloads on the most appropriate node.
 
+
+### [Renovate](https://docs.renovatebot.com/)
+
+Open PR when new charts versions are available.
+
+
 ## :construction_worker: Setup
 The cluster is currently running on Ubuntu 20.04 VMs running on Proxmox.
 
