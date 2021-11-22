@@ -18,14 +18,9 @@ spec:
     worker:
       # annotations:
       #   configmap.reloader.stakater.com/reload: "nfd-worker-conf"
-      nodeSelector:
-        node-role.kubernetes.io/worker: "true"
       config: |-
         core:
-          sources:
-          - custom
-          - pci
-          - usb
+          sources: [all]
         sources:
           usb:
             deviceClassWhitelist:
