@@ -15,6 +15,11 @@ It constantly polls the repo and checks that the cluster state is consistent. If
 Some of the interesting additions running on the cluster are:
 
 
+### [Descheduler](https://github.com/kubernetes-sigs/descheduler)
+
+Evicts pods based on different configurable policies.
+
+
 ### [MetalLB](https://metallb.org/)
 
 Allow LoadBalancer services to get a local IP address, using either DHCP or BGP.
