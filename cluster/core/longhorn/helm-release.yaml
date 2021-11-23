@@ -18,5 +18,11 @@ spec:
     service:
       ui:
         type: LoadBalancer
-    persistence:
-      defaultClassReplicaCount: 2
+    csi:
+      attacherReplicaCount: 2
+      provisionerReplicaCount: 2
+      resizerReplicaCount: 2
+      snapshotterReplicaCount: 2
+    defaultSettings:
+      backupTarget: 10.17.1.17:9000
+      backupTargetCredentialSecret: aws-secret
