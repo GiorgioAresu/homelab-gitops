@@ -20,6 +20,11 @@ Some of the interesting additions running on the cluster are:
 Evicts pods based on different configurable policies.
 
 
+### [Intel GPU Plugin](https://artifacthub.io/packages/helm/k8s-at-home/intel-gpu-plugin)
+
+Allow offloading to Intel GPU for transcoding and such.
+
+
 ### [MetalLB](https://metallb.org/)
 
 Allow LoadBalancer services to get a local IP address, using either DHCP or BGP.
