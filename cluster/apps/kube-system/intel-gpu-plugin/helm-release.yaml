@@ -12,7 +12,7 @@ spec:
       version: 4.1.0
       sourceRef:
         kind: HelmRepository
-        name: descheduler
+        name: k8s-at-home
         namespace: flux-system
   interval: 5m0s
   values:
