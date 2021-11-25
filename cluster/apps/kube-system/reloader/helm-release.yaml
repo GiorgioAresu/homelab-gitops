@@ -16,6 +16,8 @@ spec:
       version: v0.0.103
   interval: 5m0s
   values:
+    nameOverride: reloader
+    fullnameOverride: reloader
     podMonitor:
       enabled: true
       namespace: kube-system
