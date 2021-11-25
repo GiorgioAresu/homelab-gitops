@@ -18,7 +18,7 @@ spec:
   values:
     nfs:
       path: /mnt/tank/kubernetes
-      server: 10.17.1.17
+      server: "${TRUENAS_ADDR}"
     storageClass:
       defaultClass: true
       name: nfs-storage

@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: flux-system
+  name: cluster-settings
+data:
+  GATEWAY_ADDR: "10.17.1.1"
+  TRUENAS_ADDR: "10.17.1.17"
+  NETWORK_METALB_CIDR: "10.17.2.0/24"

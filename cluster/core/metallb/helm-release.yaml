@@ -18,12 +18,12 @@ spec:
   values:
     configInline:
       peers:
-        - peer-address: 10.17.1.1
+        - peer-address: "${GATEWAY_ADDR}"
           peer-asn: 64512
           my-asn: 65400
       address-pools:
         - name: bgp
           protocol: bgp
           addresses:
-            - 10.17.2.0/24
+            - "${NETWORK_METALB_CIDR}"
           avoid-buggy-ips: true
