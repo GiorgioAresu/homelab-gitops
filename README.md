@@ -46,6 +46,11 @@ These labels can then be used to help with scheduling workloads on the most appr
 Open PR when new charts versions are available.
 
 
+### [Stakater Reloader](https://github.com/stakater/Reloader)
+
+Watch changes in ConfigMaps and Secrets and do rolling upgrades on Pods with their associated DeploymentConfigs, Deployments, Daemonsets Statefulsets and Rollouts.
+
+
 ## :construction_worker: Setup
 The cluster is currently running on Ubuntu 20.04 VMs running on Proxmox.
 

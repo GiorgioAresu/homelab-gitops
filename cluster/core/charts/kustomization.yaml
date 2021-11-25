@@ -7,3 +7,4 @@ resources:
   - managed-nfs-storage-provisioner.yaml
   - metallb.yaml
   - node-feature-discovery.yaml
+  - stakater.yaml
