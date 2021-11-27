@@ -202,15 +202,9 @@ spec:
           #   static_configs:
           #     - targets:
           #         - "${GATEWAY_ADDR}:9153"
-          - job_name: 'minio-job'
-            honor_timestamps: true
-            metrics_path: /minio/v2/metrics/cluster
-            static_configs:
-              - targets:
-                  - "${NAS_ADDR}:9000"
           - job_name: "node-exporter"
             honor_timestamps: true
             static_configs:
               - targets:
-                  - "${GATEWAY_ADDR}:9100"
-                  - "${UNRAID_ADDR}:9100"
+                  - "opnsense.${SECRET_DOMAIN}:9100"
+                  - "unraid.${SECRET_DOMAIN}:9100"
