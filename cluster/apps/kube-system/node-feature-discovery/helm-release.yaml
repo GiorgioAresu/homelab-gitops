@@ -17,8 +17,8 @@ spec:
   interval: 5m0s
   values:
     worker:
-      # annotations:
-      #   configmap.reloader.stakater.com/reload: "nfd-worker-conf"
+      annotations:
+        configmap.reloader.stakater.com/reload: "nfd-worker-conf"
       config: |-
         core:
           sources:
