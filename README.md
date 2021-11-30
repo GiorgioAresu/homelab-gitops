@@ -25,6 +25,11 @@ Evicts pods based on different configurable policies.
 Allow offloading to Intel GPU for transcoding and such.
 
 
+### [Kured](https://github.com/weaveworks/kured)
+
+Safely reboot nodes when required by system updates.
+
+
 ### [MetalLB](https://metallb.org/)
 
 Allow LoadBalancer services to get a local IP address, using either DHCP or BGP.
