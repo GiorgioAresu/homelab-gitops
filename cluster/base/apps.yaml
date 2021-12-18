@@ -10,6 +10,8 @@ spec:
     secretRef:
       name: sops-gpg
   interval: 10m0s
+  dependsOn:
+    - name: core
   path: ./cluster/apps
   prune: true
   sourceRef:
