@@ -19,6 +19,9 @@ spec:
     worker:
       annotations:
         configmap.reloader.stakater.com/reload: "nfd-worker-conf"
+      nodeSelector:
+        # Currently no arm64 image (https://github.com/kubernetes-sigs/node-feature-discovery/issues/426)
+        kubernetes.io/arch: amd64
       config: |-
         core:
           sources:
