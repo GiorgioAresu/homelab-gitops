@@ -5,4 +5,4 @@ resources:
   - flux-system
   - kube-system
   - media
-  - monitoring
+  # - monitoring
