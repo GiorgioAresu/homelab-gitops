@@ -19,8 +19,8 @@ Then, using the `homelab-cluster` gpg key's fingerprint as `$KEY_FP`:
 ```shell
 gpg --export-secret-keys --armor "${KEY_FP}" |
 kubectl create secret generic sops-gpg \
---namespace=flux-system \
---from-file=sops.asc=/dev/stdin
+  --namespace=flux-system \
+  --from-file=sops.asc=/dev/stdin
 ```
 
 Now bootstrap flux.
@@ -31,12 +31,6 @@ flux bootstrap github \
   --repository=homelab-gitops \
   --path=cluster/base \
   --personal
-```
-
-Tell flux to pull the manifests from Git and upgrade itself with:
-
-```shell
-flux reconcile source git flux-system
 ```
 
 Verify that everything is ok, with:
