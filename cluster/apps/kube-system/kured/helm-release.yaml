@@ -24,6 +24,9 @@ spec:
       messageTemplateDrain: "⏳ Draining node %s"
       messageTemplateReboot: "♻️ Rebooted node %s"
       rebootCommand: "/usr/bin/systemctl reboot"
+    nodeSelector:
+      # Currently no arm64 image (https://github.com/weaveworks/kured/issues/23)
+      kubernetes.io/arch: amd64
     tolerations:
       - key: "node-role.kubernetes.io/master"
         operator: "Exists"
