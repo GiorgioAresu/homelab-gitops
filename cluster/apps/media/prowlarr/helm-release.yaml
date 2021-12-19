@@ -29,12 +29,12 @@ spec:
         accessMode: ReadWriteOnce
         size: 1Gi
         storageClass: longhorn
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
     resources:
       requests:
         memory: 100Mi
         cpu: 100m
       limits:
         memory: 500Mi
-    podSecurityContext:
-      fsGroup: 568
-      fsGroupChangePolicy: "OnRootMismatch"
