@@ -18,6 +18,9 @@ spec:
   values:
     env:
       TZ: Europe/Rome
+    service:
+      main:
+        type: LoadBalancer
     persistence:
       config:
         enable: true
