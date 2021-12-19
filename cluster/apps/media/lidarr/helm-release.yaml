@@ -27,7 +27,7 @@ spec:
         retain: true
         type: pvc
         accessMode: ReadWriteOnce
-        size: 100Mi
+        size: 500Mi
         storageClass: longhorn
       music:
         enabled: true

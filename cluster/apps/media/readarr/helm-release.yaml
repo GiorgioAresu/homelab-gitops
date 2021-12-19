@@ -27,7 +27,7 @@ spec:
         retain: true
         type: pvc
         accessMode: ReadWriteOnce
-        size: 100Mi
+        size: 250Mi
         storageClass: longhorn
       books:
         enabled: true
