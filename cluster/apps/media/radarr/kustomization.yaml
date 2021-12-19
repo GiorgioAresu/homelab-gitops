@@ -2,8 +2,4 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - bazarr
-  - lidarr
-  - radarr
-  - readarr
-  - transmission
+  - helm-release.yaml

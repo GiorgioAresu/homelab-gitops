@@ -1,0 +1,50 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: radarr
+  namespace: media
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: radarr
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      version: 15.1.1
+  interval: 10m0s
+  values:
+    env:
+      TZ: Europe/Rome
+    service:
+      main:
+        type: LoadBalancer
+    persistence:
+      config:
+        enabled: true
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 2Gi
+        storageClass: longhorn
+      movies:
+        enabled: true
+        mountPath: /movies
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/media/Movies"
+            server: "${UNRAID_ADDR}"
+      downloads:
+        enabled: true
+        mountPath: /downloads
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/downloads/complete/movies"
+            server: "${UNRAID_ADDR}"
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
