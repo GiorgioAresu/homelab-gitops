@@ -29,17 +29,16 @@ spec:
       config:
         enable: true
         skipuninstall: true
+        mountPath: /config
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 100Mi
+        storageClass: longhorn
+      media:
+        enabled: true
         mountPath: /media
-        type: custom
-        volumeSpec:
-          nfs:
-            path: "/mnt/user/media/test"
-            server: "${UNRAID_ADDR}"
-      # media:
-      #   enabled: true
-      #   mountPath: /media
-      #   type: custom
-      #   volumeSpec:
-      #     nfs:
-      #       path: "/mnt/user/media"
-      #       server: "${UNRAID_ADDR}"
+        skipuninstall: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 100Mi
+        storageClass: longhorn
