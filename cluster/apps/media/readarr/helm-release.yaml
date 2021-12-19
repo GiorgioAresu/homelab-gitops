@@ -1,0 +1,46 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: readarr
+  namespace: media
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: readarr
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      version: 6.1.0
+  interval: 10m0s
+  values:
+    env:
+      TZ: Europe/Rome
+    service:
+      main:
+        type: LoadBalancer
+        ports:
+          http:
+            port: 80
+            targetPort: 8787
+    persistence:
+      config:
+        enabled: true
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 100Mi
+        storageClass: longhorn
+      media:
+        enabled: true
+        mountPath: /media
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/media/Books"
+            server: "${UNRAID_ADDR}"
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
