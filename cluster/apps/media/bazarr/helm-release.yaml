@@ -27,9 +27,7 @@ spec:
             targetPort: 6767
     persistence:
       config:
-        enable: true
-        skipuninstall: true
-        mountPath: /config
+        enabled: true
         type: pvc
         accessMode: ReadWriteOnce
         size: 100Mi
@@ -37,8 +35,8 @@ spec:
       media:
         enabled: true
         mountPath: /media
-        skipuninstall: true
-        type: pvc
-        accessMode: ReadWriteOnce
-        size: 100Mi
-        storageClass: longhorn
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/media"
+            server: "${UNRAID_ADDR}"
