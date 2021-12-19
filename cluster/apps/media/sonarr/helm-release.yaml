@@ -1,0 +1,50 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: sonarr
+  namespace: media
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: sonarr
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      version: 15.2.1
+  interval: 10m0s
+  values:
+    env:
+      TZ: Europe/Rome
+    service:
+      main:
+        type: LoadBalancer
+    persistence:
+      config:
+        enabled: true
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: longhorn
+      tv:
+        enabled: true
+        mountPath: /tv
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/media/TV Shows"
+            server: "${UNRAID_ADDR}"
+      downloads:
+        enabled: true
+        mountPath: /downloads
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/downloads/complete/tv"
+            server: "${UNRAID_ADDR}"
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
