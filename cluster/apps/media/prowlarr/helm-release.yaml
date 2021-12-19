@@ -25,7 +25,10 @@ spec:
       config:
         enabled: true
         retain: true
-        existingClaim: prowlarr-config-v1
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: longhorn
     resources:
       requests:
         memory: 100Mi
