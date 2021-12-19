@@ -29,5 +29,10 @@ spec:
       config:
         enable: true
       media:
-        enabled: false
+        enabled: true
         mountPath: /media
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/media"
+            server: "${UNRAID_ADDR}"
