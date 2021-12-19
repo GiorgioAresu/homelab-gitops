@@ -1,0 +1,26 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: bazarr
+  namespace: media
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: bazarr
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      version: 10.2.0
+  interval: 10m0s
+  values:
+    env:
+      TZ: Europe/Rome
+    persistence:
+      config:
+        enable: true
+      media:
+        enabled: false
+        mountPath: /media
