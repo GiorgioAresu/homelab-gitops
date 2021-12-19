@@ -33,11 +33,11 @@ spec:
         accessMode: ReadWriteOnce
         size: 100Mi
         storageClass: longhorn
-      media:
-        enabled: true
-        mountPath: /media
-        type: custom
-        volumeSpec:
-          nfs:
-            path: "/mnt/user/media"
-            server: "${UNRAID_ADDR}"
+      # media:
+      #   enabled: true
+      #   mountPath: /media
+      #   type: custom
+      #   volumeSpec:
+      #     nfs:
+      #       path: "/mnt/user/media"
+      #       server: "${UNRAID_ADDR}"
