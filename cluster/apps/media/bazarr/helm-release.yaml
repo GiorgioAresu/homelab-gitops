@@ -41,3 +41,6 @@ spec:
           nfs:
             path: "/mnt/user/media"
             server: "${UNRAID_ADDR}"
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
