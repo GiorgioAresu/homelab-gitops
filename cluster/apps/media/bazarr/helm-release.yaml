@@ -28,6 +28,8 @@ spec:
     persistence:
       config:
         enable: true
+        size: 100Mi
+        type: pvc
         storageClass: longhorn
       media:
         enabled: true
