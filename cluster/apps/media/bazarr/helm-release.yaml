@@ -28,8 +28,9 @@ spec:
     persistence:
       config:
         enable: true
-        size: 100Mi
         type: pvc
+        accessMode: ReadWriteOnce
+        size: 100Mi
         storageClass: longhorn
       media:
         enabled: true
