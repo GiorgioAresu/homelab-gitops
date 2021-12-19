@@ -1,0 +1,50 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: lidarr
+  namespace: media
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: lidarr
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      version: 13.1.1
+  interval: 10m0s
+  values:
+    env:
+      TZ: Europe/Rome
+    service:
+      main:
+        type: LoadBalancer
+    persistence:
+      config:
+        enabled: true
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 100Mi
+        storageClass: longhorn
+      music:
+        enabled: true
+        mountPath: /music
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/media/Music"
+            server: "${UNRAID_ADDR}"
+      downloads:
+        enabled: true
+        mountPath: /downloads
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/downloads/complete/music"
+            server: "${UNRAID_ADDR}"
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
