@@ -20,6 +20,13 @@ Some of the interesting additions running on the cluster are:
 Evicts pods based on different configurable policies.
 
 
+### [Longhorn](https://longhorn.io)
+
+Cloud native distributed block storage for Kubernetes.
+
+You can label `volumes` (**NOT** PersistentVolumes) with `recurring-job-group.longhorn.io/backup=enabled` and create a recurring job to match the backup group.
+
+
 ### [Intel GPU Plugin](https://artifacthub.io/packages/helm/k8s-at-home/intel-gpu-plugin)
 
 Allow offloading to Intel GPU for transcoding and such.

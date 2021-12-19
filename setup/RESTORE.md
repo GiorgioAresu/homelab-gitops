@@ -38,3 +38,8 @@ Verify that everything is ok, with:
 ```shell
 flux check
 ```
+
+## Volume backups
+
+If you're creating new volumes, check backup configuration for `longhorn` volumes.
+You can label `volumes` (**NOT** PersistentVolumes) with `recurring-job-group.longhorn.io/backup=enabled` and create a recurring job to match the backup group.
