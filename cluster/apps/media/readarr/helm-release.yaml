@@ -24,7 +24,6 @@ spec:
         ports:
           http:
             port: 80
-            targetPort: 8787
     persistence:
       config:
         enabled: true
