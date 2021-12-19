@@ -28,11 +28,13 @@ spec:
     persistence:
       config:
         enable: true
-        mountPath: /config
-        type: pvc
-        accessMode: ReadWriteOnce
-        size: 100Mi
-        storageClass: longhorn
+        skipuninstall: true
+        mountPath: /media
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/media/test"
+            server: "${UNRAID_ADDR}"
       # media:
       #   enabled: true
       #   mountPath: /media
