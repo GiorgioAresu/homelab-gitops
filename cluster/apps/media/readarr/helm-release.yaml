@@ -33,13 +33,21 @@ spec:
         accessMode: ReadWriteOnce
         size: 100Mi
         storageClass: longhorn
-      media:
+      books:
         enabled: true
-        mountPath: /media
+        mountPath: /books
         type: custom
         volumeSpec:
           nfs:
             path: "/mnt/user/media/Books"
+            server: "${UNRAID_ADDR}"
+      downloads:
+        enabled: true
+        mountPath: /downloads
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/downloads/complete/books"
             server: "${UNRAID_ADDR}"
     podSecurityContext:
       fsGroup: 568
