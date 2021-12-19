@@ -28,6 +28,7 @@ spec:
     persistence:
       config:
         enable: true
+        mountPath: /config
         type: pvc
         accessMode: ReadWriteOnce
         size: 100Mi
