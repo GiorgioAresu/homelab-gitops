@@ -21,6 +21,9 @@ spec:
     service:
       main:
         type: LoadBalancer
+        ports:
+          http:
+            port: 80
     persistence:
       config:
         enable: true
