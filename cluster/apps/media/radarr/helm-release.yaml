@@ -46,7 +46,9 @@ spec:
             path: "/mnt/user/downloads/complete/movies"
             server: "${UNRAID_ADDR}"
     podSecurityContext:
-      fsGroup: 568
+      runAsUser: 99
+      runAsGroup: 100
+      fsGroup: 100
       fsGroupChangePolicy: "OnRootMismatch"
     resources:
       requests:
