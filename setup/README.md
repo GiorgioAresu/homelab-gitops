@@ -124,3 +124,14 @@ flux bootstrap github \
   --path=cluster/base \
   --personal
 ```
+
+## Volume backups
+
+When creating new volumes, you can add them to a group for automatic backup.
+Longhorn is configured to perform automatic snapshots and backups for PV labeled with `recurring-job-group.longhorn.io/backup=enabled`.
+
+If you're creating a new volume, you can label it (**NOT** the PersistentVolume):
+
+```shell
+kubectl label volume -n longhorn-system pvc-{volume-name} recurring-job-group.longhorn.io/default- recurring-job-group.longhorn.io/backup=enabled
+```

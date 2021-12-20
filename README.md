@@ -24,8 +24,6 @@ Evicts pods based on different configurable policies.
 
 Cloud native distributed block storage for Kubernetes.
 
-You can label `volumes` (**NOT** PersistentVolumes) with `recurring-job-group.longhorn.io/backup=enabled` and create a recurring job to match the backup group.
-
 
 ### [Intel GPU Plugin](https://artifacthub.io/packages/helm/k8s-at-home/intel-gpu-plugin)
 

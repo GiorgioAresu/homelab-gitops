@@ -41,5 +41,4 @@ flux check
 
 ## Volume backups
 
-If you're creating new volumes, check backup configuration for `longhorn` volumes.
-You can label `volumes` (**NOT** PersistentVolumes) with `recurring-job-group.longhorn.io/backup=enabled` and create a recurring job to match the backup group.
+Setup longhorn with a recurring backup (optionally, snapshot too) job for group `backup`, so that important data gets backed up automatically.
