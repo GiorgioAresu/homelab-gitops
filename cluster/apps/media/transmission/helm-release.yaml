@@ -76,6 +76,9 @@ spec:
       # watch:
       #   enabled: true
       #   mountPath: /watch
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
     resources:
       requests:
         memory: 100Mi
