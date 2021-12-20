@@ -60,10 +60,19 @@ spec:
     persistence:
       config:
         enabled: true
-        type: emptyDir
-      # downloads:
-      #   enabled: true
-      #   mountPath: /downloads
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 100Mi
+        storageClass: longhorn
+      downloads:
+        enabled: true
+        mountPath: /downloads
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/downloads"
+            server: "${UNRAID_ADDR}"
       # watch:
       #   enabled: true
       #   mountPath: /watch
