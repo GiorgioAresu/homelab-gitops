@@ -43,8 +43,8 @@ spec:
         type: custom
         volumeSpec:
           nfs:
-            path: "/mnt/user/downloads/complete/music"
-            server: "${UNRAID_ADDR}"
+            path: "/mnt/tank/kubernetes/downloads/complete/music"
+            server: "${TRUENAS_ADDR}"
     podSecurityContext:
       runAsUser: 99
       runAsGroup: 100

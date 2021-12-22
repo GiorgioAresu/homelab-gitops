@@ -71,8 +71,8 @@ spec:
         type: custom
         volumeSpec:
           nfs:
-            path: "/mnt/user/downloads"
-            server: "${UNRAID_ADDR}"
+            path: "/mnt/tank/kubernetes/downloads"
+            server: "${TRUENAS_ADDR}"
       # watch:
       #   enabled: true
       #   mountPath: /watch
