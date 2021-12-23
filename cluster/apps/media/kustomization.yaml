@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - bazarr
   - lidarr
+  - plex
   - prowlarr
   - radarr
   - readarr
