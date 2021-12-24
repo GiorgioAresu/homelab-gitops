@@ -30,5 +30,6 @@ spec:
           params:
             nodeAffinityType:
               - requiredDuringSchedulingIgnoredDuringExecution
+              - preferredDuringSchedulingIgnoredDuringExecution
         RemovePodsViolatingNodeTaints:
           enabled: true
