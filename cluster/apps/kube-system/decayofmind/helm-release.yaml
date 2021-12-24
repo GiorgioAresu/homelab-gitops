@@ -1,0 +1,17 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: decayofmind
+  namespace: kube-system
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://decayofmind.github.io/charts/
+      chart: decayofmind
+      sourceRef:
+        kind: HelmRepository
+        name: decayofmind
+        namespace: flux-system
+      version: 0.0.4
+  interval: 5m0s
