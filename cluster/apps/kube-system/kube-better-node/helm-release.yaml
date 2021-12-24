@@ -2,13 +2,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: decayofmind
+  name: kube-better-node
   namespace: kube-system
 spec:
   chart:
     spec:
       # renovate: registryUrl=https://decayofmind.github.io/charts/
-      chart: decayofmind
+      chart: kube-better-node
       sourceRef:
         kind: HelmRepository
         name: decayofmind
