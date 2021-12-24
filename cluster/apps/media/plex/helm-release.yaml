@@ -31,7 +31,7 @@ spec:
         storageClass: longhorn
       media:
         enabled: true
-        mountPath: /media
+        mountPath: /data
         type: custom
         volumeSpec:
           nfs:
