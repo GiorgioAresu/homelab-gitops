@@ -46,7 +46,7 @@ spec:
             path: "/mnt/tank/kubernetes/downloads/complete/music"
             server: "${TRUENAS_ADDR}"
     podSecurityContext:
-      runAsUser: 99
+      runAsUser: 568
       runAsGroup: 100
       fsGroup: 100
       fsGroupChangePolicy: "OnRootMismatch"

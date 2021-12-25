@@ -38,7 +38,7 @@ spec:
             path: "/mnt/user/media"
             server: "${UNRAID_ADDR}"
     podSecurityContext:
-      runAsUser: 99
+      runAsUser: 568
       runAsGroup: 100
       fsGroup: 100
       fsGroupChangePolicy: "OnRootMismatch"
