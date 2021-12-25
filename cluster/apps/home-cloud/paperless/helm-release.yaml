@@ -1,0 +1,67 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: paperless
+  namespace: home-cloud
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: paperless
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      version: 8.2.1
+  interval: 10m0s
+  values:
+    env:
+      TZ: Europe/Rome
+      # -- OCR languages to install
+      PAPERLESS_OCR_LANGUAGE: ita+eng
+      PAPERLESS_TIME_ZONE: "Europe/Rome"
+    service:
+      main:
+        type: LoadBalancer
+    persistence:
+      # -- Configure persistence for data.
+      data:
+        enabled: true
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 100Mi
+        storageClass: longhorn
+      # -- Configure persistence for media.
+      media:
+        enabled: true
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 250Mi
+        storageClass: longhorn
+      # -- Configure volume to monitor for new documents.
+      consume:
+        enabled: true
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 50Mi
+        storageClass: longhorn
+      # -- Configure export volume.
+      export:
+        enabled: true
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 50Mi
+        storageClass: longhorn
+    resources:
+      requests:
+        memory: 100Mi
+        cpu: 100m
+      limits:
+        memory: 250Mi
+    redis:
+      enabled: true
