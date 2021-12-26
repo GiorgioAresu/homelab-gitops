@@ -18,9 +18,25 @@ spec:
   values:
     env:
       TZ: Europe/Rome
-    service:
+    ingress:
       main:
-        type: LoadBalancer
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "television-box"
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            proxy_set_header Accept-Encoding "";
+            sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://theme-park.dev/css/base/sonarr/nord.css"></head>';
+            sub_filter_once on;
+        hosts:
+          - host: "sonarr.test"
+            paths:
+              - path: /
+                pathType: Prefix
+        # tls:
+        #   - hosts:
+        #       - "sonarr.${SECRET_PUBLIC_DOMAIN}"
     persistence:
       config:
         enabled: true
