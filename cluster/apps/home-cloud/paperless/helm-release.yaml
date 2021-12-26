@@ -18,7 +18,7 @@ spec:
   values:
     env:
       TZ: Europe/Rome
-      PAPERLESS_REDIS: redis://localhost:6379
+      PAPERLESS_REDIS: redis://paperless-redis-headless:6379
       PAPERLESS_OCR_LANGUAGE: ita+eng
       PAPERLESS_TIME_ZONE: "Europe/Rome"
     service:
