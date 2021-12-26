@@ -1,0 +1,38 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: unifi
+  namespace: media
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: unifi
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      version: 4.5.0
+  interval: 5m0s
+  values:
+    env:
+      TZ: "Europe/Rome"
+      JVM_MAX_HEAP_SIZE: 250M
+    service:
+      main:
+        type: LoadBalancer
+    persistence:
+      data:
+        enabled: true
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: longhorn
+    resources:
+      requests:
+        memory: 100Mi
+        cpu: 100m
+      limits:
+        memory: 500Mi

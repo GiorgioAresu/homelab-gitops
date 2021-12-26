@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - flux-system
   - home-cloud
+  - infrastructure
   - kube-system
   - media
   - monitoring
