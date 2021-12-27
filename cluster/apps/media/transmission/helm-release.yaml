@@ -16,6 +16,10 @@ spec:
         namespace: flux-system
   interval: 5m0s
   values:
+    image:
+      repository: ghcr.io/k8s-at-home/transmission
+      tag: v3.00
+      pullPolicy: IfNotPresent
     env:
       TZ: "Europe/Rome"
       TRANSMISSION_ALT_SPEED_DOWN: 500
