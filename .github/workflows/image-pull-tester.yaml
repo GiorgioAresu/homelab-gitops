@@ -7,7 +7,6 @@ on: # yamllint disable-line rule:truthy
       - main
     paths:
       - "cluster/**.yaml"
-      - "ansible/**.yml.j2"
     types:
       - labeled
       - opened
