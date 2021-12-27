@@ -9,11 +9,11 @@ spec:
     spec:
       # renovate: registryUrl=https://kubernetes-sigs.github.io/node-feature-discovery/charts
       chart: node-feature-discovery
+      version: 0.9.0
       sourceRef:
         kind: HelmRepository
         name: node-feature-discovery
         namespace: flux-system
-      version: 0.9.0
   interval: 5m0s
   values:
     worker:

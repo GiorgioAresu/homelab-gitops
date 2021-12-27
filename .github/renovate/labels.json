@@ -1,0 +1,24 @@
+{
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "labels": ["type/major"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "labels": ["type/minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "labels": ["type/patch"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "addLabels": ["component/container"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "addLabels": ["component/helm"]
+    }
+  ]
+}

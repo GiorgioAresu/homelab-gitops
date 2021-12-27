@@ -9,11 +9,11 @@ spec:
     spec:
       # renovate: registryUrl=https://stakater.github.io/stakater-charts
       chart: reloader
+      version: v0.0.103
       sourceRef:
         kind: HelmRepository
         name: stakater
         namespace: flux-system
-      version: v0.0.103
   interval: 5m0s
   values:
     nameOverride: reloader

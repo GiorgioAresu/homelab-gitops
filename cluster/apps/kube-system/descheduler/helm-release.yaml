@@ -9,11 +9,11 @@ spec:
     spec:
       # renovate: registryUrl=https://kubernetes-sigs.github.io/descheduler
       chart: descheduler
+      version: 0.22.1
       sourceRef:
         kind: HelmRepository
         name: descheduler
         namespace: flux-system
-      version: 0.22.1
   interval: 5m0s
   values:
     kind: Deployment

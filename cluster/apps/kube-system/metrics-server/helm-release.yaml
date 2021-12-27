@@ -9,11 +9,11 @@ spec:
     spec:
       # renovate: registryUrl=https://kubernetes-sigs.github.io/metrics-server/
       chart: metrics-server
+      version: 3.7.0
       sourceRef:
         kind: HelmRepository
         name: metrics-server
         namespace: flux-system
-      version: 3.7.0
   interval: 5m0s
   values:
     args:

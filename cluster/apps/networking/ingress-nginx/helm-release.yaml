@@ -9,11 +9,11 @@ spec:
     spec:
       # renovate: registryUrl=https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
+      version: 4.0.13
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
         namespace: flux-system
-      version: 4.0.13
   interval: 5m0s
   values:
     controller:

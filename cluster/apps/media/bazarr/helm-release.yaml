@@ -9,11 +9,11 @@ spec:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts
       chart: bazarr
+      version: 10.2.0
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home
         namespace: flux-system
-      version: 10.2.0
   interval: 10m0s
   values:
     env:

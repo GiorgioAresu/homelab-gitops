@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "britesnow.vscode-toggle-quotes",
+        "mitchdenny.ecdc",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "oderwat.indent-rainbow",
+        "signageos.signageos-vscode-sops",
+        "usernamehw.errorlens",
+    ]
+}
