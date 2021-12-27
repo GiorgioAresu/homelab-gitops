@@ -46,7 +46,7 @@ spec:
             path: "/mnt/tank/kubernetes/downloads/complete/movies"
             server: "${TRUENAS_ADDR}"
     podSecurityContext:
-      runAsUser: 568
+      runAsUser: 99
       runAsGroup: 100
       fsGroup: 100
       fsGroupChangePolicy: "OnRootMismatch"

@@ -30,7 +30,7 @@ spec:
         size: 1Gi
         storageClass: longhorn
     podSecurityContext:
-      runAsUser: 568
+      runAsUser: 99
       runAsGroup: 100
       fsGroup: 100
       fsGroupChangePolicy: "OnRootMismatch"
