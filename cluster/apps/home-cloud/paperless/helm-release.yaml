@@ -28,6 +28,18 @@ spec:
     service:
       main:
         type: LoadBalancer
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        hosts:
+          - host: "paperless.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        # tls:
+        #   - hosts:
+        #       - "paperless.${SECRET_DOMAIN}"
     persistence:
       # -- Configure persistence for data.
       data:

@@ -25,6 +25,18 @@ spec:
     service:
       main:
         type: LoadBalancer
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        hosts:
+          - host: "nextcloud.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        # tls:
+        #   - hosts:
+        #       - "nextcloud.${SECRET_DOMAIN}"
     persistence:
       data:
         enabled: true

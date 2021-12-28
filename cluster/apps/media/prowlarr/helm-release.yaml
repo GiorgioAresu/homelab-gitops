@@ -25,6 +25,18 @@ spec:
     service:
       main:
         type: LoadBalancer
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        hosts:
+          - host: "prowlarr.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        # tls:
+        #   - hosts:
+        #       - "prowlarr.${SECRET_DOMAIN}"
     persistence:
       config:
         enabled: true

@@ -61,6 +61,18 @@ spec:
             enabled: true
             port: 51413
             protocol: UDP
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        hosts:
+          - host: "transmission.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        # tls:
+        #   - hosts:
+        #       - "transmission.${SECRET_DOMAIN}"
     persistence:
       config:
         enabled: true
