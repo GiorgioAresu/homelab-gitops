@@ -64,14 +64,12 @@ spec:
         enabled: true
         ingressClassName: "nginx"
         hosts:
-          # - host: "hajimari.${SECRET_PUBLIC_DOMAIN}"
-          - host: "hajimari.test"
+          - host: "hajimari.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
-        tls:
-          - hosts:
-              # - "hajimari.${SECRET_PUBLIC_DOMAIN}"
-              - "hajimari.test"
+        # tls:
+        #   - hosts:
+        #       - "hajimari.${SECRET_DOMAIN}"
     podAnnotations:
       configmap.reloader.stakater.com/reload: "hajimari-settings"
