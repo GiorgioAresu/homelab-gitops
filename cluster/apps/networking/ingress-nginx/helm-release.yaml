@@ -22,10 +22,8 @@ spec:
         - name: TZ
           value: Europe/Rome
       service:
-        externalIPs:
-          - "10.17.2.100"
-          # - "${SVC_NGINX_ADDR}"
-        externalTrafficPolicy: Local
+        # externalIPs:
+        #   - "${SVC_NGINX_ADDR}"
       publishService:
         enabled: true
       ingressClassResource:
