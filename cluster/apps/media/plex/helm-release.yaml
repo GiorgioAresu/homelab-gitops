@@ -29,6 +29,9 @@ spec:
       main:
         enabled: true
         ingressClassName: "nginx"
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "plex"
         hosts:
           - host: "plex.${SECRET_DOMAIN}"
             paths:
