@@ -33,6 +33,7 @@ spec:
       defaultEnable: false
       namespaceSelector:
         matchNames:
+          - home-cloud
           - infrastructure
           - media
           - monitoring
