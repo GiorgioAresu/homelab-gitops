@@ -22,9 +22,6 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: "Europe/Rome"
-    service:
-      main:
-        type: LoadBalancer
     resources:
       limits:
         memory: 100Mi

@@ -23,9 +23,6 @@ spec:
     env:
       TZ: "Europe/Rome"
       JVM_MAX_HEAP_SIZE: 250M
-    service:
-      main:
-        type: LoadBalancer
     ingress:
       main:
         enabled: true

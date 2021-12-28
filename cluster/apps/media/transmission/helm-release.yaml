@@ -49,7 +49,6 @@ spec:
           runAsGroup: 568
     service:
       main:
-        type: LoadBalancer
         ports:
           http:
             port: 9091
