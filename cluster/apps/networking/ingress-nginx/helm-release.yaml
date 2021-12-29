@@ -86,3 +86,10 @@ spec:
       extraEnvs:
         - name: ERROR_FILES_PATH
           value: ./themes/ghost
+    tcp:
+      6789: "infrastructure/unifi:6789"
+      8080: "infrastructure/unifi:8080"
+    udp:
+      3478: "infrastructure/unifi:3478"
+      5514: "infrastructure/unifi:5514"
+      10001: "infrastructure/unifi:10001"
