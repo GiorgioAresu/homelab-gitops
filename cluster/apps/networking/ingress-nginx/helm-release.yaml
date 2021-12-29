@@ -21,7 +21,7 @@ spec:
       extraEnvs:
         - name: TZ
           value: Europe/Rome
-      service:
+      # service:
         # externalIPs:
         #   - "${SVC_NGINX_ADDR}"
       publishService:
