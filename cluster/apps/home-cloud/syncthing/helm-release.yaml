@@ -34,9 +34,9 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-        # tls:
-        #   - hosts:
-        #       - "syncthing.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "syncthing.${SECRET_DOMAIN}"
     persistence:
       data:
         enabled: true

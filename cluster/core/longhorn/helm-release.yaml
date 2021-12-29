@@ -28,9 +28,9 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-        # tls:
-        #   - hosts:
-        #       - "longhorn.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "longhorn.${SECRET_DOMAIN}"
     persistence:
       defaultClassReplicaCount: 2
     csi:

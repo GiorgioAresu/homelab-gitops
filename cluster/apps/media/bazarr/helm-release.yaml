@@ -35,9 +35,9 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-        # tls:
-        #   - hosts:
-        #       - "bazarr.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "bazarr.${SECRET_DOMAIN}"
     persistence:
       config:
         enabled: true

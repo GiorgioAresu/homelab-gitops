@@ -34,9 +34,9 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-        # tls:
-        #   - hosts:
-        #       - "nextcloud.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "nextcloud.${SECRET_DOMAIN}"
     persistence:
       data:
         enabled: true

@@ -35,9 +35,9 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-        # tls:
-        #   - hosts:
-        #       - "unifi.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "unifi.${SECRET_DOMAIN}"
     persistence:
       data:
         enabled: true
