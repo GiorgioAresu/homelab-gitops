@@ -42,3 +42,5 @@ spec:
       backupTarget: s3://longhorn@eu/backups
       backupTargetCredentialSecret: minio-secret
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
+    annotations:
+      configmap.reloader.stakater.com/reload: longhorn-default-setting

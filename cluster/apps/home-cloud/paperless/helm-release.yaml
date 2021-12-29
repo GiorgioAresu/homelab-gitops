@@ -82,3 +82,5 @@ spec:
     redis:
       enabled: true
       architecture: standalone
+      podAnnotations:
+        configmap.reloader.stakater.com/reload: "paperless-redis-configuration,paperless-redis-health,paperless-redis-scripts"
