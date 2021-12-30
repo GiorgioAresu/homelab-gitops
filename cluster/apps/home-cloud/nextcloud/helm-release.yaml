@@ -40,11 +40,9 @@ spec:
       storageClass: longhorn
       nextcloudData:
         enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            path: "/mnt/user/nextcloud"
-            server: "${UNRAID_ADDR}"
+        storageClass: nfs-storage
+    nextcloud:
+      host: "nextcloud.${SECRET_DOMAIN}"
     # resources:
     #   requests:
     #     memory: 100Mi
