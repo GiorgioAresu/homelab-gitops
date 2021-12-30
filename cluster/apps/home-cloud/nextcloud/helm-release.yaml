@@ -23,31 +23,31 @@ spec:
     env:
       TZ: Europe/Rome
     ingress:
-      main:
-        enabled: true
-        ingressClassName: "nginx"
-        annotations:
-          hajimari.io/enable: "true"
-          hajimari.io/icon: "cloud"
-        hosts:
-          - host: "nextcloud.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - "nextcloud.${SECRET_DOMAIN}"
+      enabled: true
+      ingressClassName: "nginx"
+      annotations:
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "cloud"
+      host: "nextcloud.${SECRET_DOMAIN}"
+      path: /
+      tlsSecret: "networking/${SECRET_DOMAIN//./-}-tls"
     persistence:
-      data:
+      enabled: true
+      retain: true
+      type: pvc
+      accessMode: ReadWriteOnce
+      size: 8Gi
+      storageClass: longhorn
+      nextcloudData:
         enabled: true
-        retain: true
-        type: pvc
-        accessMode: ReadWriteOnce
-        size: 0.5Gi
-        storageClass: longhorn
-    resources:
-      requests:
-        memory: 100Mi
-        cpu: 100m
-      limits:
-        memory: 250Mi
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/user/nextcloud"
+            server: "${UNRAID_ADDR}"
+    # resources:
+    #   requests:
+    #     memory: 100Mi
+    #     cpu: 100m
+    #   limits:
+    #     memory: 250Mi
