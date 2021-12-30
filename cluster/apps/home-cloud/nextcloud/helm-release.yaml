@@ -43,8 +43,12 @@ spec:
         storageClass: nfs-storage
     nextcloud:
       host: "nextcloud.${SECRET_DOMAIN}"
+    startupProbe:
+      enabled: false
+    livenessProbe:
+      enabled: false
     readinessProbe:
-      initialDelaySeconds: 600
+      enabled: false
     # resources:
     #   requests:
     #     memory: 100Mi
