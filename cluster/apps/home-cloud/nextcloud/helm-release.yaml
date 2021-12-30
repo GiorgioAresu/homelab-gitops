@@ -43,11 +43,6 @@ spec:
         storageClass: nfs-storage
     nextcloud:
       host: "nextcloud.${SECRET_DOMAIN}"
-    internalDatabase:
-      enabled: false
-    externalDatabase:
-      enabled: true
-      type: postgresql
     readinessProbe:
       initialDelaySeconds: 600
     # resources:
