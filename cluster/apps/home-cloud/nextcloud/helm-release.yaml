@@ -43,23 +43,8 @@ spec:
         storageClass: nfs-storage
     nextcloud:
       host: "nextcloud.${SECRET_DOMAIN}"
-    internalDatabase:
-      enabled: false
-    externalDatabase:
-      type: postgresql
-      enabled: true
-      # host: postgres
-      # database: postgres
-      # existingSecret:
-      #   enabled: true
-    postgresql:
-      enabled: true
-      postgresqlUsername: nextcloud
-      postgresqlPassword: changeme
-      postgresqlDatabase: nextcloud
-      persistence:
-        enabled: false
-        # storageClass: ""
+    startupProbe:
+      initialDelaySeconds: 120
     # resources:
     #   requests:
     #     memory: 100Mi
