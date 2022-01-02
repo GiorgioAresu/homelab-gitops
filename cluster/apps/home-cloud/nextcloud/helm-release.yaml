@@ -43,6 +43,12 @@ spec:
         storageClass: nfs-storage
     nextcloud:
       host: "nextcloud.${SECRET_DOMAIN}"
+    internalDatabase:
+      enabled: false
+    mariadb:
+      enabled: true
+      auth:
+        password: 'changeme'
     startupProbe:
       enabled: false
     livenessProbe:
