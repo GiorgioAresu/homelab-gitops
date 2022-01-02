@@ -45,10 +45,11 @@ spec:
       host: "nextcloud.${SECRET_DOMAIN}"
     internalDatabase:
       enabled: false
+    externalDatabase:
+      existingSecret:
+        enabled: true
     mariadb:
       enabled: true
-      auth:
-        password: 'changeme'
     startupProbe:
       enabled: false
     livenessProbe:
