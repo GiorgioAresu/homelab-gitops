@@ -44,7 +44,12 @@ spec:
     nextcloud:
       host: "nextcloud.${SECRET_DOMAIN}"
     startupProbe:
+      enabled: false
       initialDelaySeconds: 120
+    livenessProbe:
+      enabled: false
+    readinessProbe:
+      enabled: false
     # resources:
     #   requests:
     #     memory: 100Mi
