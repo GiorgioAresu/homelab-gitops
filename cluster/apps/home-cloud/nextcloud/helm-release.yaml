@@ -47,10 +47,19 @@ spec:
       enabled: false
     externalDatabase:
       type: postgresql
-      host: postgres
-      database: postgres
-      existingSecret:
-        enabled: true
+      enabled: true
+      # host: postgres
+      # database: postgres
+      # existingSecret:
+      #   enabled: true
+    postgresql:
+      enabled: true
+      postgresqlUsername: nextcloud
+      postgresqlPassword: changeme
+      postgresqlDatabase: nextcloud
+      persistence:
+        enabled: false
+        # storageClass: ""
     # resources:
     #   requests:
     #     memory: 100Mi
