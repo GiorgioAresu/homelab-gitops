@@ -46,16 +46,11 @@ spec:
     internalDatabase:
       enabled: false
     externalDatabase:
+      type: postgresql
+      host: postgres
+      database: postgres
       existingSecret:
         enabled: true
-    mariadb:
-      enabled: true
-    startupProbe:
-      enabled: false
-    livenessProbe:
-      enabled: false
-    readinessProbe:
-      enabled: false
     # resources:
     #   requests:
     #     memory: 100Mi
