@@ -12,7 +12,6 @@ resources:
   - managed-nfs-storage-provisioner.yaml
   - metallb.yaml
   - metrics-server.yaml
-  - nextcloud.yaml
   - node-feature-discovery.yaml
   - prometheus-community.yaml
   - stakater.yaml
