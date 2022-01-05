@@ -17,7 +17,9 @@ spec:
   interval: 5m0s
   values:
     defaultRules:
-      create: false
+      rules:
+        alertmanager: false
+        kubelet: false
     # fullnameOverride: prometheus
     alertmanager:
     #   config:
