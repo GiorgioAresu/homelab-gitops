@@ -16,60 +16,60 @@ spec:
         namespace: flux-system
   interval: 5m0s
   values:
-    fullnameOverride: prometheus
+    # fullnameOverride: prometheus
     alertmanager:
-      config:
-        global:
-          slack_api_url: "${SECRET_ALERT_MANAGER_WEBHOOK}"
-          resolve_timeout: 5m
-        receivers:
-          - name: "null"
-          - name: "discord"
-            slack_configs:
-              - channel: "#prometheus"
-                icon_url: https://avatars3.githubusercontent.com/u/3380462
-                username: "Prometheus"
-                send_resolved: true
-                title: |-
-                  [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }}{{ else }}{{ .CommonLabels.alertname }}{{ end }}
-                text: >-
-                  {{ range .Alerts -}}
-                    **Alert:** {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+    #   config:
+    #     global:
+    #       slack_api_url: "${SECRET_ALERT_MANAGER_WEBHOOK}"
+    #       resolve_timeout: 5m
+    #     receivers:
+    #       - name: "null"
+    #       - name: "discord"
+    #         slack_configs:
+    #           - channel: "#prometheus"
+    #             icon_url: https://avatars3.githubusercontent.com/u/3380462
+    #             username: "Prometheus"
+    #             send_resolved: true
+    #             title: |-
+    #               [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }}{{ else }}{{ .CommonLabels.alertname }}{{ end }}
+    #             text: >-
+    #               {{ range .Alerts -}}
+    #                 **Alert:** {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
 
-                  **Description:** {{ if ne .Annotations.description ""}}{{ .Annotations.description }}{{else}}N/A{{ end }}
+    #               **Description:** {{ if ne .Annotations.description ""}}{{ .Annotations.description }}{{else}}N/A{{ end }}
 
-                  **Details:**
-                    {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
-                    {{ end }}
-                  {{ end }}
-          # - name: "nodered"
-          #   webhook_configs:
-          #     - url: "http://node-red.home:1880/power-outage"
-          #       send_resolved: true
-        route:
-          group_by: ["alertname", "job"]
-          group_wait: 30s
-          group_interval: 5m
-          repeat_interval: 6h
-          receiver: "discord"
-          routes:
-            - receiver: "null"
-              match:
-                alertname: Watchdog
-            - receiver: "discord"
-              match_re:
-                severity: critical
-              continue: true
-            # - receiver: "nodered"
-            #   match:
-            #     alertname: UPSOnBattery
-            #   continue: true
-        inhibit_rules:
-          - source_match:
-              severity: "critical"
-            target_match:
-              severity: "warning"
-            equal: ["alertname", "namespace"]
+    #               **Details:**
+    #                 {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+    #                 {{ end }}
+    #               {{ end }}
+    #       # - name: "nodered"
+    #       #   webhook_configs:
+    #       #     - url: "http://node-red.home:1880/power-outage"
+    #       #       send_resolved: true
+    #     route:
+    #       group_by: ["alertname", "job"]
+    #       group_wait: 30s
+    #       group_interval: 5m
+    #       repeat_interval: 6h
+    #       receiver: "discord"
+    #       routes:
+    #         - receiver: "null"
+    #           match:
+    #             alertname: Watchdog
+    #         - receiver: "discord"
+    #           match_re:
+    #             severity: critical
+    #           continue: true
+    #         # - receiver: "nodered"
+    #         #   match:
+    #         #     alertname: UPSOnBattery
+    #         #   continue: true
+    #     inhibit_rules:
+    #       - source_match:
+    #           severity: "critical"
+    #         target_match:
+    #           severity: "warning"
+    #         equal: ["alertname", "namespace"]
       ingress:
         enabled: true
         pathType: Prefix
@@ -79,91 +79,91 @@ spec:
         tls:
           - hosts:
               - "alert-manager.${SECRET_DOMAIN}"
-      alertmanagerSpec:
-        storage:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: "longhorn"
-              resources:
-                requests:
-                  storage: 1Gi
-    kube-state-metrics:
-      fullnameOverride: kube-state-metrics
-    prometheus-node-exporter:
-      fullnameOverride: node-exporter
-      prometheus:
-        monitor:
-          enabled: true
-          relabelings:
-            - action: replace
-              regex: (.*)
-              replacement: $1
-              sourceLabels:
-                - __meta_kubernetes_pod_node_name
-              targetLabel: kubernetes_node
-    grafana:
-      enabled: false
-      forceDeployDashboards: true
-      sidecar:
-        dashboards:
-          multicluster:
-            etcd:
-              enabled: true
-    kubelet:
-      enabled: true
-      serviceMonitor:
-        metricRelabelings:
-          - action: replace
-            sourceLabels:
-              - node
-            targetLabel: instance
-    kubeApiServer:
-      enabled: true
-    kubeControllerManager:
-      enabled: true
-      endpoints:
-        - "${KUBE_MASTER_ADDR}"
-      service:
-        enabled: true
-        port: 10257
-        targetPort: 10257
-      serviceMonitor:
-        enabled: true
-        https: true
-        insecureSkipVerify: true
-    kubeScheduler:
-      enabled: true
-      endpoints:
-        - "${KUBE_MASTER_ADDR}"
-      service:
-        enabled: true
-        port: 10259
-        targetPort: 10259
-      serviceMonitor:
-        enabled: true
-        https: true
-        insecureSkipVerify: true
-    kubeProxy:
-      enabled: true
-      endpoints:
-        - "${KUBE_MASTER_ADDR}"
-    kubeEtcd:
-      enabled: true
-      endpoints:
-        - "${KUBE_MASTER_ADDR}"
-      service:
-        enabled: true
-        port: 2381
-        targetPort: 2381
-    prometheusOperator:
-      prometheusConfigReloader:
-        resources:
-          requests:
-            cpu: 100m
-            memory: 50Mi
-          limits:
-            cpu: 200m
-            memory: 100Mi
+    #   alertmanagerSpec:
+    #     storage:
+    #       volumeClaimTemplate:
+    #         spec:
+    #           storageClassName: "longhorn"
+    #           resources:
+    #             requests:
+    #               storage: 1Gi
+    # kube-state-metrics:
+    #   fullnameOverride: kube-state-metrics
+    # prometheus-node-exporter:
+    #   fullnameOverride: node-exporter
+    #   prometheus:
+    #     monitor:
+    #       enabled: true
+    #       relabelings:
+    #         - action: replace
+    #           regex: (.*)
+    #           replacement: $1
+    #           sourceLabels:
+    #             - __meta_kubernetes_pod_node_name
+    #           targetLabel: kubernetes_node
+    # grafana:
+    #   enabled: false
+    #   forceDeployDashboards: true
+    #   sidecar:
+    #     dashboards:
+    #       multicluster:
+    #         etcd:
+    #           enabled: true
+    # kubelet:
+    #   enabled: true
+    #   serviceMonitor:
+    #     metricRelabelings:
+    #       - action: replace
+    #         sourceLabels:
+    #           - node
+    #         targetLabel: instance
+    # kubeApiServer:
+    #   enabled: true
+    # kubeControllerManager:
+    #   enabled: true
+    #   endpoints:
+    #     - "${KUBE_MASTER_ADDR}"
+    #   service:
+    #     enabled: true
+    #     port: 10257
+    #     targetPort: 10257
+    #   serviceMonitor:
+    #     enabled: true
+    #     https: true
+    #     insecureSkipVerify: true
+    # kubeScheduler:
+    #   enabled: true
+    #   endpoints:
+    #     - "${KUBE_MASTER_ADDR}"
+    #   service:
+    #     enabled: true
+    #     port: 10259
+    #     targetPort: 10259
+    #   serviceMonitor:
+    #     enabled: true
+    #     https: true
+    #     insecureSkipVerify: true
+    # kubeProxy:
+    #   enabled: true
+    #   endpoints:
+    #     - "${KUBE_MASTER_ADDR}"
+    # kubeEtcd:
+    #   enabled: true
+    #   endpoints:
+    #     - "${KUBE_MASTER_ADDR}"
+    #   service:
+    #     enabled: true
+    #     port: 2381
+    #     targetPort: 2381
+    # prometheusOperator:
+    #   prometheusConfigReloader:
+    #     resources:
+    #       requests:
+    #         cpu: 100m
+    #         memory: 50Mi
+    #       limits:
+    #         cpu: 200m
+    #         memory: 100Mi
     prometheus:
       ingress:
         enabled: true
@@ -174,43 +174,43 @@ spec:
         tls:
           - hosts:
               - "prometheus.${SECRET_DOMAIN}"
-      # thanosService:
-      #   enabled: true
-      # thanosServiceMonitor:
-      #   enabled: true
-      prometheusSpec:
-        replicas: 1
-        replicaExternalLabelName: "replica"
-        ruleSelectorNilUsesHelmValues: false
-        serviceMonitorSelectorNilUsesHelmValues: false
-        podMonitorSelectorNilUsesHelmValues: false
-        probeSelectorNilUsesHelmValues: false
-        retention: 6h
-        enableAdminAPI: true
-        walCompression: true
-        storageSpec:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: "longhorn"
-              resources:
-                requests:
-                  storage: 10Gi
-        # thanos:
-        #   image: quay.io/thanos/thanos:v0.24.0
-        #   version: v0.22.0
-        #   objectStorageConfig:
-        #     name: thanos-objstore
-        #     key: objstore.yml
-        additionalScrapeConfigs:
-          - job_name: node-exporter
-            honor_timestamps: true
-            static_configs:
-              - targets:
-                  - "opnsense.${SECRET_DOMAIN}:9100"
-                  - "unraid.${SECRET_DOMAIN}:9100"
-          - job_name: minio
-            honor_timestamps: true
-            metrics_path: /minio/v2/metrics/cluster
-            static_configs:
-              - targets:
-                  - "${TRUENAS_ADDR}:9000"
+    #   # thanosService:
+    #   #   enabled: true
+    #   # thanosServiceMonitor:
+    #   #   enabled: true
+    #   prometheusSpec:
+    #     replicas: 1
+    #     replicaExternalLabelName: "replica"
+    #     ruleSelectorNilUsesHelmValues: false
+    #     serviceMonitorSelectorNilUsesHelmValues: false
+    #     podMonitorSelectorNilUsesHelmValues: false
+    #     probeSelectorNilUsesHelmValues: false
+    #     retention: 6h
+    #     enableAdminAPI: true
+    #     walCompression: true
+    #     storageSpec:
+    #       volumeClaimTemplate:
+    #         spec:
+    #           storageClassName: "longhorn"
+    #           resources:
+    #             requests:
+    #               storage: 10Gi
+    #     # thanos:
+    #     #   image: quay.io/thanos/thanos:v0.24.0
+    #     #   version: v0.22.0
+    #     #   objectStorageConfig:
+    #     #     name: thanos-objstore
+    #     #     key: objstore.yml
+    #     additionalScrapeConfigs:
+    #       - job_name: node-exporter
+    #         honor_timestamps: true
+    #         static_configs:
+    #           - targets:
+    #               - "opnsense.${SECRET_DOMAIN}:9100"
+    #               - "unraid.${SECRET_DOMAIN}:9100"
+    #       - job_name: minio
+    #         honor_timestamps: true
+    #         metrics_path: /minio/v2/metrics/cluster
+    #         static_configs:
+    #           - targets:
+    #               - "${TRUENAS_ADDR}:9000"
