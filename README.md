@@ -56,6 +56,11 @@ These labels can then be used to help with scheduling workloads on the most appr
 Open PR when new charts versions are available.
 
 
+### [Secret Reflector](https://github.com/emberstack/kubernetes-reflector)
+
+Mantain Secrets and ConfigMaps synced among namespaces.
+
+
 ### [Stakater Reloader](https://github.com/stakater/Reloader)
 
 Watch changes in ConfigMaps and Secrets and do rolling upgrades on Pods with their associated DeploymentConfigs, Deployments, Daemonsets Statefulsets and Rollouts.
