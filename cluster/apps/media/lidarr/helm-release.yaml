@@ -52,8 +52,8 @@ spec:
         type: custom
         volumeSpec:
           nfs:
-            path: "/mnt/user/media/Music"
-            server: "${UNRAID_ADDR}"
+            path: "/mnt/tank/media/Music"
+            server: "${TRUENAS_ADDR}"
       downloads:
         enabled: true
         mountPath: /downloads
