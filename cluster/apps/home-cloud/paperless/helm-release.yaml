@@ -79,6 +79,13 @@ spec:
         cpu: 100m
       limits:
         memory: 500Mi
+    probes:
+      liveness:
+        spec:
+          timeoutSeconds: 3
+      readiness:
+        spec:
+          timeoutSeconds: 3
     redis:
       enabled: true
       architecture: standalone
