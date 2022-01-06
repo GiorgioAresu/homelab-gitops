@@ -105,7 +105,16 @@ spec:
     #           sourceLabels:
     #             - __meta_kubernetes_pod_node_name
     #           targetLabel: kubernetes_node
-    # grafana:
+    grafana:
+      ingress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: "nginx"
+        hosts:
+          - "grafana.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "grafana.${SECRET_DOMAIN}"
     #   enabled: false
     #   forceDeployDashboards: true
     #   sidecar:
