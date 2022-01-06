@@ -1,83 +1,43 @@
 # k3s cluster
 
-## Node setup (run on each one)
+## Node setup
 
-This should probably be done with Ansible, but for now it has to be done manually.
+Install Ubuntu Server 20.04 LTS on each node. See [Hostname](#Hostname).
+Static IPs or DHCP static mapping, your choice.
 
-It assumes an Ubuntu Server 20.04 install.
+Then initialize the cluster with [k3s-ansible](https://github.com/k3s-io/k3s-ansible).
 
+In the inventory group vars, set:
+
+```
+extra_server_args: "--disable traefik --disable servicelb --kube-apiserver-arg feature-gates=\"MixedProtocolLBService=true\""
+```
+
+We need `MixedProtocolLBService=true` to enable the same LoadBalancer service to use multiple protocols.
+[See docs for more info](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/).
 
 ### Hostname
 
 Node names (and hostnames) follow this rule:
 
-kube-*{role}*-*{host}{number}*
+kube-*{role}*-*{id}*
 
 where:
 
 - **role**: either master or worker
-- **host**: letter identifying the hypervisor or hardware it is running on
-- **number**: progressive number for the host
+- **id**: identifier for the hardware (or hypervisor) it is running on:
+  - **name**: if the name is unique, you can just use that, ie: *nuc*.
+  - **name-number**: when there are multiple similar nodes, use a letter (or name) and a progressive number.
 
-eg. *kube-worker-p2* would be the second worker running on Proxmox
+eg. The second Raspberry worker node could be called *kube-worker-r2*.
 
-Set the correct hostname if not already set
-```shell
-export $NODE_NAME=kube-worker-p1
-sudo hostnamectl set-hostname $NODE_NAME
-sudo vim /etc/hosts # double check it here
-```
+> :warning: If you're changing it manually after install, remember to also check /etc/hosts.
 
 
-### Networking
-
-Static IPs or DHCP static mapping, your choice.
-
-
-### cgroup config
-
-Edit to the grub config in
+### Additional steps
 
 ```shell
-sudo vim /etc/default/grub
-```
-
-and add
-`cgroup_memory=1 cgroup_enable=memory swapaccount=1` to the `GRUB_CMDLINE_LINUX` line. It will be something like:
-
-```
-GRUB_CMDLINE_LINUX="cgroup_memory=1 cgroup_enable=memory swapaccount=1"
-```
-
-Then run:
-
-```shell
-sudo update-grub
-```
-
-### Install requirements
-
-```shell
-sudo apt install -y curl nfs-common
-```
-
-
-## Master setup
-
-```bash
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--disable traefik --disable servicelb --disable metrics-server" sh -s - --kube-apiserver-arg feature-gates="MixedProtocolLBService=true"
-sudo cat /var/lib/rancher/k3s/server/node-token
-```
-
-We need `--kube-apiserver-arg feature-gates="MixedProtocolLBService=true"` to enable the same LoadBalancer service to use multiple protocols.
-[See docs for more info](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/).
-
-## Worker setup
-
-Using $K3S_TOKEN from the master
-
-```bash
-curl -sfL https://get.k3s.io | K3S_URL=https://kube-master-p1:6443 K3S_TOKEN=${K3S_TOKEN} sh -
+ansible -i inventory/my-cluster/hosts.ini k3s_cluster -m apt -a "pkg=curl,nfs-common" --become
 ```
 
 
@@ -97,27 +57,17 @@ Install:
 ### Get kube config
 
 ```bash
-scp kube-master-p1:/etc/rancher/k3s/k3s.yaml ~/.kube/config
-```
-
-Open it and replace 127.0.0.1 with the master's ip
-
-
-## GitHub
-
-Get an Personal Access Token from [GitHub](https://github.com/settings/tokens) and set the envs accordingly:
-
-```
-export GITHUB_USER=GiorgioAresu
-export GITHUB_TOKEN=new-token
+scp ubuntu@kube-master-p1:~/.kube/config ~/.kube/config
 ```
 
 
 ## Flux
 
-Now it's the time to bootstrap flux:
+Get an Personal Access Token from [GitHub](https://github.com/settings/tokens) and set the envs accordingly, then bootstrap flux:
 
-```shell
+```
+export GITHUB_USER=GiorgioAresu
+export GITHUB_TOKEN=new-token
 flux bootstrap github \
   --owner=GiorgioAresu \
   --repository=homelab-gitops \
