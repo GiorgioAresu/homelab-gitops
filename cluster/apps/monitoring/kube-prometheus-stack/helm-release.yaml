@@ -81,14 +81,14 @@ spec:
         tls:
           - hosts:
               - "alert-manager.${SECRET_DOMAIN}"
-    #   alertmanagerSpec:
-    #     storage:
-    #       volumeClaimTemplate:
-    #         spec:
-    #           storageClassName: "longhorn"
-    #           resources:
-    #             requests:
-    #               storage: 1Gi
+      alertmanagerSpec:
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: "longhorn"
+              resources:
+                requests:
+                  storage: 1Gi
     # kube-state-metrics:
     #   fullnameOverride: kube-state-metrics
     # prometheus-node-exporter:
@@ -189,23 +189,23 @@ spec:
     #   #   enabled: true
     #   # thanosServiceMonitor:
     #   #   enabled: true
-    #   prometheusSpec:
-    #     replicas: 1
-    #     replicaExternalLabelName: "replica"
-    #     ruleSelectorNilUsesHelmValues: false
-    #     serviceMonitorSelectorNilUsesHelmValues: false
-    #     podMonitorSelectorNilUsesHelmValues: false
-    #     probeSelectorNilUsesHelmValues: false
-    #     retention: 6h
-    #     enableAdminAPI: true
-    #     walCompression: true
-    #     storageSpec:
-    #       volumeClaimTemplate:
-    #         spec:
-    #           storageClassName: "longhorn"
-    #           resources:
-    #             requests:
-    #               storage: 10Gi
+      prometheusSpec:
+        replicas: 1
+        replicaExternalLabelName: "replica"
+        ruleSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
+        probeSelectorNilUsesHelmValues: false
+        retention: 6h
+        enableAdminAPI: true
+        walCompression: true
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: "longhorn"
+              resources:
+                requests:
+                  storage: 10Gi
     #     # thanos:
     #     #   image: quay.io/thanos/thanos:v0.24.0
     #     #   version: v0.22.0
