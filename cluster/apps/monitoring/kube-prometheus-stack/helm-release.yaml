@@ -18,7 +18,6 @@ spec:
   values:
     defaultRules:
       rules:
-        alertmanager: false
         kubelet: false
     # fullnameOverride: prometheus
     alertmanager:
