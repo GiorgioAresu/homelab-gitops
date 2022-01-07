@@ -23,6 +23,9 @@ spec:
       pullPolicy: Always
     env:
       TZ: "Europe/Rome"
+      UPSTREAM_DNS: "${GATEWAY_ADDR}"
+      CACHE_MEM_SIZE: 128m
+      CACHE_DISK_SIZE: 50000m
     service:
       main:
         type: LoadBalancer
@@ -36,6 +39,8 @@ spec:
         size: 50Gi
         storageClass: longhorn
     resources:
-      limits:
+      requests:
         memory: 100Mi
         cpu: 50m
+      limits:
+        memory: 600Mi
