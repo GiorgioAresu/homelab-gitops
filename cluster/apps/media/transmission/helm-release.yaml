@@ -88,11 +88,8 @@ spec:
         storageClass: longhorn
       downloads:
         enabled: true
-        retain: true
         type: pvc
-        accessMode: ReadWriteMany
-        size: 25Gi
-        storageClass: longhorn
+        existingClaim: downloads
       # watch:
       #   enabled: true
       #   mountPath: /watch
