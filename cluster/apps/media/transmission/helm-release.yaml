@@ -33,6 +33,8 @@ spec:
       TRANSMISSION_RATIO_LIMIT_ENABLED: true
       TRANSMISSION_RATIO_LIMIT: 0
       TRANSMISSION_WEB_HOME: "/config/flood-for-transmission/"
+      TRANSMISSION_WATCH_DIR_ENABLED: true
+      TRANSMISSION_WATCH_DIR: "/downloads/watch"
     initContainers:
       custom-webui:
         name: custom-webui
