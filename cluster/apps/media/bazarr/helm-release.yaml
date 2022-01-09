@@ -49,8 +49,11 @@ spec:
       media:
         enabled: true
         mountPath: /media
-        type: pvc
-        existingClaim: transmission-downloads
+        type: custom
+        volumeSpec:
+          nfs:
+            path: "/mnt/tank/media"
+            server: "${TRUENAS_ADDR}"
     podSecurityContext:
       runAsUser: 99
       runAsGroup: 100
