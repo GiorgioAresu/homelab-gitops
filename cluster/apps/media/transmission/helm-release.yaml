@@ -90,7 +90,7 @@ spec:
         enabled: true
         retain: true
         type: pvc
-        accessMode: ReadWriteOnce
+        accessMode: ReadWriteMany
         size: 25Gi
         storageClass: longhorn
       # watch:
