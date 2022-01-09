@@ -61,7 +61,7 @@ spec:
         existingClaim: downloads
         subPath: complete/books
     podSecurityContext:
-      runAsUser: 99
+      runAsUser: 568
       runAsGroup: 1003
       fsGroupChangePolicy: "OnRootMismatch"
     resources:
