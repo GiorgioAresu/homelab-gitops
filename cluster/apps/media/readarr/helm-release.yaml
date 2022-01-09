@@ -58,7 +58,7 @@ spec:
         enabled: true
         mountPath: /downloads
         type: pvc
-        existingClaim: transmission-downloads
+        existingClaim: downloads
         subpath: /complete/books
     podSecurityContext:
       runAsUser: 99
