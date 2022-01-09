@@ -86,12 +86,11 @@ spec:
         storageClass: longhorn
       downloads:
         enabled: true
-        mountPath: /downloads
-        type: custom
-        volumeSpec:
-          nfs:
-            path: "/mnt/tank/kubernetes/downloads"
-            server: "${TRUENAS_ADDR}"
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 25Gi
+        storageClass: longhorn
       # watch:
       #   enabled: true
       #   mountPath: /watch
