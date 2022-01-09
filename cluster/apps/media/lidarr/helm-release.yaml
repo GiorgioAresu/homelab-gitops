@@ -57,11 +57,8 @@ spec:
       downloads:
         enabled: true
         mountPath: /downloads
-        type: custom
-        volumeSpec:
-          nfs:
-            path: "/mnt/tank/kubernetes/downloads/complete/music"
-            server: "${TRUENAS_ADDR}"
+        type: pvc
+        existingClaim: transmission-downloads
     podSecurityContext:
       runAsUser: 99
       runAsGroup: 100
