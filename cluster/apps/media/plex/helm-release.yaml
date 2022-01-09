@@ -60,8 +60,7 @@ spec:
         type: emptyDir
     podSecurityContext:
       runAsUser: 568
-      runAsGroup: 100
-      fsGroup: 100
+      runAsGroup: 1003
       fsGroupChangePolicy: "OnRootMismatch"
       # Hardware acceleration using an Intel iGPU w/ QuickSync
       # These IDs below should be matched to your `video` and `render` group on the host

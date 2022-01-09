@@ -48,8 +48,7 @@ spec:
         storageClass: longhorn
     podSecurityContext:
       runAsUser: 99
-      runAsGroup: 100
-      fsGroup: 100
+      runAsGroup: 1003
       fsGroupChangePolicy: "OnRootMismatch"
     resources:
       requests:
