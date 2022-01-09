@@ -63,7 +63,7 @@ spec:
         mountPath: /downloads
         type: pvc
         existingClaim: downloads
-        subpath: /complete/tv
+        subPath: /complete/tv
     podSecurityContext:
       runAsUser: 99
       runAsGroup: 100

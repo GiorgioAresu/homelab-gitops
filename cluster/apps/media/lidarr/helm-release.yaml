@@ -59,7 +59,7 @@ spec:
         mountPath: /downloads
         type: pvc
         existingClaim: downloads
-        subpath: /complete/music
+        subPath: /complete/music
     podSecurityContext:
       runAsUser: 99
       runAsGroup: 100
