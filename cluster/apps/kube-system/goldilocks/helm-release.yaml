@@ -12,7 +12,7 @@ spec:
       version: 5.1.0
       sourceRef:
         kind: HelmRepository
-        name: goldilocks
+        name: fairwinds-stable
         namespace: flux-system
   interval: 5m0s
   values:
