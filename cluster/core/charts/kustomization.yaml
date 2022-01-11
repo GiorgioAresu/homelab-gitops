@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - descheduler.yaml
   - emberstack.yaml
+  - fairwinds-stable.yaml
   - hajimari.yaml
   - ingress-nginx.yaml
   - k8s-at-home.yaml
