@@ -33,13 +33,13 @@ spec:
           hajimari.io/icon: "plex"
           nginx.ingress.kubernetes.io/app-root: "/web" # Redirect / -> /web
         hosts:
-          - host: "plex.${SECRET_DOMAIN}"
+          - host: "plex2.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - "plex.${SECRET_DOMAIN}"
+              - "plex2.${SECRET_DOMAIN}"
     persistence:
       config:
         enabled: true
