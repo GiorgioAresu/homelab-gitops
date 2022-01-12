@@ -20,9 +20,9 @@ spec:
       repository: intel/intel-gpu-plugin
       tag: 0.23.0
       pullPolicy: IfNotPresent
-    args:
-      - -shared-dev-num
-      - "2"
+    # args:
+    #   - -shared-dev-num
+    #   - "2"
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
