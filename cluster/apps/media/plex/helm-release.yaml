@@ -22,6 +22,7 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: Europe/Rome
+    hostNetwork: true
     ingress:
       main:
         enabled: true
