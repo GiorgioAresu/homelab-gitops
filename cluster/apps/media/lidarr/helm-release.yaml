@@ -69,5 +69,15 @@ spec:
         cpu: 15m
         memory: 588M
       limits:
-        cpu: 31m
+        cpu: 100m
         memory: 855M
+    probes:
+      liveness:
+        spec:
+          timeoutSeconds: 2
+      readiness:
+        spec:
+          timeoutSeconds: 2
+      startup:
+        spec:
+          timeoutSeconds: 2
