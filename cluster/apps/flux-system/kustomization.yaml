@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - dashboard
   # - monitoring
-  # - notifications
+  - notifications
