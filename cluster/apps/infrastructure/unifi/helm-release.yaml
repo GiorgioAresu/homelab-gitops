@@ -22,9 +22,7 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: "Europe/Rome"
-      JVM_INIT_HEAP_SIZE: 100M
       JVM_MAX_HEAP_SIZE: 250M
-      LOTSOFDEVICES: "true"
     ingress:
       main:
         enabled: true
@@ -43,7 +41,11 @@ spec:
     persistence:
       data:
         enabled: true
-        existingClaim: infra-unifi-config-v1
+        retain: true
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: longhorn
     resources:
       requests:
         cpu: 475m
@@ -51,14 +53,3 @@ spec:
       limits:
         cpu: 796m
         memory: 1243M
-    mongodb:
-      enabled: true
-      architecture: standalone
-      image:
-        # Currently no arm64 image (https://github.com/bitnami/charts/issues/7305)
-        repository: mongo
-        tag: 5.0.5
-      master:
-        persistence:
-          enabled: true
-        existingClaim: infra-unifi-mongodb-v1
