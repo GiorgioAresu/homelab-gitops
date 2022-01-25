@@ -27,6 +27,7 @@ spec:
       tlsSecret: "networking/${SECRET_DOMAIN//./-}-tls"
     persistence:
       defaultClassReplicaCount: 2
+      reclaimPolicy: Retain
     csi:
       attacherReplicaCount: 2
       provisionerReplicaCount: 2
