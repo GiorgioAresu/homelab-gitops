@@ -27,6 +27,11 @@ spec:
       tlsSecret: "networking/${SECRET_DOMAIN//./-}-tls"
     persistence:
       defaultClassReplicaCount: 2
+      recurringJobSelector:
+        enable: true
+        jobList:
+          - name: backup
+            isGroup: true
     csi:
       attacherReplicaCount: 2
       provisionerReplicaCount: 2
@@ -36,5 +41,6 @@ spec:
       backupTarget: s3://longhorn@eu/backups
       backupTargetCredentialSecret: minio-secret
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
+      defaultReplicaCount: 2
     annotations:
       configmap.reloader.stakater.com/reload: longhorn-default-setting
