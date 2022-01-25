@@ -29,7 +29,7 @@ spec:
       defaultClassReplicaCount: 2
       recurringJobSelector:
         enable: true
-        jobList: '[{"name":"backup", "isGroup":true}]'
+        jobList: '[{"name":"backup", "isGroup":true}, {"name":"snapshot", "isGroup":false}]'
     csi:
       attacherReplicaCount: 2
       provisionerReplicaCount: 2
