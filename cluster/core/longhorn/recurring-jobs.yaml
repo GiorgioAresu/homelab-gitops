@@ -8,7 +8,6 @@ spec:
   cron: "0 0 * * *"
   task: "backup"
   groups:
-    - default
     - backup
   retain: 90
   concurrency: 1
@@ -22,7 +21,6 @@ spec:
   cron: "0 0/6 * * *"
   task: "snapshot"
   groups:
-    - default
     - backup
   retain: 4
   concurrency: 1
