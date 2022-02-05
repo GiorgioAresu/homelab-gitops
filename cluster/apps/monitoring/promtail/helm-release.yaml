@@ -19,4 +19,4 @@ spec:
     env:
       TZ: "Europe/Rome"
     config:
-      lokiAddress: http://${LOKI_ADDR}/loki/api/v1/push
+      lokiAddress: http://${LOKI_ADDR}:9080/loki/api/v1/push
