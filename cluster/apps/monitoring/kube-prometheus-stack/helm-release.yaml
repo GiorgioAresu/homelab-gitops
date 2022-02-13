@@ -199,6 +199,11 @@ spec:
         retention: 6h
         enableAdminAPI: true
         walCompression: true
+        resources:
+          requests:
+            memory: 400Mi
+          limits:
+            memory: 1Gi
         storageSpec:
           volumeClaimTemplate:
             spec:
