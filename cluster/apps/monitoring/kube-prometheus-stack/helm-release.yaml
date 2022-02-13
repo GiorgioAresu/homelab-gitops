@@ -18,7 +18,7 @@ spec:
   values:
     defaultRules:
       create: false
-    # fullnameOverride: prometheus
+    fullnameOverride: prometheus
     alertmanager:
     #   config:
     #     global:
@@ -89,20 +89,20 @@ spec:
               resources:
                 requests:
                   storage: 1Gi
-    # kube-state-metrics:
-    #   fullnameOverride: kube-state-metrics
-    # prometheus-node-exporter:
-    #   fullnameOverride: node-exporter
-    #   prometheus:
-    #     monitor:
-    #       enabled: true
-    #       relabelings:
-    #         - action: replace
-    #           regex: (.*)
-    #           replacement: $1
-    #           sourceLabels:
-    #             - __meta_kubernetes_pod_node_name
-    #           targetLabel: kubernetes_node
+    kube-state-metrics:
+      fullnameOverride: kube-state-metrics
+    prometheus-node-exporter:
+      fullnameOverride: node-exporter
+      prometheus:
+        monitor:
+          enabled: true
+          relabelings:
+            - action: replace
+              regex: (.*)
+              replacement: $1
+              sourceLabels:
+                - __meta_kubernetes_pod_node_name
+              targetLabel: kubernetes_node
     grafana:
       ingress:
         enabled: true
@@ -120,61 +120,61 @@ spec:
     #       multicluster:
     #         etcd:
     #           enabled: true
-    # kubelet:
-    #   enabled: true
-    #   serviceMonitor:
-    #     metricRelabelings:
-    #       - action: replace
-    #         sourceLabels:
-    #           - node
-    #         targetLabel: instance
-    # kubeApiServer:
-    #   enabled: true
-    # kubeControllerManager:
-    #   enabled: true
-    #   endpoints:
-    #     - "${KUBE_MASTER_ADDR}"
-    #   service:
-    #     enabled: true
-    #     port: 10257
-    #     targetPort: 10257
-    #   serviceMonitor:
-    #     enabled: true
-    #     https: true
-    #     insecureSkipVerify: true
-    # kubeScheduler:
-    #   enabled: true
-    #   endpoints:
-    #     - "${KUBE_MASTER_ADDR}"
-    #   service:
-    #     enabled: true
-    #     port: 10259
-    #     targetPort: 10259
-    #   serviceMonitor:
-    #     enabled: true
-    #     https: true
-    #     insecureSkipVerify: true
-    # kubeProxy:
-    #   enabled: true
-    #   endpoints:
-    #     - "${KUBE_MASTER_ADDR}"
-    # kubeEtcd:
-    #   enabled: true
-    #   endpoints:
-    #     - "${KUBE_MASTER_ADDR}"
-    #   service:
-    #     enabled: true
-    #     port: 2381
-    #     targetPort: 2381
-    # prometheusOperator:
-    #   prometheusConfigReloader:
-    #     resources:
-    #       requests:
-    #         cpu: 100m
-    #         memory: 50Mi
-    #       limits:
-    #         cpu: 200m
-    #         memory: 100Mi
+    kubelet:
+      enabled: true
+      serviceMonitor:
+        metricRelabelings:
+          - action: replace
+            sourceLabels:
+              - node
+            targetLabel: instance
+    kubeApiServer:
+      enabled: true
+    kubeControllerManager:
+      enabled: true
+      endpoints:
+        - "${KUBE_MASTER_ADDR}"
+      service:
+        enabled: true
+        port: 10257
+        targetPort: 10257
+      serviceMonitor:
+        enabled: true
+        https: true
+        insecureSkipVerify: true
+    kubeScheduler:
+      enabled: true
+      endpoints:
+        - "${KUBE_MASTER_ADDR}"
+      service:
+        enabled: true
+        port: 10259
+        targetPort: 10259
+      serviceMonitor:
+        enabled: true
+        https: true
+        insecureSkipVerify: true
+    kubeProxy:
+      enabled: true
+      endpoints:
+        - "${KUBE_MASTER_ADDR}"
+    kubeEtcd:
+      enabled: true
+      endpoints:
+        - "${KUBE_MASTER_ADDR}"
+      service:
+        enabled: true
+        port: 2381
+        targetPort: 2381
+    prometheusOperator:
+      prometheusConfigReloader:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 50Mi
+          limits:
+            cpu: 200m
+            memory: 100Mi
     prometheus:
       ingress:
         enabled: true
