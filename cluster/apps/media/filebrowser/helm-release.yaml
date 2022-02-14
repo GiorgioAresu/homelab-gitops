@@ -34,14 +34,14 @@ spec:
     rootDir:
       retain: true
       type: pvc
-      pvs:
+      pvc:
         accessMode: ReadWriteOnce
         existingClaim: downloads
         storageClass: longhorn
     db:
       retain: true
       type: pvc
-      pvs:
+      pvc:
         accessMode: ReadWriteOnce
         size: 100Mi
         storageClass: longhorn
