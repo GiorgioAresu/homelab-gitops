@@ -37,6 +37,7 @@ spec:
       pvs:
         accessMode: ReadWriteOnce
         existingClaim: downloads
+        storageClass: longhorn
     db:
       retain: true
       type: pvc
