@@ -37,14 +37,14 @@ spec:
       pvc:
         accessMode: ReadWriteOnce
         existingClaim: downloads
-        storageClass: longhorn
+        storageClassName: longhorn
     db:
       retain: true
       type: pvc
       pvc:
         accessMode: ReadWriteOnce
         size: 100Mi
-        storageClass: longhorn
+        storageClassName: longhorn
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 1003
