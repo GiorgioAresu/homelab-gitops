@@ -31,6 +31,8 @@ spec:
       tls:
         - hosts:
             - "bazarr.${SECRET_DOMAIN}"
+    service:
+      port: 8080
     rootDir:
       retain: true
       type: pvc
