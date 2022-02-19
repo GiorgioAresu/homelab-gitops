@@ -6,6 +6,7 @@ resources:
   - home-cloud
   - infrastructure
   - kube-system
+  - longhorn
   - media
   - monitoring
   - networking
