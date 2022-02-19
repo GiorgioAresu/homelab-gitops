@@ -16,6 +16,8 @@ spec:
         namespace: flux-system
   interval: 10m0s
   values:
+    controller:
+      replicas: 0 #disable
     image:
       repository: ghcr.io/k8s-at-home/plex
       tag: v1.25.5.5492-12f6b8c83
