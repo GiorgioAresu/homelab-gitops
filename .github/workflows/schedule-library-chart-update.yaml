@@ -11,7 +11,7 @@ jobs:
     name: Library Chart Update
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: azure/setup-helm@v1
         with:
           version: v3.6.3
