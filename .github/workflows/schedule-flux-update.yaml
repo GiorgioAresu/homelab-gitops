@@ -11,7 +11,7 @@ jobs:
     name: Flux Update
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: fluxcd/flux2/action@main
       - id: update
         run: |
