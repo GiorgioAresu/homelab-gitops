@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: syncthing-config-v1
   namespace: home-cloud
+  annotations:
+    helm.sh/resource-policy: "keep"
 spec:
   accessModes:
     - ReadWriteOnce

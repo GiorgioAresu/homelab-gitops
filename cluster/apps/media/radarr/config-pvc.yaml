@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: radarr-config-v1
   namespace: media
+  annotations:
+    helm.sh/resource-policy: "keep"
 spec:
   accessModes:
     - ReadWriteOnce
