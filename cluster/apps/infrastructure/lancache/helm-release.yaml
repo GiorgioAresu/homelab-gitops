@@ -33,11 +33,8 @@ spec:
     persistence:
       data:
         enabled: true
-        retain: true
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 50Gi
-        storageClass: longhorn
+        existingClaim: lancache-data-v1
     resources:
       requests:
         memory: 100Mi
