@@ -44,35 +44,23 @@ spec:
       # -- Configure persistence for data.
       data:
         enabled: true
-        retain: true
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 100Mi
-        storageClass: longhorn
+        existingClaim: paperless-data-v1
       # -- Configure persistence for media.
       media:
         enabled: true
-        retain: true
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 250Mi
-        storageClass: longhorn
+        existingClaim: paperless-media-v1
       # -- Configure volume to monitor for new documents.
       consume:
         enabled: true
-        retain: true
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 50Mi
-        storageClass: longhorn
+        existingClaim: paperless-consume-v1
       # -- Configure export volume.
       export:
         enabled: true
-        retain: true
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 50Mi
-        storageClass: longhorn
+        existingClaim: paperless-export-v1
     resources:
       requests:
         memory: 100Mi

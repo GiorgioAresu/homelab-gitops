@@ -1,0 +1,56 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: paperless-data-v1
+  namespace: home-cloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+  storageClassName: longhorn-static
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: paperless-media-v1
+  namespace: home-cloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 250Mi
+  storageClassName: longhorn-static
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: paperless-consume-v1
+  namespace: home-cloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+  storageClassName: longhorn-static
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: paperless-export-v1
+  namespace: home-cloud
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+  storageClassName: longhorn-static
+  volumeMode: Filesystem
