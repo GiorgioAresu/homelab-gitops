@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: syncthing-config-v1
+  name: syncthing-data
   namespace: home-cloud
 spec:
   accessModes:
