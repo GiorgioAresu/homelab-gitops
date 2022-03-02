@@ -34,19 +34,13 @@ spec:
     service:
       port: 8080
     rootDir:
-      retain: true
       type: pvc
       pvc:
-        accessMode: ReadWriteOnce
         existingClaim: downloads
-        storageClassName: longhorn
     db:
-      retain: true
       type: pvc
       pvc:
-        accessMode: ReadWriteOnce
-        size: 100Mi
-        storageClassName: longhorn
+        existingClaim: filebrowser-db-v1
     podSecurityContext:
       fsGroup: 1003
       fsGroupChangePolicy: "OnRootMismatch"
