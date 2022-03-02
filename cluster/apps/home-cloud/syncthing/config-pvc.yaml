@@ -10,5 +10,5 @@ spec:
   resources:
     requests:
       storage: 0.5Gi
-  storageClassName: longhorn
+  storageClassName: longhorn-static
   volumeMode: Filesystem
