@@ -41,11 +41,8 @@ spec:
     persistence:
       config:
         enabled: true
-        retain: true
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 2Gi
-        storageClass: longhorn
+        existingClaim: radarr-config-v1
       movies:
         enabled: true
         mountPath: /movies

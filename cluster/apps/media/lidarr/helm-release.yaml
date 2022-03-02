@@ -41,11 +41,8 @@ spec:
     persistence:
       config:
         enabled: true
-        retain: true
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 2Gi
-        storageClass: longhorn
+        existingClaim: lidarr-config-v1
       music:
         enabled: true
         mountPath: /music
