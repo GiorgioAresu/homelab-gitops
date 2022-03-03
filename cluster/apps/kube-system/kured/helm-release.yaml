@@ -31,4 +31,4 @@ spec:
       - key: "node-role.kubernetes.io/master"
         operator: "Exists"
     metrics:
-      create: true
+      create: false # disable until prometheus works
