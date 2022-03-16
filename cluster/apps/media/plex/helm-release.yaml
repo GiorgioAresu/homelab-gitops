@@ -20,7 +20,7 @@ spec:
       replicas: 0 #disable
     image:
       repository: ghcr.io/k8s-at-home/plex
-      tag: v1.25.6.5577-c8bd13540
+      tag: v1.25.7.5604-980a13e02
       pullPolicy: IfNotPresent
     env:
       TZ: Europe/Rome
