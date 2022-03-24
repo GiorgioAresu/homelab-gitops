@@ -73,14 +73,15 @@ The main idea was to have a cheap yet reliable cluster to:
 - Learn gitops.
 - Practice after CKAD outside of work (free to explore new interesting stuff and do things by the book).
 
-The desiderata was for it to be as self-contained as possible to allow the main storage server to be shut down if needed (to save power and noise). A small number of applications will still rely on it, be it due to the larger available size or for data accessibility and reliability reasons.
+The desiderata was for it to be as self-contained as possible to allow the main storage server to be shut down if needed (to save power and minimize noise). A small number of applications will still rely on it, be it due to the larger available size or for data accessibility and reliability reasons.
 
-The end result is currently an *arm64* and *amd64* hybrid cluster, with every node running Ubuntu Server 20.04 LTS.
+The end result is currently an *arm64* and *amd64* hybrid cluster, with every node running Ubuntu Server 20.04 LTS (or similar distro).
 The initial plan was a pure *arm64* cluster, but the unused NUC proved useful for some *amd64*-only image and for specific workloads, such as hardware-accelerated video transcoding.
 
 |       Device       |   Disk Size   | Ram |           Purpose          |
 |:------------------:|:-------------:|:---:|:--------------------------:|
 | Raspberry PI 4     | 128GB MicroSD | 8GB | k3s Master (embedded etcd) |
+| Raspberry PI 4     | 128GB MicroSD | 8GB | k3s Worker                 |
 | Intel NUC DC3217BY | 240GB SSD     | 8GB | k3s Worker                 |
 
 See [setup](docs/README.md) for more info and scripts.
