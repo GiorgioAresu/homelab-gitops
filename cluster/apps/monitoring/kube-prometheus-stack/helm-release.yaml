@@ -130,42 +130,6 @@ spec:
             targetLabel: instance
     kubeApiServer:
       enabled: true
-    kubeControllerManager:
-      enabled: true
-      endpoints:
-        - "${KUBE_MASTER_ADDR}"
-      service:
-        enabled: true
-        port: 10257
-        targetPort: 10257
-      serviceMonitor:
-        enabled: true
-        https: true
-        insecureSkipVerify: true
-    kubeScheduler:
-      enabled: true
-      endpoints:
-        - "${KUBE_MASTER_ADDR}"
-      service:
-        enabled: true
-        port: 10259
-        targetPort: 10259
-      serviceMonitor:
-        enabled: true
-        https: true
-        insecureSkipVerify: true
-    kubeProxy:
-      enabled: true
-      endpoints:
-        - "${KUBE_MASTER_ADDR}"
-    kubeEtcd:
-      enabled: true
-      endpoints:
-        - "${KUBE_MASTER_ADDR}"
-      service:
-        enabled: true
-        port: 2381
-        targetPort: 2381
     prometheusOperator:
       prometheusConfigReloader:
         resources:
@@ -230,3 +194,13 @@ spec:
     #         static_configs:
     #           - targets:
     #               - "${TRUENAS_ADDR}:9000"
+
+    # Disable to prevent resource issues https://github.com/ricsanfre/pi-cluster/issues/22
+    kubeControllerManager:
+      enabled: false
+    kubeScheduler:
+      enabled: false
+    kubeProxy:
+      enabled: false
+    kubeEtcd:
+      enabled: false
