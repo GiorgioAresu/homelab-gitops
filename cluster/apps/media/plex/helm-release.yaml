@@ -17,7 +17,7 @@ spec:
   interval: 10m0s
   values:
     controller:
-      replicas: 0 #disable
+      replicas: 1
     image:
       repository: ghcr.io/k8s-at-home/plex
       tag: v1.25.8.5663-e071c3d62
@@ -35,18 +35,18 @@ spec:
           hajimari.io/icon: "plex"
           nginx.ingress.kubernetes.io/app-root: "/web" # Redirect / -> /web
         hosts:
-          - host: "plex2.${SECRET_DOMAIN}"
+          - host: "music.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - "plex2.${SECRET_DOMAIN}"
+              - "music.${SECRET_DOMAIN}"
     persistence:
       config:
         enabled: true
         type: pvc
-        existingClaim: -config-v1
+        existingClaim: plex-config-v1
       media:
         enabled: true
         mountPath: /media
