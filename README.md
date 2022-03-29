@@ -66,6 +66,11 @@ Mantain Secrets and ConfigMaps synced among namespaces.
 Watch changes in ConfigMaps and Secrets and do rolling upgrades on Pods with their associated DeploymentConfigs, Deployments, Daemonsets Statefulsets and Rollouts.
 
 
+### [System Upgrade Controller](https://github.com/rancher/system-upgrade-controller)
+
+General-purpose, Kubernetes-native upgrade controller (for nodes). It introduces a new CRD, the Plan, for defining any and all of your upgrade policies/requirements. A Plan is an outstanding intent to mutate nodes in your cluster.
+
+
 ## :construction_worker: Hardware
 
 The main idea was to have a cheap yet reliable cluster to:
