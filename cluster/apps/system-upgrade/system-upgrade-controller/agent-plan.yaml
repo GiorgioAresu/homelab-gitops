@@ -17,9 +17,10 @@ spec:
         values:
           - "true"
       - key: k3s-upgrade
-        operator: In
+        operator: NotIn
         values:
-          - "true"
+          - "disabled"
+          - "false"
   prepare:
     image: rancher/k3s-upgrade
     args:

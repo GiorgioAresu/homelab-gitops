@@ -16,9 +16,10 @@ spec:
         values:
           - "true"
       - key: k3s-upgrade
-        operator: In
+        operator: NotIn
         values:
-          - "true"
+          - "disabled"
+          - "false"
   tolerations:
     - key: "node-role.kubernetes.io/master"
       operator: "Exists"
