@@ -7,3 +7,4 @@ resources:
   - metallb
   - namespaces
   - nfs-subdir-external-provisioner
+  - system-upgrade
