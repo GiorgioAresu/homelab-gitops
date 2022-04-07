@@ -14,11 +14,23 @@
     },
     {
       "matchDatasources": ["docker"],
-      "addLabels": ["component/container"]
+      "addLabels": ["renovate/container"]
     },
     {
       "matchDatasources": ["helm"],
-      "addLabels": ["component/helm"]
+      "addLabels": ["renovate/helm"]
+    },
+    {
+      "matchDatasources": ["github-releases", "github-tags"],
+      "addLabels": ["renovate/github-release"]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "addLabels": ["renovate/github-action"]
+    },
+    {
+      "matchDatasources": ["pypi"],
+      "addLabels": ["renovate/pip"]
     }
   ]
 }
