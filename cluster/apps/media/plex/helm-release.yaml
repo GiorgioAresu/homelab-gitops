@@ -45,11 +45,8 @@ spec:
     persistence:
       config:
         enabled: true
-        retain: true
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 2Gi
-        storageClass: longhorn
+        existingClaim: plex-config-v1
       media:
         enabled: true
         mountPath: /media
