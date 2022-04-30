@@ -38,12 +38,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Generate Token
-        uses: tibdex/github-app-token@v1
-        id: generate-token
-        with:
-          app_id: ${{ secrets.BOT_APP_ID }}
-          private_key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
       - name: Checkout default branch
         uses: actions/checkout@v3
         with:
@@ -67,12 +61,11 @@ jobs:
         id: find-comment
         with:
           issue-number: "${{ github.event.pull_request.number }}"
-          comment-author: "${{ env.BOT_USERNAME }}"
+          # comment-author: "${{ env.BOT_USERNAME }}" # TODO: double check what is the correct value
           body-includes: "${{ matrix.file }}"
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v2
         with:
-          token: "${{ steps.generate-token.outputs.token }}"
           comment-id: "${{ steps.find-comment.outputs.comment-id }}"
           issue-number: "${{ github.event.pull_request.number }}"
           body: "${{ steps.diff.outputs.diff }}"
