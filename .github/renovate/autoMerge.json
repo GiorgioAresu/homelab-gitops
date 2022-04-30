@@ -1,7 +1,10 @@
 {
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
+      "matchDatasources": [
+        "docker",
+        "github-tags"
+      ],
       "automerge": true,
       "automergeType": "branch",
       "requiredStatusChecks": null,
