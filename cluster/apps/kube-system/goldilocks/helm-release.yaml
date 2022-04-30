@@ -17,7 +17,7 @@ spec:
   interval: 5m0s
   values:
     image:
-      repository: quay.io/fairwinds/goldilocks
+      repository: us-docker.pkg.dev/fairwinds-ops/oss/goldilocks
       tag: v4.3.1
       pullPolicy: IfNotPresent
     vpa:
