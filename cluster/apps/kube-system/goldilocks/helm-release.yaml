@@ -7,7 +7,6 @@ metadata:
 spec:
   chart:
     spec:
-      # renovate: registryUrl=https://charts.fairwinds.com/stable
       chart: goldilocks
       version: 6.1.2
       sourceRef:

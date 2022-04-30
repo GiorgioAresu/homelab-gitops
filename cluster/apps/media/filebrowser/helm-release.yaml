@@ -7,7 +7,6 @@ metadata:
 spec:
   chart:
     spec:
-      # renovate: registryUrl=https://utkuozdemir.org/helm-charts
       chart: filebrowser
       version: 0.4.1
       sourceRef:

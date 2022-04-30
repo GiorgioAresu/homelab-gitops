@@ -7,7 +7,6 @@ metadata:
 spec:
   chart:
     spec:
-      # renovate: registryUrl=https://kubernetes-sigs.github.io/metrics-server/
       chart: metrics-server
       version: 3.8.2
       sourceRef:
