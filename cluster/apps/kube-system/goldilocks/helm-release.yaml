@@ -22,9 +22,14 @@ spec:
       pullPolicy: IfNotPresent
     vpa:
       enabled: true
+    controller:
+      nodeSelector:
+        kubernetes.io/arch: amd64
     dashboard:
       enabled: true
       replicaCount: 1
+      nodeSelector:
+        kubernetes.io/arch: amd64
       ingress:
         enabled: true
         ingressClassName: "nginx"
