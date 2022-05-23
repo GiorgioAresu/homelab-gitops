@@ -28,7 +28,6 @@
       "semanticCommitType": "feat",
       "semanticCommitScope": "helm"
     },
-
     {
       "matchDatasources": ["helm"],
       "matchUpdateTypes": ["patch"],
