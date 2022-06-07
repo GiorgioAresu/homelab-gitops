@@ -16,8 +16,7 @@ spec:
   interval: 5m0s
   values:
     image:
-      # Currently no arm64 image (https://github.com/weaveworks/kured/issues/23)
-      repository: raspbernetes/kured
+      repository: weaveworks/kured
     configuration:
       timeZone: "Europe/Rome"
       startTime: "10pm"
