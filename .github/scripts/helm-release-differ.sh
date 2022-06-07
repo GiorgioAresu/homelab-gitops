@@ -25,7 +25,6 @@ main() {
     parse_command_line "$@"
     check "helm"
     check "yq"
-    echo "Test log"
     entry
 }
 
