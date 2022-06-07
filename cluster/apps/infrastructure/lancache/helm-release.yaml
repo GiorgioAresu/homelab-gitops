@@ -16,7 +16,7 @@ spec:
   interval: 5m0s
   values:
     image:
-      # Currently no arm64 image
+      # Currently no arm64 image (https://github.com/lancachenet/monolithic/issues/21)
       repository: lancachenet/monolithic
       tag: latest
       pullPolicy: Always
