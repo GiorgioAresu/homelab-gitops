@@ -79,7 +79,7 @@ spec:
       image:
         # Currently no arm64 image (https://github.com/bitnami/bitnami-docker-redis/issues/192)
         repository: redis
-        tag: 7.0.0
+        tag: 7.0.1
       master:
         persistence:
           enabled: false
