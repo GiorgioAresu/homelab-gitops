@@ -37,5 +37,6 @@ spec:
       backupTargetCredentialSecret: minio-secret
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
       defaultReplicaCount: 1
+      orphanAutoDeletion: "true"
     annotations:
       configmap.reloader.stakater.com/reload: longhorn-default-setting
