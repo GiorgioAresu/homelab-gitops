@@ -24,7 +24,7 @@ spec:
         hajimari.io/group: "admin"
         hajimari.io/icon: "view-dashboard"
       hosts:
-        - host: "kube-dashboard.${SECRET_DOMAIN}"
+        - "kube-dashboard.${SECRET_DOMAIN}"
       tls:
         - hosts:
             - "kube-dashboard.${SECRET_DOMAIN}"
