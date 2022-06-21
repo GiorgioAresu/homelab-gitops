@@ -9,6 +9,7 @@ resources:
   - hajimari-charts.yaml
   - ingress-nginx-charts.yaml
   - k8s-at-home-charts.yaml
+  - kubernetes-dashboard-charts
   - kured-charts.yaml
   - longhorn-charts.yaml
   - managed-nfs-storage-provisioner-charts.yaml

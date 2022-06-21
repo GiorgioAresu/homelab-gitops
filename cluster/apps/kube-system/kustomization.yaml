@@ -5,6 +5,7 @@ resources:
   - descheduler
   - goldilocks
   - intel-gpu-plugin
+  - kubernetes-dashboard
   - kured
   - metrics-server
   - node-feature-discovery
