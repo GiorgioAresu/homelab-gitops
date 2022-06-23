@@ -21,6 +21,8 @@ spec:
       annotations:
         hajimari.io/enable: "true"
         hajimari.io/icon: "harddisk"
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+        nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
       host: "longhorn.${SECRET_DOMAIN}"
       path: /
       tlsSecret: "networking/${SECRET_DOMAIN//./-}-tls"
