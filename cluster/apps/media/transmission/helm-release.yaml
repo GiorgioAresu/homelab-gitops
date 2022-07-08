@@ -37,7 +37,7 @@ spec:
     initContainers:
       custom-webui:
         name: custom-webui
-        image: curlimages/curl:7.83.1
+        image: curlimages/curl:7.84.0
         command:
           - "/bin/sh"
           - "-c"
