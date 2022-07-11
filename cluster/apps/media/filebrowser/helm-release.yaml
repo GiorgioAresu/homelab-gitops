@@ -23,13 +23,13 @@ spec:
       #   hajimari.io/group: "media"
       #   hajimari.io/icon: "subtitles"
       hosts:
-        - host: "downloads.${SECRET_DOMAIN}"
+        - host: &host "downloads.${SECRET_DOMAIN}"
           paths:
             - path: /
               pathType: Prefix
       tls:
         - hosts:
-            - "bazarr.${SECRET_DOMAIN}"
+            - *host
     service:
       port: 8080
     rootDir:

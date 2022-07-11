@@ -33,10 +33,10 @@ spec:
         enabled: true
         ingressClassName: "nginx"
         hosts:
-          - host: "goldilocks.${SECRET_DOMAIN}"
+          - host: &host "goldilocks.${SECRET_DOMAIN}"
             paths:
               - path: /
                 type: ImplementationSpecific
         tls:
           - hosts:
-              - "goldilocks.${SECRET_DOMAIN}"
+              - *host

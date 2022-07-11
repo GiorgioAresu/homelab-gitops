@@ -34,13 +34,13 @@ spec:
           nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
           nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
         hosts:
-          - host: "paperless.${SECRET_DOMAIN}"
+          - host: &host "paperless.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - "paperless.${SECRET_DOMAIN}"
+              - *host
     persistence:
       # -- Configure persistence for data.
       data:
