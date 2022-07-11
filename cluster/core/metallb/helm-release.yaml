@@ -14,15 +14,3 @@ spec:
         name: metallb
         namespace: flux-system
   interval: 10m0s
-  values:
-    configInline:
-      peers:
-        - peer-address: "${GATEWAY_ADDR}"
-          peer-asn: 64512
-          my-asn: 65400
-      address-pools:
-        - name: bgp
-          protocol: bgp
-          addresses:
-            - "${NETWORK_METALB_CIDR}"
-          avoid-buggy-ips: true
