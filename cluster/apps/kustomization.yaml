@@ -8,6 +8,7 @@ resources:
   - kube-system
   - longhorn
   - media
+  - metallb-system
   - monitoring
   - networking
   - system-upgrade
