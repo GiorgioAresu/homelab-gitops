@@ -49,3 +49,9 @@ spec:
                 - pciId:
                     class: ["0300"]
                     vendor: ["8086"]
+            - name: "ups"
+              matchOn:
+                - usbId:
+                    class: ["00"]
+                    vendor: ["051d"]
+                    device: ["0003"]
