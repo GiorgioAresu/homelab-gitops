@@ -27,7 +27,6 @@ spec:
         sources:
           usb:
             deviceClassWhitelist:
-              - "00"
               - "02"
               - "03"
               - "0e"
@@ -53,6 +52,6 @@ spec:
             - name: "ups"
               matchOn:
                 - usbId:
-                    class: ["00"]
+                    class: ["03"]
                     vendor: ["051d"]
                     device: ["0003"]
