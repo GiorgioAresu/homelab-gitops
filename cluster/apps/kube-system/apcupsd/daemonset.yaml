@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: apcupsd
+  namespace: kube-system
+  labels:
+    app: apcupsd
+spec:
+  selector:
+    matchLabels:
+      app: apcupsd
+  template:
+    metadata:
+      labels:
+        app: apcupsd
+    spec:
+      tolerations:
+        # this toleration is to have the daemonset runnable on master nodes
+        # remove it if your masters can't run pods
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: feature.node.kubernetes.io/custom-ups
+                    operator: Exists
+      containers:
+        - name: apcupsd
+          image: bgulla/apcupsd-tcp
+          resources:
+            limits:
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+          volumeMounts:
+            - name: localtime
+              mountPath: /etc/localtime
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: localtime
+          hostPath:
+            path: /usr/share/zoneinfo/Europe/Rome
