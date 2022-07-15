@@ -45,6 +45,8 @@ spec:
                     vendor: ["1cf1"]
                     device: ["0030"]
             - name: "intel-gpu"
+              labels:
+                - intel-gpu: "true"
               matchOn:
                 - pciId:
                     class: ["0300"]
