@@ -18,6 +18,9 @@ spec:
     worker:
       annotations:
         configmap.reloader.stakater.com/reload: "nfd-worker-conf"
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
       config:
         core:
           labelSources:
