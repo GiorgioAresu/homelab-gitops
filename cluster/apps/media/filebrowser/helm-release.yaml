@@ -43,10 +43,10 @@ spec:
     podSecurityContext:
       fsGroup: 1003
       fsGroupChangePolicy: "OnRootMismatch"
-    # resources:
-    #   requests:
-    #     cpu: 15m
-    #     memory: 477M
-    #   limits:
-    #     # cpu: 500m
-    #     memory: 799M
+    resources:
+      requests:
+        cpu: 15m
+        memory: 100M
+      limits:
+        # cpu: 500m
+        memory: 0.5G

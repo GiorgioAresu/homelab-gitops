@@ -96,10 +96,10 @@ spec:
     resources:
       requests:
         cpu: 15m
-        memory: 105M
+        memory: 0.5G
       limits:
         # cpu: 500m
-        memory: 370M
+        memory: 1G
     probes:
       liveness:
         spec:

@@ -80,7 +80,7 @@ spec:
     resources:
       requests:
         cpu: 100m
-        memory: 500Mi
+        memory: 0.5G
       limits:
         cpu: 1000m
-        memory: 1000Mi
+        memory: 1G
