@@ -24,7 +24,7 @@ spec:
       tag: v1.27.2.5929-a806c5905
       pullPolicy: IfNotPresent
     env:
-      TZ: Europe/Rome
+      TZ: ${TIMEZONE}
     hostNetwork: true
     ingress:
       main:

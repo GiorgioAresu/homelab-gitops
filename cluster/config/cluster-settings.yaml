@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
   name: cluster-settings
 data:
+  TIMEZONE: "Europe/Rome"
   GATEWAY_ADDR: "10.17.1.1"
   TRUENAS_ADDR: "10.17.1.15"
   NETWORK_METALB_CIDR: "10.17.2.0/24"

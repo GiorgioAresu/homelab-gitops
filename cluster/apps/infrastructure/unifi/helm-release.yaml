@@ -22,7 +22,7 @@ spec:
       tag: v7.1.66
       pullPolicy: IfNotPresent
     env:
-      TZ: "Europe/Rome"
+      TZ: "${TIMEZONE}"
       JVM_MAX_HEAP_SIZE: 250M
     ingress:
       main:

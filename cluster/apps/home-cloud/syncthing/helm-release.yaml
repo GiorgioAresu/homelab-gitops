@@ -22,7 +22,7 @@ spec:
       tag: 1.20.3
       pullPolicy: IfNotPresent
     env:
-      TZ: Europe/Rome
+      TZ: ${TIMEZONE}
     ingress:
       main:
         enabled: true

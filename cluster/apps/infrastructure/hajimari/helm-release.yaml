@@ -22,7 +22,7 @@ spec:
       tag: v0.2.0
       pullPolicy: IfNotPresent
     env:
-      TZ: "Europe/Rome"
+      TZ: "${TIMEZONE}"
     resources:
       requests:
         cpu: 15m

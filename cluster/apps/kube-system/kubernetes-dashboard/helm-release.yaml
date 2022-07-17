@@ -18,7 +18,7 @@ spec:
     createNamespace: true
   values:
     env:
-      TZ: Europe/Rome
+      TZ: ${TIMEZONE}
     ingress:
       enabled: true
       annotations:

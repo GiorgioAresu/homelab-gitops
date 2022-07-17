@@ -23,7 +23,7 @@ spec:
       tag: latest
       pullPolicy: Always
     env:
-      TZ: "Europe/Rome"
+      TZ: "${TIMEZONE}"
       UPSTREAM_DNS: "8.8.8.8 8.8.4.4"
       CACHE_MEM_SIZE: 128m
       CACHE_DISK_SIZE: 49000m

@@ -20,7 +20,7 @@ spec:
     image:
       repository: weaveworks/kured
     configuration:
-      timeZone: "Europe/Rome"
+      timeZone: "${TIMEZONE}"
       startTime: "10pm"
       endTime: "2am"
       notifyUrl: "${SECRET_KURED_WEBHOOK}"

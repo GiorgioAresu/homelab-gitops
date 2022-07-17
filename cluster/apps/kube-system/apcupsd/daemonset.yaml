@@ -43,4 +43,4 @@ spec:
       volumes:
         - name: localtime
           hostPath:
-            path: /usr/share/zoneinfo/Europe/Rome
+            path: /usr/share/zoneinfo/${TIMEZONE}

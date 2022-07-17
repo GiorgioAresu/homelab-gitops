@@ -22,7 +22,7 @@ spec:
       tag: v3.00
       pullPolicy: IfNotPresent
     env:
-      TZ: "Europe/Rome"
+      TZ: "${TIMEZONE}"
       TRANSMISSION_ALT_SPEED_DOWN: 500
       TRANSMISSION_ALT_SPEED_ENABLED: false
       TRANSMISSION_ALT_SPEED_TIME_BEGIN: 540
