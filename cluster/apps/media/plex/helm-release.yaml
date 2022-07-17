@@ -33,7 +33,8 @@ spec:
     hostNetwork: true
     service:
       main:
-        primary: true
+        type: LoadBalancer
+        loadBalancerIP: "${SVC_PLEX_ADDR}"
         ports:
           http:
             port: 32400

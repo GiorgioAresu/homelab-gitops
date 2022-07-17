@@ -6,8 +6,11 @@ metadata:
   name: cluster-settings
 data:
   TIMEZONE: "Europe/Rome"
+  #
   GATEWAY_ADDR: "10.17.1.1"
   TRUENAS_ADDR: "10.17.1.15"
-  NETWORK_METALB_ADDRS: "10.17.2.1-10.17.2.254"
-  LANCACHE_ADDR: "10.17.2.32"
   LOKI_ADDR: "10.17.1.20"
+  #
+  NETWORK_METALB_ADDRS: "10.17.2.100-10.17.2.254"
+  SVC_LANCACHE_ADDR: "10.17.2.32"
+  SVC_PLEX_ADDR: "10.17.2.2"

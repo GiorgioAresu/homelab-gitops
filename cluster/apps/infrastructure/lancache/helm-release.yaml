@@ -35,7 +35,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: "${LANCACHE_ADDR}"
+        loadBalancerIP: "${SVC_LANCACHE_ADDR}"
     persistence:
       data:
         enabled: true
