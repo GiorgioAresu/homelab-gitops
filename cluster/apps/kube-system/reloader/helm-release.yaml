@@ -14,6 +14,8 @@ spec:
         name: stakater
         namespace: flux-system
   interval: 5m0s
+  install:
+    createNamespace: true
   values:
     nameOverride: reloader
     fullnameOverride: reloader

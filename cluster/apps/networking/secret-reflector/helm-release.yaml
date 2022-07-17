@@ -14,3 +14,5 @@ spec:
         name: emberstack
         namespace: flux-system
   interval: 5m0s
+  install:
+    createNamespace: true

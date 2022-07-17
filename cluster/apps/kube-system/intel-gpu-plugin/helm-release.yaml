@@ -14,6 +14,8 @@ spec:
         name: k8s-at-home
         namespace: flux-system
   interval: 5m0s
+  install:
+    createNamespace: true
   values:
     image:
       repository: intel/intel-gpu-plugin

@@ -14,6 +14,8 @@ spec:
         name: hajimari
         namespace: flux-system
   interval: 5m0s
+  install:
+    createNamespace: true
   values:
     image:
       repository: ghcr.io/toboshii/hajimari

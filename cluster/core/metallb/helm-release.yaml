@@ -14,3 +14,5 @@ spec:
         name: metallb
         namespace: flux-system
   interval: 10m0s
+  install:
+    createNamespace: true
