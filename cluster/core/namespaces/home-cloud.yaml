@@ -1,0 +1,7 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: home-cloud
+  labels:
+    goldilocks.fairwinds.com/enabled: "true"

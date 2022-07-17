@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - longhorn
   - metallb
+  - namespaces
   - nfs-subdir-external-provisioner
   - system-upgrade
