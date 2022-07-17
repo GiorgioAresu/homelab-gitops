@@ -16,6 +16,11 @@ spec:
   interval: 10m0s
   install:
     createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
   values:
     image:
       repository: ghcr.io/k8s-at-home/prowlarr
