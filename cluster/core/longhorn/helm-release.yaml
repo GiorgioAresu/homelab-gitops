@@ -44,7 +44,7 @@ spec:
       backupTarget: s3://longhorn@eu/backups
       backupTargetCredentialSecret: minio-secret
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
-      defaultReplicaCount: 1
+      defaultReplicaCount: 2
       orphanAutoDeletion: "true"
     annotations:
       configmap.reloader.stakater.com/reload: longhorn-default-setting
