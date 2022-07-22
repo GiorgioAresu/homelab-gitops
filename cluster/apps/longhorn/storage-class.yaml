@@ -9,6 +9,6 @@ allowVolumeExpansion: true
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 parameters:
-  staleReplicaTimeout: "30"
+  staleReplicaTimeout: "2880"
   fromBackup: ""
   fsType: "ext4"
