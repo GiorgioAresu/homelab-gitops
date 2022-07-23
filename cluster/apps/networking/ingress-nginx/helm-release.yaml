@@ -94,7 +94,12 @@ spec:
     tcp:
       "6789": "infrastructure/unifi:6789"
       "8080": "infrastructure/unifi:8080"
+      "32400": "media/plex:32400"
     udp:
       "3478": "infrastructure/unifi:3478"
       "5514": "infrastructure/unifi:5514"
       "10001": "infrastructure/unifi:10001"
+      "32410": "media/plex:32410"
+      "32412": "media/plex:32412"
+      "32413": "media/plex:32413"
+      "32414": "media/plex:32414"
