@@ -26,8 +26,8 @@ spec:
       extraEnvs:
         - name: TZ
           value: ${TIMEZONE}
-      # service:
-      #   loadBalancerIP: ${SVC_NGINX_ADDR}
+      service:
+        loadBalancerIP: ${SVC_NGINX_ADDR}
       publishService:
         enabled: true
       ingressClassResource:
