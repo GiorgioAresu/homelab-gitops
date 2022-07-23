@@ -38,25 +38,17 @@ spec:
           http:
             port: 32400
           gdm-discovery-1:
-            enabled: true
             port: 32410
             protocol: UDP
-            targetPort: 32410
           gdm-discovery-2:
-            enabled: true
             port: 32412
             protocol: UDP
-            targetPort: 32412
           gdm-discovery-3:
-            enabled: true
             port: 32413
             protocol: UDP
-            targetPort: 32413
           gdm-discovery-4:
-            enabled: true
             port: 32414
             protocol: UDP
-            targetPort: 32414
     ingress:
       main:
         enabled: true
