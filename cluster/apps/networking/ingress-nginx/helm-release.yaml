@@ -26,7 +26,9 @@ spec:
       extraEnvs:
         - name: TZ
           value: ${TIMEZONE}
-      # service:
+      service:
+        externalIPs:
+          - ${SVC_NGINX_ADDR}
       #   loadBalancerIP: ${SVC_NGINX_ADDR}
       publishService:
         enabled: true
