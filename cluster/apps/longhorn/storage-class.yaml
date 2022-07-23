@@ -6,9 +6,10 @@ metadata:
   namespace: longhorn-system
 provisioner: driver.longhorn.io
 allowVolumeExpansion: true
-reclaimPolicy: Delete
+reclaimPolicy: Retain
 volumeBindingMode: Immediate
 parameters:
-  staleReplicaTimeout: "2880"
-  fromBackup: ""
+  numberOfReplicas: "2"
+  staleReplicaTimeout: "30"
+  # fromBackup: ""
   fsType: "ext4"
