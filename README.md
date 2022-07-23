@@ -97,5 +97,5 @@ See [setup](docs/README.md) for more info and scripts.
 Create a secret manifest as you normally would, then encrypt it with:
 
 ```shell
-sops --encrypt --in-place secret.yaml
+sops --age=*{pubkey}* --encrypt --encrypted-regex '^(data|stringData)$' --in-place secret.yaml
 ```
