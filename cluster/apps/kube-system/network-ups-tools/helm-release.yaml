@@ -31,6 +31,10 @@ spec:
             - matchExpressions:
                 - key: feature.node.kubernetes.io/custom-ups
                   operator: Exists
+    persistence:
+      ups:
+        hostPath: /dev/bus/usb/001/003
+        mountPath: /dev/bus/usb/001/003
     config:
       files:
         ups.conf: |
