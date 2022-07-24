@@ -33,6 +33,7 @@ spec:
                   operator: Exists
     persistence:
       ups:
+        enabled: true
         hostPath: /dev/bus/usb/001/003
         mountPath: /dev/bus/usb/001/003
     config:
