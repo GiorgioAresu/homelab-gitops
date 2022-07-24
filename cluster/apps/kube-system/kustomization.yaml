@@ -9,5 +9,6 @@ resources:
   - kubernetes-dashboard
   - kured
   - metrics-server
+  - network-ups-tools
   - node-feature-discovery
   - reloader
