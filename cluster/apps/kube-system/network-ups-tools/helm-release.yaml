@@ -43,3 +43,4 @@ spec:
           [apc]
             driver = usbhid-ups
             port = auto
+            desc = ""
