@@ -27,6 +27,9 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: ${TIMEZONE}
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
