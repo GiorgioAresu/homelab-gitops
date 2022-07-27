@@ -8,10 +8,10 @@ Next, create the `flux-system` namespace for the `sops-age` secret, so flux can 
 kubectl create namespace flux-system
 ```
 
-Restore the age.agekey file and import it with:
+Restore the age key file to `~/.config/sops/age/keys.txt` and import it with:
 
 ```shell
-cat age.agekey |
+cat ~/.config/sops/age/keys.txt |
 kubectl create secret generic sops-age \
   --namespace=flux-system \
   --from-file=age.agekey=/dev/stdin
