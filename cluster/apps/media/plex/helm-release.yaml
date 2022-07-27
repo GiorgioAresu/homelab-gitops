@@ -26,23 +26,29 @@ spec:
     hostNetwork: true
     service:
       main:
+        enabled: true
         type: LoadBalancer
         loadBalancerIP: "${SVC_PLEX_ADDR}"
         ports:
           http:
             port: 32400
+            enabled: true
           gdm-discovery-1:
             port: 32410
             protocol: UDP
+            enabled: true
           gdm-discovery-2:
             port: 32412
             protocol: UDP
+            enabled: true
           gdm-discovery-3:
             port: 32413
             protocol: UDP
+            enabled: true
           gdm-discovery-4:
             port: 32414
             protocol: UDP
+            enabled: true
     ingress:
       main:
         enabled: true
