@@ -16,8 +16,7 @@ spec:
   interval: 10m0s
   values:
     image:
-      repository: nextcloud/nextcloud
-      tag: 3.0.3
+      repository: nextcloud
       pullPolicy: IfNotPresent
     env:
       TZ: ${TIMEZONE}
