@@ -14,12 +14,6 @@ spec:
         name: fairwinds-stable
         namespace: flux-system
   interval: 5m0s
-  install:
-    remediation:
-      retries: 5
-  upgrade:
-    remediation:
-      retries: 5
   values:
     image:
       repository: us-docker.pkg.dev/fairwinds-ops/oss/goldilocks

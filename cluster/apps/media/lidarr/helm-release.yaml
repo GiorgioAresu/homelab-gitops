@@ -14,12 +14,6 @@ spec:
         name: k8s-at-home
         namespace: flux-system
   interval: 10m0s
-  install:
-    remediation:
-      retries: 5
-  upgrade:
-    remediation:
-      retries: 5
   values:
     image:
       repository: ghcr.io/k8s-at-home/lidarr

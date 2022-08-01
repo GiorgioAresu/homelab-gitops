@@ -14,12 +14,6 @@ spec:
         name: utkuozdemir
         namespace: flux-system
   interval: 10m0s
-  install:
-    remediation:
-      retries: 5
-  upgrade:
-    remediation:
-      retries: 5
   values:
     ingress:
       enabled: true
