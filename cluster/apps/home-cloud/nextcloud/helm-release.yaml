@@ -1,0 +1,49 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nextcloud
+  namespace: home-cloud
+spec:
+  chart:
+    spec:
+      chart: nextcloud
+      version: 3.4.2
+      sourceRef:
+        kind: HelmRepository
+        name: nextcloud
+        namespace: flux-system
+  interval: 10m0s
+  values:
+    image:
+      repository: nextcloud/nextcloud
+      tag: 3.0.3
+      pullPolicy: IfNotPresent
+    env:
+      TZ: ${TIMEZONE}
+    ingress:
+      enabled: true
+      className: "nginx"
+      annotations:
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "cloud"
+        nginx.ingress.kubernetes.io/enable-cors: "true"
+        nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
+      path: /
+      pathType: Prefix
+      tls:
+        - hosts:
+            - &host "nextcloud.${SECRET_DOMAIN}"
+    nextcloud:
+      host: *host
+    persistence:
+      enabled: true
+      existingClaim: nextcloud-data-v1
+    resources:
+      # requests:
+      #   memory: 100Mi
+      #   cpu: 100m
+      # limits:
+      #   memory: 250Mi
+    rbac:
+      enabled: true

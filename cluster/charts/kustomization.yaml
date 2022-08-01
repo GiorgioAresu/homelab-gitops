@@ -15,6 +15,7 @@ resources:
   - managed-nfs-storage-provisioner-charts.yaml
   - metallb-charts.yaml
   - metrics-server-charts.yaml
+  - nextcloud-charts.yaml
   - node-feature-discovery-charts.yaml
   - prometheus-community-charts.yaml
   - stakater-charts.yaml
