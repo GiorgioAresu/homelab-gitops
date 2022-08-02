@@ -89,12 +89,11 @@ spec:
       TZ: ${TIMEZONE}
     auth:
       database: nextcloud
-      auth:
-        username: nextcloud
-        existingSecret: nextcloud-db-secrets
-    primary:
-      affinity:
-        nodeAffinity:
+      username: nextcloud
+      existingSecret: nextcloud-db-secrets
+    common:
+      affinities:
+        nodes:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
@@ -102,6 +101,7 @@ spec:
                     operator: In
                     values:
                       - amd64
+    primary:
       persistence:
         enabled: true
         existingClaim: nextcloud-db-v1
