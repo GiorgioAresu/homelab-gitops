@@ -40,8 +40,6 @@ spec:
         secretName: nextcloud-secrets
         usernameKey: nextcloud-user
         passwordKey: nextcloud-password
-        smtpUsernameKey: smtp-username
-        smtpPasswordKey: smtp-password
     internalDatabase:
       enabled: false
     externalDatabase:
