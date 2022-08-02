@@ -47,7 +47,7 @@ spec:
     externalDatabase:
       enabled: false
       type: mysql
-      host: nextcloud-db:3306
+      host: nextcloud-db-mariadb:3306
       existingSecret:
         enabled: true
         secretName: nextcloud-db-secrets
