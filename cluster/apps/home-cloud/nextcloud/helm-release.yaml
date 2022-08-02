@@ -35,10 +35,6 @@ spec:
             - &host "nextcloud.${SECRET_DOMAIN}"
     nextcloud:
       host: *host
-    internalDatabase:
-      enabled: false
-    mariadb:
-      enabled: true
     persistence:
       enabled: true
       existingClaim: nextcloud-data-v1
