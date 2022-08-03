@@ -28,6 +28,7 @@ spec:
         hajimari.io/icon: "cloud"
         nginx.ingress.kubernetes.io/enable-cors: "true"
         nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
+      servicePort: https
       path: /
       pathType: Prefix
       tls:
@@ -43,6 +44,9 @@ spec:
     persistence:
       enabled: true
       existingClaim: nextcloud-data-v1
+    phpClientHttpsFix:
+      enabled: true
+      protocol: https
     resources:
       # requests:
       #   memory: 100Mi
