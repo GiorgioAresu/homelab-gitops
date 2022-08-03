@@ -61,9 +61,9 @@ spec:
     mariadb:
       enabled: true
       auth:
+        existingSecret: nextcloud-secrets
         database: nextcloud
         username: nextcloud
-        existingSecret: nextcloud-db
       common:
         affinities:
           nodes:
