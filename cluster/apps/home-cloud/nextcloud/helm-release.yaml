@@ -48,6 +48,7 @@ spec:
       image:
         repository: curlimages/curl
         tag: 7.84.0
+      curlInsecure: true
     persistence:
       enabled: true
       existingClaim: nextcloud-data-v1
