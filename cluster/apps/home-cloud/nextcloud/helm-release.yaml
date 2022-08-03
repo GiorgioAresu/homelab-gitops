@@ -45,8 +45,9 @@ spec:
       #   passwordKey: nextcloud-password
     cronjob:
       enabled: true
-      image: curlimages/curl
-      tag: 7.84.0
+      image:
+        repository: curlimages/curl
+        tag: 7.84.0
     persistence:
       enabled: true
       existingClaim: nextcloud-data-v1
