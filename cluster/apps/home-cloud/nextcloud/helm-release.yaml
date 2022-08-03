@@ -17,6 +17,8 @@ spec:
   values:
     image:
       repository: nextcloud
+      flavor: apache
+      image: apache-24.0.2
       pullPolicy: IfNotPresent
     env:
       TZ: ${TIMEZONE}
@@ -43,6 +45,8 @@ spec:
       #   passwordKey: nextcloud-password
     cronjob:
       enabled: true
+      image: curlimages/curl
+      tag: 7.84.0
     persistence:
       enabled: true
       existingClaim: nextcloud-data-v1
