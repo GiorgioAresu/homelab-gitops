@@ -41,6 +41,8 @@ spec:
       #   secretName: nextcloud-secrets
       #   usernameKey: nextcloud-user
       #   passwordKey: nextcloud-password
+    cronjob:
+      enabled: true
     persistence:
       enabled: true
       existingClaim: nextcloud-data-v1
