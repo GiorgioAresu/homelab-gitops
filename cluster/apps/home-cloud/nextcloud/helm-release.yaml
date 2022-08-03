@@ -42,7 +42,7 @@ spec:
         passwordKey: nextcloud-password
     externalDatabase:
       existingSecret:
-        secretName: nextcloud-db
+        secretName: nextcloud-secrets
         usernameKey: mariadb-user
         passwordKey: mariadb-password
     persistence:
