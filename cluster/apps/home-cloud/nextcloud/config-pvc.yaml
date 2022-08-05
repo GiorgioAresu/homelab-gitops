@@ -14,19 +14,19 @@ spec:
       storage: 20Gi
   storageClassName: longhorn-static
   volumeMode: Filesystem
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: nextcloud-db-v1
-#   namespace: home-cloud
-#   annotations:
-#     helm.sh/resource-policy: "keep"
-# spec:
-#   accessModes:
-#     - ReadWriteOnce
-#   resources:
-#     requests:
-#       storage: 1Gi
-#   storageClassName: longhorn-static
-#   volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nextcloud-db-0
+  namespace: home-cloud
+  annotations:
+    helm.sh/resource-policy: "keep"
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: longhorn-static
+  volumeMode: Filesystem

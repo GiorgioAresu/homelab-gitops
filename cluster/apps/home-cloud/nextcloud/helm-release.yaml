@@ -98,36 +98,36 @@ spec:
     #   #   memory: 250Mi
     # rbac:
     #   enabled: true
-    # internalDatabase:
-    #   enabled: false
-    # externalDatabase:
-    #   existingSecret:
-    #     secretName: nextcloud-secrets
-    #     usernameKey: mariadb-user
-    #     passwordKey: mariadb-password
-    # mariadb:
-    #   enabled: true
-    #   auth:
-    #     existingSecret: nextcloud-secrets
-    #     database: nextcloud
-    #     username: nextcloud
-    #   common:
-    #     affinities:
-    #       nodes:
-    #         requiredDuringSchedulingIgnoredDuringExecution:
-    #           nodeSelectorTerms:
-    #             - matchExpressions:
-    #                 - key: beta.kubernetes.io/arch
-    #                   operator: In
-    #                   values:
-    #                     - amd64
-    #   primary:
-    #     persistence:
-    #       enabled: true
-    #       existingClaim: nextcloud-db-v1
-    #     resources:
-    #       # requests:
-    #       #   memory: 100Mi
-    #       #   cpu: 100m
-    #       # limits:
-    #       #   memory: 250Mi
+    internalDatabase:
+      enabled: false
+    externalDatabase:
+      existingSecret:
+        secretName: nextcloud-secrets
+        usernameKey: mariadb-user
+        passwordKey: mariadb-password
+    mariadb:
+      enabled: true
+      auth:
+        existingSecret: nextcloud-secrets
+        database: nextcloud
+        username: nextcloud
+      common:
+        affinities:
+          nodes:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+                - matchExpressions:
+                    - key: beta.kubernetes.io/arch
+                      operator: In
+                      values:
+                        - amd64
+      primary:
+        persistence:
+          enabled: true
+          existingClaim: nextcloud-db-0
+        resources:
+          # requests:
+          #   memory: 100Mi
+          #   cpu: 100m
+          # limits:
+          #   memory: 250Mi
