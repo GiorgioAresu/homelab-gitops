@@ -15,6 +15,11 @@ It constantly polls the repo and checks that the cluster state is consistent. If
 Some of the interesting additions running on the cluster are:
 
 
+### [SMB CSI Driver for Kubernetes](https://github.com/kubernetes-csi/csi-driver-smb)
+
+Access SMB shares, also supports dynamic provisioning.
+
+
 ### [Descheduler](https://github.com/kubernetes-sigs/descheduler)
 
 Evicts pods based on different configurable policies.
