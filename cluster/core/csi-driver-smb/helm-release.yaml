@@ -16,7 +16,6 @@ spec:
   interval: 10m0s
   values:
     controller:
-      runOnMaster: true
       tolerations:
         - key: node-role.kubernetes.io/master
           effect: NoSchedule
