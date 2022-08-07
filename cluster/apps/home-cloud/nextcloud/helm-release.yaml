@@ -61,6 +61,8 @@ spec:
       tls:
         - hosts:
             - &host "nextcloud.${SECRET_DOMAIN}"
+    nodeSelector:
+      kubernetes.io/arch: amd64 # Uses bitnami/mariadb as initContainer, currently no arm64 image (https://github.com/bitnami/bitnami-docker-redis/issues/192)
     nextcloud:
       host: *host
       # existingSecret:
@@ -102,6 +104,10 @@ spec:
       enabled: true
     redis:
       enabled: true
+      image:
+        # Currently no arm64 image (https://github.com/bitnami/bitnami-docker-redis/issues/192)
+        repository: redis
+        tag: 7.0.4
     internalDatabase:
       enabled: false
     externalDatabase:
