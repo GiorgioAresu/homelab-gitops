@@ -17,8 +17,8 @@ spec:
   values:
     image:
       repository: nextcloud
-      flavor: apache
-      image: apache-24.0.3
+      flavor: fpm
+      image: fpm-24.0.3
       pullPolicy: IfNotPresent
     env:
       TZ: ${TIMEZONE}
@@ -98,6 +98,8 @@ spec:
     #   #   memory: 250Mi
     # rbac:
     #   enabled: true
+    nginx:
+      enabled: true
     internalDatabase:
       enabled: false
     externalDatabase:
