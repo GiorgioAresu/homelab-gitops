@@ -104,10 +104,14 @@ spec:
       enabled: true
     redis:
       enabled: true
+      architecture: standalone
       image:
         # Currently no arm64 image (https://github.com/bitnami/bitnami-docker-redis/issues/192)
         repository: redis
         tag: 7.0.4
+      master:
+        persistence:
+          enabled: false
     internalDatabase:
       enabled: false
     externalDatabase:
