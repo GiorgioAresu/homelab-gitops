@@ -122,17 +122,10 @@ spec:
         existingSecret: nextcloud-secrets
         database: nextcloud
         username: nextcloud
-      common:
-        affinities:
-          nodes:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-                - matchExpressions:
-                    - key: beta.kubernetes.io/arch
-                      operator: In
-                      values:
-                        - amd64
       primary:
+        # Currently no arm64 image (https://github.com/bitnami/bitnami-docker-redis/issues/192)
+        nodeSelector:
+          kubernetes.io/arch: amd64
         persistence:
           enabled: true
           existingClaim: nextcloud-db-0
