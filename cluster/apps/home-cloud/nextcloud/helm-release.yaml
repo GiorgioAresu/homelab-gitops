@@ -102,6 +102,7 @@ spec:
       enabled: false
     externalDatabase:
       existingSecret:
+        enabled: true
         secretName: nextcloud-secrets
         usernameKey: mariadb-user
         passwordKey: mariadb-password
