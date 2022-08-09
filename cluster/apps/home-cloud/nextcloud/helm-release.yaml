@@ -17,8 +17,8 @@ spec:
   values:
     image:
       repository: nextcloud
-      flavor: apache
-      image: apache-24.0.3
+      flavor: fpm
+      image: fpm-24.0.3
       pullPolicy: IfNotPresent
     env:
       TZ: ${TIMEZONE}
@@ -71,7 +71,7 @@ spec:
       #   usernameKey: nextcloud-user
       #   passwordKey: nextcloud-password
       phpConfigs:
-        www2.conf: |-
+        www.conf: |-
           pm = dynamic
           pm.max_children = 120
           pm.start_servers = 12
@@ -115,8 +115,8 @@ spec:
     #   #   memory: 250Mi
     # rbac:
     #   enabled: true
-    # nginx:
-    #   enabled: true
+    nginx:
+      enabled: true
     redis:
       enabled: true
       architecture: standalone
