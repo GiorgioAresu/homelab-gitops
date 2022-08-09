@@ -87,6 +87,12 @@ spec:
             ),
             'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
           );
+        rewrites.config.php: |-
+          <?php
+          $CONFIG = array (
+            'overwritehost' => getenv('OVERWRITEHOST'), # gets replaced with host
+            'overwrite.cli.url' => 'https://' . getenv('OVERWRITECLIURL'),
+          );
       extraEnv:
         - name: OVERWRITECLIURL
           value: *host
