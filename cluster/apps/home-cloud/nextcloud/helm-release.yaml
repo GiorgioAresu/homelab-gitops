@@ -70,12 +70,13 @@ spec:
       #   secretName: nextcloud-secrets
       #   usernameKey: nextcloud-user
       #   passwordKey: nextcloud-password
-      phpConfigs: |-
-        pm = dynamic
-        pm.max_children = 120
-        pm.start_servers = 12
-        pm.min_spare_servers = 6
-        pm.max_spare_servers = 18
+      phpConfigs:
+        pm.ini: |-
+          pm = dynamic
+          pm.max_children = 120
+          pm.start_servers = 12
+          pm.min_spare_servers = 6
+          pm.max_spare_servers = 18
       configs:
         proxy.config.php: |-
           <?php
