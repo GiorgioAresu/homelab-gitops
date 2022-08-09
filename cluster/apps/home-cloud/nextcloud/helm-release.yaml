@@ -88,8 +88,10 @@ spec:
             'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
           );
       extraEnv:
-        OVERWRITECLIURL: *host
-        OVERWRITEHOST: *host
+        - name: OVERWRITECLIURL
+          value: *host
+        - name: OVERWRITEHOST
+          value: *host
     cronjob:
       enabled: true
       curlInsecure: true
