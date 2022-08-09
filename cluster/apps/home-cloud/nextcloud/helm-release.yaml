@@ -80,12 +80,6 @@ spec:
             ),
             'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
           );
-        memcache.config.php: |-
-          <?php
-          $CONFIG = array (
-            'memcache.locking' => '\\OC\\Memcache\\Redis',
-            'memcache.distributed' => '\\OC\\Memcache\\Redis',
-          );
     cronjob:
       enabled: true
       image:
