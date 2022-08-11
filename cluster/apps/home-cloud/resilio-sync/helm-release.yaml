@@ -58,7 +58,7 @@ spec:
       sync:
         enabled: true
         type: pvc
-        existingClaim: resilio-data-v1
+        existingClaim: resilio-sync-v1
     resources:
       # requests:
       #   memory: 400Mi
