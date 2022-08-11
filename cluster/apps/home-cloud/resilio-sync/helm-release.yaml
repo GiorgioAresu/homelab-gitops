@@ -55,7 +55,7 @@ spec:
       #   type: pvc
       #   existingClaim: resilio-downloads-v1
       # -- Sync folders root.
-      data:
+      sync:
         enabled: true
         type: pvc
         existingClaim: resilio-data-v1
