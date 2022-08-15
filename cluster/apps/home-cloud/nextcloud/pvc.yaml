@@ -8,7 +8,7 @@ metadata:
     helm.sh/resource-policy: "keep"
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 40Gi
@@ -18,7 +18,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nextcloud-db-0
+  name: nextcloud-config-v1
   namespace: home-cloud
   annotations:
     helm.sh/resource-policy: "keep"
