@@ -11,3 +11,5 @@ spec:
     - port: 443
       targetPort: https
       name: https
+  type: LoadBalancer
+  loadBalancerIP: ${SVC_NEXTCLOUD_ADDR}
