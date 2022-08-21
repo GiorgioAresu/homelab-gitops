@@ -28,7 +28,7 @@ spec:
                     operator: Exists
       containers:
         - name: apcupsd
-          image: bgulla/apcupsd-tcp
+          image: bgulla/apcupsd
           resources:
             limits:
               cpu: 100m
