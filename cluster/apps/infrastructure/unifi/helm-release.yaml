@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: jacobalberty/unifi
-      tag: v7.2.92
+      tag: v7.2.94
       pullPolicy: IfNotPresent
     env:
       TZ: "${TIMEZONE}"
