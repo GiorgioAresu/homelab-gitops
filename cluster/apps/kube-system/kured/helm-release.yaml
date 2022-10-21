@@ -11,12 +11,12 @@ spec:
       version: 3.0.1
       sourceRef:
         kind: HelmRepository
-        name: kured
+        name: kubereboot
         namespace: flux-system
   interval: 5m0s
   values:
     image:
-      repository: weaveworks/kured
+      repository: ghcr.io/kubereboot/kured
     configuration:
       timeZone: "${TIMEZONE}"
       startTime: "10pm"

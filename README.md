@@ -35,7 +35,7 @@ Cloud native distributed block storage for Kubernetes.
 Allow offloading to Intel GPU for transcoding and such.
 
 
-### [Kured](https://github.com/weaveworks/kured)
+### [Kured](https://github.com/kubereboot/kured)
 
 Safely reboot nodes when required by system updates.
 
