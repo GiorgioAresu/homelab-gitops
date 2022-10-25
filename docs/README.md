@@ -10,11 +10,8 @@ Then initialize the cluster with [k3s-ansible](https://github.com/k3s-io/k3s-ans
 In the inventory group vars, set:
 
 ```
-extra_server_args: "--disable traefik --disable servicelb --disable metrics-server --kube-apiserver-arg feature-gates=\"MixedProtocolLBService=true\""
+extra_server_args: "--disable traefik --disable servicelb --disable metrics-server"
 ```
-
-We need `MixedProtocolLBService=true` to enable the same LoadBalancer service to use multiple protocols.
-[See docs for more info](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/).
 
 ### Hostname
 
