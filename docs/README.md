@@ -13,6 +13,7 @@ In the inventory group vars, set:
 extra_server_args: "--disable traefik --disable servicelb --disable metrics-server"
 ```
 
+
 ### Hostname
 
 Node names (and hostnames) follow this rule:
