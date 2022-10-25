@@ -70,7 +70,7 @@ spec:
         memory: 0.5G
       limits:
         # cpu: 500m
-        memory: 1G
+        memory: 1.5G
     probes:
       liveness:
         spec:

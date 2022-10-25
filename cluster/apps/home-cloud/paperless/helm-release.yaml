@@ -64,10 +64,10 @@ spec:
         existingClaim: paperless-export-v1
     resources:
       requests:
-        memory: 400Mi
+        memory: 0.5Gi
         cpu: 100m
       limits:
-        memory: 1Gi
+        memory: 2Gi
     probes:
       liveness:
         spec:
