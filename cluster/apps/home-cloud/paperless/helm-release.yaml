@@ -24,14 +24,6 @@ spec:
       PAPERLESS_REDIS: redis://paperless-redis-master:6379
       PAPERLESS_OCR_LANGUAGE: ita+eng
       PAPERLESS_TIME_ZONE: "${TIMEZONE}"
-    service:
-      main:
-        enabled: true
-        type: LoadBalancer
-        loadBalancerIP: "${SVC_PAPERLESS_ADDR}"
-        ports:
-          http:
-            port: 8000
     ingress:
       main:
         enabled: true
