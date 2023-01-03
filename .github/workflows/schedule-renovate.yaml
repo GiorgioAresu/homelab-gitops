@@ -34,7 +34,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Verify Renovate Configuration
-        uses: tj-actions/renovate-config-validator@v1.3
+        uses: tj-actions/renovate-config-validator@v2.0
         with:
           config-file: "${{ env.RENOVATE_CONFIG_FILE }}"
       - name: Override default config from dispatch variables
