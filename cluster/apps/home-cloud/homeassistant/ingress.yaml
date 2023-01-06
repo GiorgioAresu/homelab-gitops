@@ -1,0 +1,23 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: homeassistant
+  namespace: home-cloud
+  labels:
+    name: homeassistant
+spec:
+  rules:
+  - host: &host "homeassistant.${SECRET_DOMAIN}"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: homeassistant
+            port: 
+              name: http
+  tls:
+    - hosts:
+        - *host
