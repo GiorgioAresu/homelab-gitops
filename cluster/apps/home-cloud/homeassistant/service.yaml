@@ -5,8 +5,6 @@ metadata:
   name: homeassistant
   namespace: home-cloud
 spec:
-  externalIPs:
-    - "${HOMEASSISTANT_ADDR}"
   ports:
   - name: http
     port: 8123

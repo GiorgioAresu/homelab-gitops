@@ -1,0 +1,16 @@
+---
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: homeassistant
+  namespace: home-cloud
+  labels:
+    kubernetes.io/service-name: homeassistant
+addressType: IPv4
+ports:
+  - name: http
+    protocol: TCP
+    port: 8123
+endpoints:
+  - addresses:
+      - "${HOMEASSISTANT_ADDR}"
