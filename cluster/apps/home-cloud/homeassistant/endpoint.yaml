@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: homeassistant
+  namespace: home-cloud
+  labels:
+    kubernetes.io/service-name: homeassistant
+subsets:
+  - addresses:
+      - ip: "${HOMEASSISTANT_ADDR}"
+    ports:
+      - name: http
+        protocol: TCP
+        port: 8123
