@@ -41,5 +41,6 @@ spec:
       concurrentReplicaRebuildPerNodeLimit: 2
       defaultReplicaCount: 2
       orphanAutoDeletion: "true"
+      nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
     annotations:
       configmap.reloader.stakater.com/reload: longhorn-default-setting
