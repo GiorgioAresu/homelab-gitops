@@ -40,3 +40,9 @@ spec:
     service:
       externalIPs:
         - "${SVC_TRAEFIK_ADDR}"
+    ingressRoute:
+      dashboard:
+        enabled: true
+    ports:
+      traefik:
+        espose: true
