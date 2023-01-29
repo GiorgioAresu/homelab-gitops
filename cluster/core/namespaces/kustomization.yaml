@@ -10,3 +10,4 @@ resources:
   - monitoring.yaml
   - networking.yaml
   - storage-system.yaml
+  - traefik.yaml

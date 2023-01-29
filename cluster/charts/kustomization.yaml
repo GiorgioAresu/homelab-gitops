@@ -21,4 +21,5 @@ resources:
   - node-feature-discovery-charts.yaml
   - prometheus-community-charts.yaml
   - stakater-charts.yaml
+  - traefik-charts.yaml
   - utkuozdemir-charts.yaml
