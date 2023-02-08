@@ -43,3 +43,10 @@ spec:
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
     annotations:
       configmap.reloader.stakater.com/reload: longhorn-default-setting
+    # Remove when back to multinode
+    longhornUI:
+      replicas: 1
+    longhornConversionWebhook:
+      replicas: 1
+    longhornAdmissionWebhook:
+      replicas: 1
