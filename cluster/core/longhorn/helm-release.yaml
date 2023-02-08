@@ -50,3 +50,5 @@ spec:
       replicas: 1
     longhornAdmissionWebhook:
       replicas: 1
+    longhornRecoveryBackend:
+      replicas: 1
