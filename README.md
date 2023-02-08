@@ -85,14 +85,13 @@ The main idea was to have a cheap yet reliable cluster to:
 
 The desiderata was for it to be as self-contained as possible to allow the main storage server to be shut down if needed (to save power and keep noise down). A small number of applications will still rely on it, be it due to the larger available size or for data accessibility and reliability reasons.
 
-The end result is currently an *arm64* and *amd64* hybrid cluster, with every node running Ubuntu Server 20.04 LTS (or similar distro).
+The end result is currently an *arm64* and *amd64* hybrid cluster, with every node running Ubuntu Server 22.04 LTS (or similar distro).
 The initial plan was a pure *arm64* cluster, but the unused NUC proved useful for some *amd64*-only images and for specific workloads, such as hardware-accelerated video transcoding.
 
-|       Device       |   Disk Size   | Ram |           Purpose          |
-|:------------------:|:-------------:|:---:|:--------------------------:|
-| Raspberry PI 4     | 128GB MicroSD | 8GB | k3s Master (embedded etcd) |
-| Raspberry PI 4     | 128GB MicroSD | 8GB | k3s Worker                 |
-| Intel NUC DC3217BY | 240GB SSD     | 8GB | k3s Worker                 |
+| # |       Device       |   Disk Size   | Ram |           Purpose          |
+|:---:|:------------------:|:-------------:|:---:|:--------------------------:|
+| 1x | Intel NUC DC3217BY | 240GB SSD     | 8GB | k3s Master (embedded etcd) |
+| 2x | Raspberry PI 4     | 128GB MicroSD | 8GB | k3s Worker                 |
 
 See [setup](docs/README.md) for more info and scripts.
 

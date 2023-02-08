@@ -2,7 +2,7 @@
 
 ## Node setup
 
-Install Ubuntu Server 20.04 LTS on each node. See [Hostname](#Hostname).
+Install Ubuntu Server 22.04 LTS on each node.
 Static IPs or DHCP static mapping, your choice.
 
 Then initialize the cluster with [k3s-ansible](https://github.com/k3s-io/k3s-ansible).
@@ -12,24 +12,6 @@ In the inventory group vars, set:
 ```
 extra_server_args: "--disable traefik --disable servicelb --disable metrics-server"
 ```
-
-
-### Hostname
-
-Node names (and hostnames) follow this rule:
-
-kube-*{role}*-*{id}*
-
-where:
-
-- **role**: either master or worker
-- **id**: identifier for the hardware (or hypervisor) it is running on:
-  - **name**: if the name is unique, you can just use that, ie: *nuc*.
-  - **name-number**: when there are multiple similar nodes, use a letter (or name) and a progressive number.
-
-eg. The second Raspberry worker node could be called *kube-worker-r2*.
-
-> :warning: If you're changing it manually after install, remember to also check /etc/hosts.
 
 
 ### Additional steps
