@@ -35,12 +35,14 @@ spec:
       resizerReplicaCount: 1
       snapshotterReplicaCount: 1
     defaultSettings:
+      allowNodeDrainWithLastHealthyReplica: true
       backupTarget: s3://longhorn@eu/backups
       backupTargetCredentialSecret: minio-secret
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
       defaultReplicaCount: 1
       orphanAutoDeletion: "true"
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
+      restoreVolumeRecurringJobs: true
     annotations:
       configmap.reloader.stakater.com/reload: longhorn-default-setting
     # Remove when back to multinode
