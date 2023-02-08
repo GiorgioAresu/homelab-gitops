@@ -27,19 +27,19 @@ spec:
       path: /
       tlsSecret: "networking/${SECRET_DOMAIN//./-}-tls"
     persistence:
-      defaultClassReplicaCount: 2
+      defaultClassReplicaCount: 1
       reclaimPolicy: Retain
     csi:
-      attacherReplicaCount: 2
-      provisionerReplicaCount: 2
-      resizerReplicaCount: 2
-      snapshotterReplicaCount: 2
+      attacherReplicaCount: 1
+      provisionerReplicaCount: 1
+      resizerReplicaCount: 1
+      snapshotterReplicaCount: 1
     defaultSettings:
       backupTarget: s3://longhorn@eu/backups
       backupTargetCredentialSecret: minio-secret
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
       concurrentReplicaRebuildPerNodeLimit: 2
-      defaultReplicaCount: 2
+      defaultReplicaCount: 1
       orphanAutoDeletion: "true"
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
     annotations:
