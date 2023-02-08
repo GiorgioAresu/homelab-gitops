@@ -38,7 +38,6 @@ spec:
       backupTarget: s3://longhorn@eu/backups
       backupTargetCredentialSecret: minio-secret
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
-      concurrentReplicaRebuildPerNodeLimit: 2
       defaultReplicaCount: 1
       orphanAutoDeletion: "true"
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
