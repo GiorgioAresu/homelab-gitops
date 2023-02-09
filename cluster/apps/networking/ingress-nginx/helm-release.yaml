@@ -5,6 +5,9 @@ metadata:
   name: ingress-nginx
   namespace: networking
 spec:
+  chart:
+    spec:
+      chart: ingress-nginx
   interval: 5m0s
   values:
     tcp:
