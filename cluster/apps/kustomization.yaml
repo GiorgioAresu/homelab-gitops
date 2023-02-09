@@ -10,6 +10,5 @@ resources:
   - media
   - metallb-system
   - monitoring
-  - networking
   - system-upgrade
   # - traefik
