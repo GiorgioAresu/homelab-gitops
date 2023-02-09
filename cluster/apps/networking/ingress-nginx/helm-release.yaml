@@ -8,6 +8,10 @@ spec:
   chart:
     spec:
       chart: ingress-nginx
+      sourceRef:
+        kind: HelmRepository
+        name: ingress-nginx
+        namespace: flux-system
   interval: 5m0s
   values:
     tcp:
