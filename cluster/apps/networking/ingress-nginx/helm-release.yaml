@@ -5,6 +5,7 @@ metadata:
   name: ingress-nginx
   namespace: networking
 spec:
+  interval: 5m0s
   values:
     tcp:
       "6789": "infrastructure/unifi:6789"
