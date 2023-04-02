@@ -17,7 +17,7 @@ extra_server_args: "--disable traefik --disable servicelb --disable metrics-serv
 ### Additional steps
 
 ```shell
-ansible -i inventory/my-cluster/hosts.ini k3s_cluster -m apt -a "pkg=curl,nfs-common" --become
+ansible -i inventory/my-cluster/hosts.ini k3s_cluster -m apt -a "pkg=curl,nfs-common,open-iscsi" --become
 ```
 
 
