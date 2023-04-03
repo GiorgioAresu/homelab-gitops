@@ -14,3 +14,13 @@ spec:
       storage: 2Gi
   storageClassName: longhorn-static
   volumeMode: Filesystem
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: readarr-downloads
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeName: pv-downloads
+  storageClassName: smb

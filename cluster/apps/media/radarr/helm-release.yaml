@@ -54,7 +54,7 @@ spec:
         enabled: true
         mountPath: /downloads
         type: pvc
-        existingClaim: downloads
+        existingClaim: radarr-downloads
         subPath: complete/movies
     podSecurityContext:
       runAsUser: 568
