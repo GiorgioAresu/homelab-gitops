@@ -19,6 +19,9 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: sonarr-downloads
+  namespace: media
+  annotations:
+    helm.sh/resource-policy: "keep"
 spec:
   accessModes:
     - ReadWriteMany
