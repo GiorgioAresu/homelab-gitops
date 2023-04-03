@@ -25,5 +25,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi
   volumeName: pv-downloads
   storageClassName: smb
