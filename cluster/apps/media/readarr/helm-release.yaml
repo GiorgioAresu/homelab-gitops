@@ -55,7 +55,6 @@ spec:
         mountPath: /downloads
         type: pvc
         existingClaim: readarr-downloads
-        subPath: complete/books
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 1003

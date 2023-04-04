@@ -4,7 +4,7 @@ kind: PersistentVolume
 metadata:
   annotations:
     pv.kubernetes.io/provisioned-by: smb.csi.k8s.io
-  name: downloads
+  name: radarr-downloads
 spec:
   accessModes:
     - ReadWriteMany
@@ -27,6 +27,6 @@ spec:
     readOnly: false
     # volumeHandle format: {smb-server-address}#{sub-dir-name}#{share-name}
     # make sure this value is unique for every share in the cluster
-    volumeHandle: "${TRUENAS_ADDR}##downloads"
+    volumeHandle: "${TRUENAS_ADDR}#downloads#complete/movies"
     volumeAttributes:
-      source: "//${TRUENAS_ADDR}/downloads"
+      source: "//${TRUENAS_ADDR}/downloads/complete/movies"

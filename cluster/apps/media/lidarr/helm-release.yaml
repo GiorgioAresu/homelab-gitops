@@ -55,7 +55,6 @@ spec:
         mountPath: /downloads
         type: pvc
         existingClaim: lidarr-downloads
-        subPath: complete/music
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 1003

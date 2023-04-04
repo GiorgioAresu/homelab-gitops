@@ -14,19 +14,3 @@ spec:
       storage: 2Gi
   storageClassName: longhorn-static
   volumeMode: Filesystem
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: lidarr-downloads
-  namespace: media
-  annotations:
-    helm.sh/resource-policy: "keep"
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 100Gi
-  volumeName: "downloads"
-  storageClassName: smb

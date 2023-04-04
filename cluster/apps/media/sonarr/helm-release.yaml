@@ -59,7 +59,6 @@ spec:
         mountPath: /downloads
         type: pvc
         existingClaim: sonarr-downloads
-        subPath: complete/tv
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 1003
