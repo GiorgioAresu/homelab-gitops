@@ -53,11 +53,8 @@ spec:
       downloads:
         enabled: true
         mountPath: /downloads
-        type: custom
-        volumeSpec:
-          nfs:
-            path: "/mnt/tank/downloads"
-            server: "${TRUENAS_ADDR}"
+        type: pvc
+        existingClaim: radarr-downloads
         subPath: complete/movies
     podSecurityContext:
       runAsUser: 568
