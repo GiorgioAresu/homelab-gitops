@@ -28,5 +28,5 @@ spec:
   resources:
     requests:
       storage: 100Gi
-  volumeName: "${TRUENAS_ADDR}##downloads"
+  volumeName: "downloads"
   storageClassName: smb
