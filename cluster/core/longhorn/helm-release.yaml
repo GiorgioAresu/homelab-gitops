@@ -27,30 +27,22 @@ spec:
       path: /
       tlsSecret: "networking/${SECRET_DOMAIN//./-}-tls"
     persistence:
-      defaultClassReplicaCount: 1
+      defaultClassReplicaCount: 2
       reclaimPolicy: Retain
     csi:
-      attacherReplicaCount: 1
-      provisionerReplicaCount: 1
-      resizerReplicaCount: 1
-      snapshotterReplicaCount: 1
+      attacherReplicaCount: 2
+      provisionerReplicaCount: 2
+      resizerReplicaCount: 2
+      snapshotterReplicaCount: 2
     defaultSettings:
-      allowNodeDrainWithLastHealthyReplica: true
+      # allowNodeDrainWithLastHealthyReplica: true
       backupTarget: s3://longhorn@eu/backups
       backupTargetCredentialSecret: minio-secret
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
-      defaultReplicaCount: 1
+      concurrentReplicaRebuildPerNodeLimit: 2
+      defaultReplicaCount: 2
       orphanAutoDeletion: "true"
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
       restoreVolumeRecurringJobs: true
     annotations:
       configmap.reloader.stakater.com/reload: longhorn-default-setting
-    # Remove when back to multinode
-    longhornUI:
-      replicas: 1
-    longhornConversionWebhook:
-      replicas: 1
-    longhornAdmissionWebhook:
-      replicas: 1
-    longhornRecoveryBackend:
-      replicas: 1
