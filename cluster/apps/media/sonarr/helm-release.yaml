@@ -55,9 +55,9 @@ spec:
     persistence:
       config:
         enabled: true
+        mountPath: /config
         type: pvc
         existingClaim: sonarr-config-v1
-        mountPath: /config
       tv:
         enabled: true
         mountPath: /tv

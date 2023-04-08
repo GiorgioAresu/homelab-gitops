@@ -51,9 +51,9 @@ spec:
     persistence:
       config:
         enabled: true
+        mountPath: /config
         type: pvc
         existingClaim: bazarr-config-v1
-        mountPath: /config
       media:
         enabled: true
         mountPath: /media

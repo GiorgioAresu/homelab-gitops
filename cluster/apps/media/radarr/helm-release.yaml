@@ -51,9 +51,9 @@ spec:
     persistence:
       config:
         enabled: true
+        mountPath: /config
         type: pvc
         existingClaim: radarr-config-v1
-        mountPath: /config
       movies:
         enabled: true
         mountPath: /movies

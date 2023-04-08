@@ -68,9 +68,9 @@ spec:
     persistence:
       data:
         enabled: true
+        mountPath: /config
         type: pvc
         existingClaim: syncthing-config-v1
-        mountPath: /config
     resources:
       requests:
         memory: 100Mi
