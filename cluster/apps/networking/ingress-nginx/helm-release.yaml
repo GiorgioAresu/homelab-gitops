@@ -15,12 +15,13 @@ spec:
   interval: 5m0s
   values:
     tcp:
+      "5514": "infrastructure/unifi:syslog"
       "6789": "infrastructure/unifi:mobile-test"
       "8080": "infrastructure/unifi:device-comms"
       "32400": "media/plex:32400"
     udp:
+      "1900": "infrastructure/unifi:l2-discovery"
       "3478": "infrastructure/unifi:stun"
-      "5514": "infrastructure/unifi:syslog"
       "10001": "infrastructure/unifi:ap-discovery"
       "32410": "media/plex:32410"
       "32412": "media/plex:32412"
@@ -32,6 +33,7 @@ spec:
       plex-32412: 32412
       plex-32413: 32413
       plex-32414: 32414
+      unifi-1900: 1900
       unifi-3478: 3478
       unifi-5514: 5514
       unifi-6789: 6789
