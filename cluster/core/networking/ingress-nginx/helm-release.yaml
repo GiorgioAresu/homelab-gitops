@@ -84,3 +84,15 @@ spec:
       extraEnvs:
         - name: ERROR_FILES_PATH
           value: ./themes/ghost
+    containerPort:
+      plex-32400: 32400
+      plex-32410: 32410
+      plex-32412: 32412
+      plex-32413: 32413
+      plex-32414: 32414
+      unifi-1900: 1900
+      unifi-3478: 3478
+      unifi-5514: 5514
+      unifi-6789: 6789
+      unifi-8080: 8080
+      unifi-10001: 10001

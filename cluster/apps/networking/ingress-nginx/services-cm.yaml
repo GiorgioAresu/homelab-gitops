@@ -1,0 +1,26 @@
+# Remember to add them also to cluster/core/networking/ingress-nginx/helm-release.yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-nginx-tcp
+  namespace: networking
+data:
+  "5514": "infrastructure/unifi:syslog"
+  "6789": "infrastructure/unifi:mobile-test"
+  "8080": "infrastructure/unifi:device-comms"
+  "32400": "media/plex:32400"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-nginx-udp
+  namespace: networking
+data:
+  "1900": "infrastructure/unifi:l2-discovery"
+  "3478": "infrastructure/unifi:stun"
+  "10001": "infrastructure/unifi:ap-discovery"
+  "32410": "media/plex:32410"
+  "32412": "media/plex:32412"
+  "32413": "media/plex:32413"
+  "32414": "media/plex:32414"
