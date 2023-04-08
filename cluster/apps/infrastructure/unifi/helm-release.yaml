@@ -25,7 +25,7 @@ spec:
       TZ: "${TIMEZONE}"
       PUID: 999
       PGID: 999
-      MEM_LIMIT: 250M
+      MEM_LIMIT: "250"
     service:
       main:
         ports:
