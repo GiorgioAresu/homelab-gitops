@@ -40,11 +40,11 @@ spec:
             enabled: false
             port: 8843
             protocol: HTTPS
-          device-communication:
+          device-comms:
             enabled: true
             port: 8080
             protocol: TCP
-          mobile-throughput:
+          mobile-test:
             enabled: true
             port: 6789
             protocol: TCP
