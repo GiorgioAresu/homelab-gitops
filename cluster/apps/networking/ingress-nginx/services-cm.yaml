@@ -1,4 +1,4 @@
-# Remember to add them also to cluster/core/networking/ingress-nginx/helm-release.yaml
+# Remember to add them also to controller.containerPort in cluster/core/networking/ingress-nginx/helm-release.yaml
 ---
 apiVersion: v1
 kind: ConfigMap
