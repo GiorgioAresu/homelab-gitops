@@ -32,19 +32,19 @@ spec:
           http:
             port: 8443
             protocol: HTTPS
-          guestHttp:
+          guest-http:
             enabled: false
             port: 8880
             protocol: HTTP
-          guestHttps:
+          guest-https:
             enabled: false
             port: 8843
             protocol: HTTPS
-          deviceCommunication:
+          device-communication:
             enabled: true
             port: 8080
             protocol: TCP
-          mobileThroughput:
+          mobile-throughput:
             enabled: true
             port: 6789
             protocol: TCP
@@ -56,11 +56,11 @@ spec:
             enabled: true
             port: 3478
             protocol: UDP
-          l2Discovery:
+          l2-discovery:
             enabled: true
             port: 1900
             protocol: UDP
-          apDiscovery:
+          ap-discovery:
             enabled: true
             port: 10001
             protocol: UDP
