@@ -7,30 +7,13 @@ metadata:
 spec:
   chart:
     spec:
-      chart: intel-gpu-plugin
-      version: 4.4.2
+      chart: gpu-device-plugin
+      version: 0.26.0
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home
+        name: intel
         namespace: flux-system
   interval: 5m0s
   dependsOn:
     - name: node-feature-discovery
       namespace: kube-system
-  values:
-    image:
-      repository: intel/intel-gpu-plugin
-      tag: 0.26.0
-      pullPolicy: IfNotPresent
-    # args:
-    #   - -shared-dev-num
-    #   - "2"
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: feature.node.kubernetes.io/custom-intel-gpu
-                  operator: In
-                  values:
-                    - "true"

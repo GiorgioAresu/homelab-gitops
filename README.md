@@ -30,7 +30,7 @@ Evicts pods based on different configurable policies.
 Cloud native distributed block storage for Kubernetes.
 
 
-### [Intel GPU Plugin](https://artifacthub.io/packages/helm/k8s-at-home/intel-gpu-plugin)
+### [Intel GPU Device Plugin](https://artifacthub.io/packages/helm/intel/intel-device-plugins-gpu)
 
 Allow offloading to Intel GPU for transcoding and such.
 
