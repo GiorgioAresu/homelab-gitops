@@ -16,12 +16,12 @@
         "patch"
       ],
       "matchPackageNames": [
-        "ghcr.io/k8s-at-home/bazarr",
-        "ghcr.io/k8s-at-home/lidarr",
-        "ghcr.io/k8s-at-home/prowlarr",
-        "ghcr.io/k8s-at-home/radarr",
-        "ghcr.io/k8s-at-home/readarr",
-        "ghcr.io/k8s-at-home/sonarr",
+        "lscr.io/linuxserver/bazarr",
+        "lscr.io/linuxserver/lidarr",
+        "lscr.io/linuxserver/prowlarr",
+        "lscr.io/linuxserver/radarr",
+        "lscr.io/linuxserver/readarr",
+        "lscr.io/linuxserver/sonarr",
         "renovatebot/github-action"
       ]
     }
