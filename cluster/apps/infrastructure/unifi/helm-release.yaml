@@ -7,21 +7,63 @@ metadata:
 spec:
   chart:
     spec:
-      chart: unifi
-      version: 5.1.2
+      chart: app-template
+      version: 1.3.2
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home
+        name: bjw-s
         namespace: flux-system
   interval: 5m0s
   values:
     image:
-      repository: jacobalberty/unifi
-      tag: v7.3.83
+      repository: lscr.io/linuxserver/unifi-controller
+      tag: 7.3.83
       pullPolicy: IfNotPresent
+    strategy:
+      type: Recreate
     env:
       TZ: "${TIMEZONE}"
-      JVM_MAX_HEAP_SIZE: 250M
+      PUID: 999
+      PGID: 999
+      MEM_LIMIT: 250M
+    service:
+      main:
+        ports:
+          http:
+            port: 8443
+            protocol: HTTPS
+          guestHttp:
+            enabled: false
+            port: 8880
+            protocol: HTTP
+          guestHttps:
+            enabled: false
+            port: 8843
+            protocol: HTTPS
+          deviceCommunication:
+            enabled: true
+            port: 8080
+            protocol: TCP
+          mobileThroughput:
+            enabled: true
+            port: 6789
+            protocol: TCP
+          syslog:
+            enabled: true
+            port: 5514
+            protocol: TCP
+          stun:
+            enabled: true
+            port: 3478
+            protocol: UDP
+          l2Discovery:
+            enabled: true
+            port: 1900
+            protocol: UDP
+          apDiscovery:
+            enabled: true
+            port: 10001
+            protocol: UDP
     ingress:
       main:
         enabled: true
@@ -34,6 +76,8 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+                service:
+                  port: http
         tls:
           - hosts:
               - *host
@@ -42,6 +86,7 @@ spec:
         enabled: true
         type: pvc
         existingClaim: unifi-config-v1
+        mountPath: /config
     resources:
       requests:
         cpu: 475m

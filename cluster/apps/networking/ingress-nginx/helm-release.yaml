@@ -15,13 +15,13 @@ spec:
   interval: 5m0s
   values:
     tcp:
-      "6789": "infrastructure/unifi:6789"
-      "8080": "infrastructure/unifi:8080"
+      "6789": "infrastructure/unifi:mobileThroughput"
+      "8080": "infrastructure/unifi:deviceCommunication"
       "32400": "media/plex:32400"
     udp:
-      "3478": "infrastructure/unifi:3478"
-      "5514": "infrastructure/unifi:5514"
-      "10001": "infrastructure/unifi:10001"
+      "3478": "infrastructure/unifi:stun"
+      "5514": "infrastructure/unifi:syslog"
+      "10001": "infrastructure/unifi:apDiscovery"
       "32410": "media/plex:32410"
       "32412": "media/plex:32412"
       "32413": "media/plex:32413"
