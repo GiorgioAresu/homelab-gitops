@@ -7,6 +7,5 @@ resources:
   - longhorn
   - metallb
   - namespaces
-  - networking
   - nfs-subdir-external-provisioner
   - system-upgrade
