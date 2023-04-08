@@ -26,3 +26,14 @@ spec:
       "32412": "media/plex:32412"
       "32413": "media/plex:32413"
       "32414": "media/plex:32414"
+    containerPort:
+      plex-32400: 32400
+      plex-32410: 32410
+      plex-32412: 32412
+      plex-32413: 32413
+      plex-32414: 32414
+      unifi-3478: 3478
+      unifi-5514: 5514
+      unifi-6789: 6789
+      unifi-8080: 8080
+      unifi-10001: 10001
