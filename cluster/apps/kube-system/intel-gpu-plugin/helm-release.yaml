@@ -30,6 +30,15 @@ spec:
     args:
       - -shared-dev-num
       - "1"
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: feature.node.kubernetes.io/custom-intel-gpu
+                  operator: In
+                  values:
+                    - "true"
     envValueFrom:
       # -- Sets the NODE_NAME env var to the name of the node where the pod is running. Do not modify unless you know what you are doing.
       NODE_NAME:
