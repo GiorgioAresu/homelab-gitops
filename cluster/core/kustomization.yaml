@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - csi-driver-smb
   - csi-driver-nfs
+  - kubernetes-dashboard
   - longhorn
   - metallb
   - namespaces
