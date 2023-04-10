@@ -38,9 +38,9 @@ spec:
         plex-32412: 32412
         plex-32413: 32413
         plex-32414: 32414
-        syncthing-discovery: 21027
-        syncthing-listen-tcp: 22000
-        syncthing-listen-udp: 22000
+        syncthing-disc: 21027
+        syncthing-tcp: 22000
+        syncthing-udp: 22000
         unifi-1900: 1900
         unifi-3478: 3478
         unifi-5514: 5514
