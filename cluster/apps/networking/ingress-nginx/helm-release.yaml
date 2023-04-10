@@ -19,18 +19,18 @@ spec:
       "5514": "infrastructure/unifi:syslog"
       "6789": "infrastructure/unifi:mobile-test"
       "8080": "infrastructure/unifi:device-comms"
-      "32400": "media/plex:32400"
       "22000": "home-cloud/syncthing:listen-tcp"
+      "32400": "media/plex:32400"
     udp:
       "1900": "infrastructure/unifi:l2-discovery"
       "3478": "infrastructure/unifi:stun"
       "10001": "infrastructure/unifi:ap-discovery"
+      "21027": "home-cloud/syncthing:discovery"
+      "22000": "home-cloud/syncthing:listen-udp"
       "32410": "media/plex:32410"
       "32412": "media/plex:32412"
       "32413": "media/plex:32413"
       "32414": "media/plex:32414"
-      "21027": "home-cloud/syncthing:discovery"
-      "22000": "home-cloud/syncthing:listen-udp"
     controller:
       containerPort:
         plex-32400: 32400
