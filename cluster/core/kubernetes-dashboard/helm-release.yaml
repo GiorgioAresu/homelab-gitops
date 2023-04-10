@@ -28,7 +28,7 @@ spec:
       tls:
         - hosts:
             - *host
-    additionalManifests:
+    extraManifests:
       - apiVersion: v1
         kind: ServiceAccount
         metadata:
