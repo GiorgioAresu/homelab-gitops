@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - home-cloud.yaml
   - infrastructure.yaml
+  - kubernetes-dashboard.yaml
   - longhorn-system.yaml
   - media.yaml
   - metallb-system.yaml
