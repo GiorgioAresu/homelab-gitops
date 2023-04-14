@@ -41,10 +41,11 @@ spec:
         loadBalancerIP: ${SVC_NGINX_2_ADDR}
       publishService:
         enabled: true
-      ingressClass: nginx-2
+      electionID: nginx-2-controller-leader
       ingressClassResource:
         default: false
         name: nginx-2
+        controllerValue: "k8s.io/ingress-nginx-2" # Comment this for default ingress
       config:
         client-header-timeout: 120
         client-body-buffer-size: "100M"
