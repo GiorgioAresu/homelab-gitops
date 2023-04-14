@@ -31,13 +31,10 @@ spec:
         ports:
           http:
             port: 32400
+            protocol: HTTP
             enabled: true
           dlna:
             port: 1900
-            protocol: UDP
-            enabled: true
-          avahi:
-            port: 5353
             protocol: UDP
             enabled: true
           gdm-discovery-1:
@@ -55,6 +52,10 @@ spec:
           gdm-discovery-4:
             port: 32414
             protocol: UDP
+            enabled: true
+          dlna-plex:
+            port: 32469
+            protocol: TCP
             enabled: true
     ingress:
       main:

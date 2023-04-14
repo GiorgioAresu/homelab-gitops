@@ -17,9 +17,9 @@ spec:
   values:
     tcp:
       "32400": "media/plex:http"
+      "32469": "media/plex:dlna-plex"
     udp:
       "1900": "media/plex:dlna"
-      "5353": "media/plex:avahi"
       "32410": "media/plex:gdm-discovery-1"
       "32412": "media/plex:gdm-discovery-2"
       "32413": "media/plex:gdm-discovery-3"
@@ -27,7 +27,7 @@ spec:
     controller:
       containerPort:
         plex-1900: 1900
-        plex-5353: 5353
+        plex-32469: 32469
         plex-32400: 32400
         plex-32410: 32410
         plex-32412: 32412
