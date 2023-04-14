@@ -42,6 +42,7 @@ spec:
       publishService:
         enabled: true
       electionID: nginx-2-controller-leader
+      ingressClass: nginx-2
       ingressClassResource:
         default: false
         name: nginx-2
