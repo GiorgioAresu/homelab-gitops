@@ -74,7 +74,7 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "nginx"
+        ingressClassName: "nginx-1"
         hosts:
           - "alert-manager.${SECRET_DOMAIN}"
         tls:
@@ -106,7 +106,7 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "nginx"
+        ingressClassName: "nginx-1"
         hosts:
           - "grafana.${SECRET_DOMAIN}"
         tls:
@@ -142,7 +142,7 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "nginx"
+        ingressClassName: "nginx-1"
         hosts:
           - "prometheus.${SECRET_DOMAIN}"
         tls:

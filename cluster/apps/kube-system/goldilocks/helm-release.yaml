@@ -31,7 +31,7 @@ spec:
         kubernetes.io/arch: amd64
       ingress:
         enabled: true
-        ingressClassName: "nginx"
+        ingressClassName: "nginx-1"
         hosts:
           - host: &host "goldilocks.${SECRET_DOMAIN}"
             paths:

@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: ingress-nginx
+  name: ingress-nginx-2
   namespace: networking
 spec:
   chart:
@@ -16,47 +16,34 @@ spec:
   interval: 5m0s
   values:
     tcp:
-      "5514": "infrastructure/unifi:syslog"
-      "6789": "infrastructure/unifi:mobile-test"
-      "8080": "infrastructure/unifi:device-comms"
-      "22000": "home-cloud/syncthing:listen-tcp"
-      "32400": "media/plex:32400"
+      "32400": "media/plex:http"
     udp:
-      "1900": "infrastructure/unifi:l2-discovery"
-      "3478": "infrastructure/unifi:stun"
-      "10001": "infrastructure/unifi:ap-discovery"
-      "21027": "home-cloud/syncthing:discovery"
-      "22000": "home-cloud/syncthing:listen-udp"
-      "32410": "media/plex:32410"
-      "32412": "media/plex:32412"
-      "32413": "media/plex:32413"
-      "32414": "media/plex:32414"
+      "1900": "media/plex:dlna"
+      "5353": "media/plex:avahi"
+      "32410": "media/plex:gdm-discovery-1"
+      "32412": "media/plex:gdm-discovery-2"
+      "32413": "media/plex:gdm-discovery-3"
+      "32414": "media/plex:gdm-discovery-4"
     controller:
       containerPort:
+        plex-1900: 1900
+        plex-5353: 5353
         plex-32400: 32400
         plex-32410: 32410
         plex-32412: 32412
         plex-32413: 32413
         plex-32414: 32414
-        syncthing-disc: 21027
-        syncthing-tcp: 22000
-        syncthing-udp: 22000
-        unifi-1900: 1900
-        unifi-3478: 3478
-        unifi-5514: 5514
-        unifi-6789: 6789
-        unifi-8080: 8080
-        unifi-10001: 10001
       replicaCount: 1
       extraEnvs:
         - name: TZ
           value: ${TIMEZONE}
       service:
-        loadBalancerIP: ${SVC_NGINX_ADDR}
+        loadBalancerIP: ${SVC_NGINX_2_ADDR}
       publishService:
         enabled: true
       ingressClassResource:
-        default: true
+        default: false
+        name: nginx-2
       config:
         client-header-timeout: 120
         client-body-buffer-size: "100M"

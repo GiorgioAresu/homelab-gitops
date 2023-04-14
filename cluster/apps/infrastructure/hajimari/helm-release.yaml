@@ -62,7 +62,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "nginx"
+        ingressClassName: "nginx-1"
         hosts:
           - host: &host "hajimari.${SECRET_DOMAIN}"
             paths:
