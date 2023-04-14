@@ -19,6 +19,7 @@ spec:
       TZ: ${TIMEZONE}
     ingress:
       enabled: true
+      ingressClassName: "nginx-1"
       annotations:
         hajimari.io/enable: "true"
         hajimari.io/group: "admin"
