@@ -41,6 +41,7 @@ spec:
         loadBalancerIP: ${SVC_NGINX_2_ADDR}
       publishService:
         enabled: true
+      ingressClass: nginx-2
       ingressClassResource:
         default: false
         name: nginx-2
