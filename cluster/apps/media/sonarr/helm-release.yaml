@@ -48,7 +48,7 @@ spec:
               - path: /
                 pathType: Prefix
                 service:
-                  name: http
+                  name: sonarr
         tls:
           - hosts:
               - *host

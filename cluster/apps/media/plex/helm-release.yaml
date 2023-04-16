@@ -73,7 +73,7 @@ spec:
               - path: /
                 pathType: Prefix
                 service:
-                  name: http
+                  name: plex
         tls:
           - hosts:
               - *host

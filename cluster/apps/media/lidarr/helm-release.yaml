@@ -44,7 +44,7 @@ spec:
               - path: /
                 pathType: Prefix
                 service:
-                  name: http
+                  name: lidarr
         tls:
           - hosts:
               - *host
