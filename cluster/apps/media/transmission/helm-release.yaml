@@ -1,0 +1,109 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: transmission
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 1.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  interval: 10m0s
+  values:
+    image:
+      repository: lscr.io/linuxserver/transmission
+      tag: 4.0.3
+      pullPolicy: IfNotPresent
+    strategy:
+      type: Recreate
+    env:
+      TZ: "${TIMEZONE}"
+      PUID: 568
+      PGID: 1003
+      PEERPORT: 51413
+    # initContainers:
+    #   custom-webui:
+    #     name: custom-webui
+    #     image: curlimages/curl:8.00.1
+    #     command:
+    #       - "/bin/sh"
+    #       - "-c"
+    #       - "curl -o- -sL https://github.com/johman10/flood-for-transmission/releases/download/latest/flood-for-transmission.tar.gz | tar xzf - -C /config"
+    #     volumeMounts:
+    #       - name: config
+    #         mountPath: /config
+    #     securityContext:
+    #       runAsUser: 568
+    #       runAsGroup: 568
+    service:
+      main:
+        ports:
+          http:
+            port: 9091
+          utp-tcp:
+            enabled: true
+            port: 51413
+            protocol: TCP
+          utp-udp:
+            enabled: true
+            port: 51413
+            protocol: UDP
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx-2"
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/group: "media"
+          hajimari.io/icon: "cloud-download"
+        hosts:
+          - host: &host "transmission.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  port: http
+        tls:
+          - hosts:
+              - *host
+    persistence:
+      config:
+        enabled: true
+        mountPath: /config
+        type: pvc
+        existingClaim: transmission-config-v1
+      downloads:
+        enabled: true
+        mountPath: /downloads
+        type: nfs
+        server: "${TRUENAS_ADDR}"
+        path: "/mnt/tank/downloads"
+      # watch:
+      #   enabled: true
+      #   mountPath: /watch
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 1003
+      fsGroupChangePolicy: "OnRootMismatch"
+    resources:
+      requests:
+        cpu: 15m
+        memory: 0.5G
+      limits:
+        # cpu: 500m
+        memory: 1G
+    probes:
+      liveness:
+        spec:
+          timeoutSeconds: 2
+      readiness:
+        spec:
+          timeoutSeconds: 2
+      startup:
+        spec:
+          timeoutSeconds: 2
