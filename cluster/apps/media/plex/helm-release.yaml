@@ -62,6 +62,7 @@ spec:
         enabled: true
         ingressClassName: "nginx-2"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-staging"
           hajimari.io/enable: "true"
           hajimari.io/group: "media"
           hajimari.io/icon: "plex"
@@ -76,6 +77,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: plex-tls
     persistence:
       config:
         enabled: true
