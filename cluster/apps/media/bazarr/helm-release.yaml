@@ -43,8 +43,6 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-                service:
-                  name: bazarr
         tls:
           - hosts:
               - *host

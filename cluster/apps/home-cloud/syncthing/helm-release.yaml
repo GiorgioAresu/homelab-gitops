@@ -60,8 +60,6 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-                service:
-                  name: syncthing
         tls:
           - hosts:
               - *host
