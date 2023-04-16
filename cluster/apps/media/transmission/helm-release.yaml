@@ -86,10 +86,6 @@ spec:
       # watch:
       #   enabled: true
       #   mountPath: /watch
-    podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 1003
-      fsGroupChangePolicy: "OnRootMismatch"
     resources:
       requests:
         cpu: 15m
