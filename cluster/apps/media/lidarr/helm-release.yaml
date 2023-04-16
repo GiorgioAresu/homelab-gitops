@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: lscr.io/linuxserver/lidarr
-      tag: 1.1.4
+      tag: 8.1.2135
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
