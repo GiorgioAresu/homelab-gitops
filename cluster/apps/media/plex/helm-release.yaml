@@ -85,11 +85,9 @@ spec:
       media:
         enabled: true
         mountPath: /media
-        type: custom
-        volumeSpec:
-          nfs:
-            path: "/mnt/tank/media"
-            server: "${TRUENAS_ADDR}"
+        type: nfs
+        server: "${TRUENAS_ADDR}"
+        path: /mnt/tank/media
       transcode:
         enabled: true
         type: emptyDir

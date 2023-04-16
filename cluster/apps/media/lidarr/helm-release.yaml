@@ -57,16 +57,17 @@ spec:
       music:
         enabled: true
         mountPath: /music
-        type: custom
-        volumeSpec:
-          nfs:
-            path: "/mnt/tank/media/Music"
-            server: "${TRUENAS_ADDR}"
+        type: nfs
+        server: "${TRUENAS_ADDR}"
+        path: /mnt/tank/media
+        subPath: Music
       downloads:
         enabled: true
         mountPath: /downloads
-        type: pvc
-        existingClaim: lidarr-downloads
+        type: nfs
+        server: "${TRUENAS_ADDR}"
+        path: /mnt/tank/downloads
+        subPath: complete/music
     resources:
       requests:
         cpu: 15m
