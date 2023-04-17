@@ -35,6 +35,7 @@ spec:
         enabled: true
         ingressClassName: "nginx-2"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"
           hajimari.io/group: "media"
           hajimari.io/icon: "filmstrip"
@@ -46,6 +47,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: radarr-tls
     persistence:
       config:
         enabled: true
