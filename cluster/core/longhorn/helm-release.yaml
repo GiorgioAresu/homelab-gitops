@@ -17,7 +17,7 @@ spec:
   values:
     ingress:
       enabled: true
-      ingressClassName: "nginx-1"
+      ingressClassName: "nginx-internal"
       annotations:
         hajimari.io/enable: "true"
         hajimari.io/icon: "harddisk"

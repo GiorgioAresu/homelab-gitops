@@ -31,7 +31,7 @@ spec:
         kubernetes.io/arch: amd64
       ingress:
         enabled: true
-        ingressClassName: "nginx-1"
+        ingressClassName: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
         hosts:
