@@ -32,4 +32,4 @@ repos:
   - repo: https://github.com/zricethezav/gitleaks
     rev: v8.16.2
     hooks:
-      - id: gitleaks-docker
+      - id: gitleaks
