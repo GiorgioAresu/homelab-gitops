@@ -53,6 +53,7 @@ spec:
         enabled: true
         ingressClassName: "nginx-1"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"
           hajimari.io/icon: "sync"
         hosts:
@@ -63,6 +64,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: paperless-tls
     persistence:
       data:
         enabled: true

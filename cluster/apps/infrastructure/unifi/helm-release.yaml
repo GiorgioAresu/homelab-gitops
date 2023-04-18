@@ -69,6 +69,7 @@ spec:
         enabled: true
         ingressClassName: "nginx-1"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"
           hajimari.io/icon: "wifi"
         hosts:
@@ -79,6 +80,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: unifi-tls
     persistence:
       data:
         enabled: true

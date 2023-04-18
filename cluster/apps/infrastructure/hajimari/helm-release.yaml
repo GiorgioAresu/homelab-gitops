@@ -63,6 +63,8 @@ spec:
       main:
         enabled: true
         ingressClassName: "nginx-1"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
         hosts:
           - host: &host "hajimari.${SECRET_DOMAIN}"
             paths:
@@ -71,5 +73,6 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: hajimari-tls
     podAnnotations:
       configmap.reloader.stakater.com/reload: "hajimari-settings"

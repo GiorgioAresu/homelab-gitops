@@ -37,6 +37,7 @@ spec:
         enabled: true
         ingressClassName: "nginx-1"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"
           hajimari.io/icon: "leaf"
           nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
@@ -49,6 +50,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: paperless-tls
     persistence:
       # -- Configure persistence for data.
       data:
