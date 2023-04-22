@@ -38,19 +38,26 @@ spec:
         name: nginx-public
         controllerValue: "k8s.io/ingress-nginx-public" # Comment this for default ingress
       config:
-        client-header-timeout: 120
+        allow-snippet-annotations: "false"
         client-body-buffer-size: "100M"
         client-body-timeout: 120
+        client-header-timeout: 120
         custom-http-errors: 401,403,404,500,501,502,503
-        forwarded-for-header: "CF-Connecting-IP"
+        enable-ocsp: true
+        hsts-preload: true
+        keep-alive: 10
+        server-snippet: |
+          location ~ /\.(?!well-known).* {
+            deny all;
+          }
         hsts-max-age: "31449600"
-        keep-alive: 120
-        keep-alive-requests: 10000
         proxy-body-size: "100M"
+        ssl-ciphers: "EECDH+AESGCM:EDH+AESGCM"
+        ssl-protocols: "TLSv1.3"
+        forwarded-for-header: "CF-Connecting-IP"
         # Cloudflare IP Addresses - Used to forward the real client IP address to the backend service
         # https://www.cloudflare.com/ips/
         # proxy-real-ip-cidr: "103.21.244.0/22,103.22.200.0/22,103.31.4.0/22,104.16.0.0/13,104.24.0.0/14,108.162.192.0/18,131.0.72.0/22,141.101.64.0/18,162.158.0.0/15,172.64.0.0/13,173.245.48.0/20,188.114.96.0/20,190.93.240.0/20,197.234.240.0/22,198.41.128.0/17,2400:cb00::/32,2606:4700::/32,2803:f800::/32,2405:b500::/32,2405:8100::/32,2a06:98c0::/29,2c0f:f248::/32"
-        ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: "true"
       # metrics:
       #   enabled: true
