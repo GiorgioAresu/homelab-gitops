@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - server-plan.yaml
   - agent-plan.yaml
+  - ubuntu.yaml
