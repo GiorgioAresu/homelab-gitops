@@ -28,7 +28,7 @@ spec:
       path: /host/run/system-upgrade/secrets/ubuntu
   drain:
     force: true
-  version: bionic
+  version: ubuntu
   upgrade:
     image: ubuntu
     command: ["chroot", "/host"]
