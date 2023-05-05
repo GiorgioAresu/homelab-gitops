@@ -4,18 +4,19 @@ kind: Kustomization
 resources:
   - bitnami-charts.yaml
   - bjw-s-helm-charts.yaml
-  - csi-driver-smb-charts.yaml
   - csi-driver-nfs-charts.yaml
+  - csi-driver-smb-charts.yaml
   - descheduler-charts.yaml
   - emberstack-charts.yaml
   - fairwinds-stable-charts.yaml
+  - fission-charts.yaml
   - grafana-charts.yaml
   - hajimari-charts.yaml
   - ingress-nginx-charts.yaml
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
-  - kubernetes-dashboard-charts.yaml
   - kubereboot-charts.yaml
+  - kubernetes-dashboard-charts.yaml
   - longhorn-charts.yaml
   - managed-nfs-storage-provisioner-charts.yaml
   - metallb-charts.yaml
