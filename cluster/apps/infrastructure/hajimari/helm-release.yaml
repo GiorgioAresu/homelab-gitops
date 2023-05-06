@@ -24,10 +24,10 @@ spec:
     resources:
       requests:
         cpu: 15m
-        memory: 105M
+        memory: 25M
       limits:
         cpu: 15m
-        memory: 105M
+        memory: 25M
     hajimari:
       defaultEnable: false
       namespaceSelector:
