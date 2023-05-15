@@ -35,12 +35,12 @@ spec:
       resizerReplicaCount: 2
       snapshotterReplicaCount: 2
     defaultSettings:
-      # allowNodeDrainWithLastHealthyReplica: true
       backupTarget: s3://longhorn@eu/backups
       backupTargetCredentialSecret: minio-secret
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
       concurrentReplicaRebuildPerNodeLimit: 2
       defaultReplicaCount: 2
+      node-drain-policy: allow-if-replica-is-stopped
       orphanAutoDeletion: "true"
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
       restoreVolumeRecurringJobs: true
