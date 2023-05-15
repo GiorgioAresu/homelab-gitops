@@ -38,7 +38,6 @@ spec:
         name: nginx-public
         controllerValue: "k8s.io/ingress-nginx-public" # Comment this for default ingress
       config:
-        allow-snippet-annotations: "false"
         client-body-buffer-size: "100M"
         client-body-timeout: 120
         client-header-timeout: 120
