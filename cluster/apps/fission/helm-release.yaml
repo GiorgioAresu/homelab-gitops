@@ -14,3 +14,15 @@ spec:
         name: fission
         namespace: flux-system
   interval: 5m0s
+  postRenderers:
+    # Instruct helm-controller to use built-in "kustomize" post renderer.
+    - kustomize:
+        patchesJson6902:
+          - target:
+              version: v1
+              kind: Service
+              name: router
+            patch:
+              - op: add
+                path: /spec/loadBalancerIP
+                value: "${SVC_FISSION_ADDR}"
