@@ -23,9 +23,10 @@ spec:
       type: Recreate
     env:
       TZ: ${TIMEZONE}
-      PAPERLESS_REDIS: redis://paperless-redis-master:6379
       PAPERLESS_OCR_LANGUAGE: ita+eng
+      PAPERLESS_REDIS: redis://:${SECRET_REDIS_PASSWORD}@redis-master.infrastructure:6379
       PAPERLESS_TIME_ZONE: "${TIMEZONE}"
+      PAPERLESS_URL: "https://paperless.${SECRET_DOMAIN}"
     service:
       main:
         ports:
@@ -84,13 +85,3 @@ spec:
       readiness:
         spec:
           timeoutSeconds: 3
-    redis:
-      enabled: true
-      architecture: standalone
-      image:
-        # Currently no arm64 image (https://github.com/bitnami/bitnami-docker-redis/issues/192)
-        repository: redis
-        tag: 7.0.11
-      master:
-        persistence:
-          enabled: false
