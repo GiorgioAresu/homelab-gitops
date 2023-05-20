@@ -64,7 +64,7 @@ spec:
         tls:
           - hosts:
               - *host
-            secretName: paperless-tls
+            secretName: syncthing-tls
     persistence:
       data:
         enabled: true
