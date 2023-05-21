@@ -10,4 +10,5 @@ resources:
   - metallb
   - namespaces
   - nfs-subdir-external-provisioner
+  - samba-operator
   - system-upgrade

@@ -61,6 +61,11 @@ These labels can then be used to help with scheduling workloads on the most appr
 Open PR when new charts versions are available.
 
 
+### [Samba Operator](https://github.com/samba-in-kubernetes/samba-operator)
+
+An operator for Samba as a service on PVCs in kubernetes.
+
+
 ### [Secret Reflector](https://github.com/emberstack/kubernetes-reflector)
 
 Mantain Secrets and ConfigMaps synced among namespaces.
