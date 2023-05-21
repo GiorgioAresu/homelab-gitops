@@ -21,8 +21,6 @@ spec:
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
-    controller:
-      type: statefulset
     env:
       TZ: ${TIMEZONE}
       PAPERLESS_OCR_LANGUAGE: ita+eng
