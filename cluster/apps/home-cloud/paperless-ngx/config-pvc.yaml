@@ -38,7 +38,7 @@ metadata:
   namespace: home-cloud
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 50Mi
