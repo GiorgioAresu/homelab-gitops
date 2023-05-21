@@ -12,6 +12,5 @@ resources:
   - metallb-system.yaml
   - monitoring.yaml
   - networking.yaml
-  - samba-operator-system.yaml
   - storage-system.yaml
   - traefik.yaml
