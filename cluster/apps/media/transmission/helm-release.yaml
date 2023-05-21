@@ -21,6 +21,8 @@ spec:
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
+    controller:
+      type: statefulset
     env:
       TZ: "${TIMEZONE}"
       PUID: 568
