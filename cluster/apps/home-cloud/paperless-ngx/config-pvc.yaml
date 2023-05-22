@@ -30,31 +30,3 @@ spec:
       storage: 250Mi
   storageClassName: longhorn-static
   volumeMode: Filesystem
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: paperless-consume-v1
-  namespace: home-cloud
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 50Mi
-  storageClassName: longhorn
-  volumeMode: Filesystem
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: paperless-export-v1
-  namespace: home-cloud
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 50Mi
-  storageClassName: longhorn
-  volumeMode: Filesystem
