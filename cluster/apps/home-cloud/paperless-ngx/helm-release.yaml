@@ -55,23 +55,31 @@ spec:
       # -- Configure persistence for data.
       data:
         enabled: true
+        mountPath: /usr/src/paperless/data
         type: pvc
         existingClaim: paperless-data-v1
       # -- Configure persistence for media.
       media:
         enabled: true
+        mountPath: /usr/src/paperless/media
         type: pvc
         existingClaim: paperless-media-v1
       # -- Configure volume to monitor for new documents.
       consume:
         enabled: true
-        type: pvc
-        existingClaim: paperless-consume-v1
+        mountPath: /usr/src/paperless/consume
+        type: nfs
+        server: "${TRUENAS_ADDR}"
+        path: /mnt/tank/media
+        subPath: Paperless/consume
       # -- Configure export volume.
       export:
         enabled: true
-        type: pvc
-        existingClaim: paperless-export-v1
+        mountPath: /usr/src/paperless/export
+        type: nfs
+        server: "${TRUENAS_ADDR}"
+        path: /mnt/tank/media
+        subPath: Paperless/export
     resources:
       requests:
         memory: 0.5Gi
