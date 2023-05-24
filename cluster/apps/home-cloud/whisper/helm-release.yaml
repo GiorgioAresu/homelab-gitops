@@ -1,0 +1,27 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: whisper
+  namespace: home-cloud
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  interval: 10m0s
+  values:
+    image:
+      repository: homeassistant/amd64-addon-whisper
+      tag: 0.2.0
+      pullPolicy: IfNotPresent
+    strategy:
+      type: Recreate
+    env:
+      TZ: ${TIMEZONE}
+    nodeSelector:
+      kubernetes.io/arch: amd64
