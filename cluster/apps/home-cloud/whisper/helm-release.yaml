@@ -32,8 +32,9 @@ spec:
     persistence:
       config:
         enabled: true
-        mountPath: /data
+        mountPath: /data/config.json
         type: configMap
+        name: config
     configMaps:
       config:
         enabled: true
