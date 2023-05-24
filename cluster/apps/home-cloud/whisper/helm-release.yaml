@@ -23,5 +23,23 @@ spec:
       type: Recreate
     env:
       TZ: ${TIMEZONE}
+    service:
+      main:
+        ports:
+          tcp:
+            port: 10300
+            protocol: TCP
+    persistence:
+      config:
+        enabled: true
+        mountPath: /data
+        type: configMap
+    configMaps:
+      config:
+        enabled: true
+        data:
+          model: tiny-int8
+          language: it
+          beam_size: 1
     nodeSelector:
       kubernetes.io/arch: amd64
