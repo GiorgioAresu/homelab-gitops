@@ -26,7 +26,7 @@ spec:
     service:
       main:
         ports:
-          tcp:
+          http:
             port: 10300
             protocol: TCP
     persistence:
