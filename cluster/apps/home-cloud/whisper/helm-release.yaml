@@ -32,15 +32,18 @@ spec:
     persistence:
       config:
         enabled: true
-        mountPath: /data/config.json
+        mountPath: /data
         type: configMap
-        name: config
+        name: whisper-config
     configMaps:
       config:
         enabled: true
         data:
-          model: tiny-int8
-          language: it
-          beam_size: 1
+          options.json: |-
+            {
+              "model": "tiny-int8",
+              "language": "it",
+              "beam_size": 1
+            }
     nodeSelector:
       kubernetes.io/arch: amd64
