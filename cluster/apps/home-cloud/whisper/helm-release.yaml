@@ -16,15 +16,22 @@ spec:
   interval: 10m0s
   values:
     image:
-      repository: homeassistant/amd64-addon-whisper
-      tag: 0.2.0
-      pullPolicy: IfNotPresent
+      repository: rhasspy/wyoming-whisper
+      tag: latest
+      pullPolicy: Always
     strategy:
       type: Recreate
     env:
       TZ: ${TIMEZONE}
+    args:
+      - --model
+      - tiny
+      - --language
+      - en
     service:
       main:
+        type: LoadBalancer
+        loadBalancerIP: "${SVC_WHISPER_ADDR}"
         ports:
           http:
             port: 10300
@@ -33,17 +40,4 @@ spec:
       config:
         enabled: true
         mountPath: /data
-        type: configMap
-        name: whisper-config
-    configMaps:
-      config:
-        enabled: true
-        data:
-          options.json: |-
-            {
-              "model": "tiny-int8",
-              "language": "it",
-              "beam_size": 1
-            }
-    nodeSelector:
-      kubernetes.io/arch: amd64
+        type: emptyDir

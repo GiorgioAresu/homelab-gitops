@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: supervisor
-  namespace: home-cloud
-spec:
-  type: ExternalName
-  externalName: "${HOMEASSISTANT_ADDR}"
