@@ -20,8 +20,8 @@ spec:
       "6789": "infrastructure/unifi:mobile-test"
       "8080": "infrastructure/unifi:device-comms"
       "22000": "home-cloud/syncthing-listen:listen-tcp"
-      "10200": "home-cloud/piper:piper"
-      "10300": "home-cloud/whisper:whisper"
+      "10200": "home-cloud/piper:tcp"
+      "10300": "home-cloud/whisper:tcp"
       "32469": "media/plex:dlna-plex"
     udp:
       "1900": "infrastructure/unifi:l2-discovery"
