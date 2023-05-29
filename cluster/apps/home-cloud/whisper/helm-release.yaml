@@ -25,6 +25,14 @@ spec:
       TZ: ${TIMEZONE}
     args:
       - --model
+        # tiny-int8 (43 MB)
+        # tiny (152 MB)
+        # base-int8 (80 MB)
+        # base (291 MB)
+        # small-int8 (255 MB)
+        # small (968 MB)
+        # medium-int8 (786 MB)
+        # medium (3.1 GB)
       - small
       - --language
       - it
