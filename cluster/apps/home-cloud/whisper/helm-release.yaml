@@ -27,7 +27,7 @@ spec:
       - --model
       - tiny
       - --language
-      - en
+      - it
     service:
       main:
         type: LoadBalancer
