@@ -28,10 +28,12 @@ spec:
       - it-riccardo_fasol-x-low
     service:
       main:
-        type: LoadBalancer
-        loadBalancerIP: "${SVC_WHISPER_ADDR}"
         ports:
           http:
+            enabled: false
+          tcp:
+            enabled: true
+            primary: true
             port: 10200
             protocol: TCP
     persistence:
