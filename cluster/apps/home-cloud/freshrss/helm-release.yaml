@@ -1,0 +1,77 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: freshrss
+  namespace: home-cloud
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  interval: 10m0s
+  values:
+    image:
+      repository: freshrss/freshrss
+      tag: 1.21.0-arm
+      pullPolicy: IfNotPresent
+    strategy:
+      type: Recreate
+    env:
+      TZ: ${TIMEZONE}
+      CRON_MIN: "1,31"
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx-internal"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          hajimari.io/enable: "true"
+          hajimari.io/group: "media"
+          hajimari.io/icon: "subtitles"
+        hosts:
+          - host: &host "freshrss.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: freshrss-tls
+    persistence:
+      data:
+        enabled: true
+        mountPath: /var/www/FreshRSS/data
+        type: pvc
+        existingClaim: freshrss-data-v1
+      extensions:
+        enabled: true
+        mountPath: /var/www/FreshRSS/extensions
+        type: pvc
+        existingClaim: freshrss-extensions-v1
+    resources:
+      requests:
+        cpu: 15m
+        memory: 0.5G
+      limits:
+        # cpu: 500m
+        memory: 1G
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                    - arm64
