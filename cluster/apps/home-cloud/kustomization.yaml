@@ -6,5 +6,6 @@ resources:
   # - homeassistant
   - paperless-ngx
   - piper
+  - rss-bridge
   - syncthing
   - whisper
