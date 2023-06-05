@@ -1,0 +1,61 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: rss-bridge
+  namespace: home-cloud
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  interval: 10m0s
+  values:
+    image:
+      repository: rssbridge/rss-bridge
+      tag: latest
+      pullPolicy: Always
+    strategy:
+      type: Recreate
+    env:
+      TZ: ${TIMEZONE}
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx-internal"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          hajimari.io/enable: "true"
+          hajimari.io/group: "media"
+          hajimari.io/icon: "rss"
+        hosts:
+          - host: &host "rss-bridge.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: rss-bridge-tls
+    persistence:
+      config:
+        enabled: true
+        mountPath: /config
+        type: pvc
+        existingClaim: rss-bridge-config-v1
+    resources:
+      requests:
+        cpu: 15m
+        memory: 0.5G
+      limits:
+        # cpu: 500m
+        memory: 1G
