@@ -1,0 +1,42 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: redis
+  namespace: infrastructure
+spec:
+  chart:
+    spec:
+      chart: postgresql
+      version: 12.5.6
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  interval: 10m0s
+  values:
+    image:
+      repository: bitnami/postgresql
+      tag: 15.3.0-debian-11-r7
+      pullPolicy: IfNotPresent
+    strategy:
+      type: Recreate
+    architecture: standalone
+    clusterDomain: "${SECRET_DOMAIN}"
+    global:
+      postgresql:
+        auth:
+          postgresPassword: "${SECRET_POSTGRES_PASSWORD}"
+    primary:
+      persistence:
+        enabled: true
+        existingClaim: postgresql-primary-v1
+    metrics:
+      enabled: false
+    resources:
+      requests:
+        memory: 100Mi
+        cpu: 10m
+      limits:
+        memory: 100Mi
+        cpu: 100m
