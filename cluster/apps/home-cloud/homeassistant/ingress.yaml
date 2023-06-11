@@ -4,6 +4,8 @@ kind: Ingress
 metadata:
   name: homeassistant
   namespace: home-cloud
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   labels:
     name: homeassistant
 spec:
@@ -22,3 +24,4 @@ spec:
   tls:
     - hosts:
         - *host
+      secretName: homeassistant-tls
