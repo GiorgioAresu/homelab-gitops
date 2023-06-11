@@ -7,17 +7,18 @@ metadata:
   labels:
     name: homeassistant
 spec:
+  ingressClassName: "nginx-public"
   rules:
-  - host: &host "homeassistant.${SECRET_DOMAIN}"
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: homeassistant
-            port: 
-              name: http
+    - host: &host "homeassistant.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: homeassistant
+                port:
+                  name: http
   tls:
     - hosts:
         - *host
