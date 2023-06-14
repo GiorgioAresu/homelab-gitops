@@ -35,8 +35,7 @@ spec:
       resizerReplicaCount: 2
       snapshotterReplicaCount: 2
     defaultSettings:
-      backupTarget: s3://longhorn@eu/backups
-      backupTargetCredentialSecret: minio-secret
+      backupTarget: nfs://${TRUENAS_ADDR}:/mnt/tank/longhorn
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
       concurrentReplicaRebuildPerNodeLimit: 2
       defaultReplicaCount: 2
