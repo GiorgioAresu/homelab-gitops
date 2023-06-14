@@ -35,7 +35,7 @@ spec:
       resizerReplicaCount: 2
       snapshotterReplicaCount: 2
     defaultSettings:
-      backupTarget: nfs://${TRUENAS_ADDR}:/mnt/tank/longhorn
+      backupTarget: nfs://${TRUENAS_ADDR}:/mnt/tank/longhorn-backups
       concurrentAutomaticEngineUpgradePerNodeLimit: 1
       concurrentReplicaRebuildPerNodeLimit: 2
       defaultReplicaCount: 2
