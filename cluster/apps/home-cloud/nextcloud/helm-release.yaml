@@ -64,7 +64,7 @@ spec:
     nextcloud:
       host: *host
       extraEnvs:
-        REDIS_HOST: redis-master.infrastructure
+        REDIS_HOST: redis-master.infrastructure.svc.cluster.local
         REDIS_HOST_PASSWORD: "${SECRET_REDIS_PASSWORD}"
       configs:
         proxy.config.php: |-
@@ -81,7 +81,7 @@ spec:
     externalDatabase:
       enabled: true
       type: postgres
-      host: postgres.infrastructure
+      host: postgresql.infrastructure.svc.cluster.local
       database: nextcloud-test
       existingSecret:
         enabled: true
