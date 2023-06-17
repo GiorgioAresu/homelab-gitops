@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - freshrss
   - homeassistant
+  - nextcloud
   - paperless-ngx
   - piper
   - rss-bridge

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nextcloud-data-v1
+spec:
+  capacity:
+    storage: 500Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /mnt/tank/nextcloud
+    server: ${TRUENAS_ADDR}
+  mountOptions:
+    - nfsvers=4.2

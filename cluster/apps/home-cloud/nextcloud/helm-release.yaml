@@ -1,0 +1,76 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nextcloud
+  namespace: home-cloud
+spec:
+  chart:
+    spec:
+      chart: nextcloud
+      version: 3.5.13
+      sourceRef:
+        kind: HelmRepository
+        name: nextcloud
+        namespace: flux-system
+  interval: 10m0s
+  values:
+    image:
+      repository: nextcloud
+      tag: 25.0.7-fpm # or 25.0.7-fpm-alpine
+      pullPolicy: IfNotPresent
+    strategy:
+      type: Recreate
+    ingress:
+      enabled: true
+      className: "nginx-internal"
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "cloud"
+        nginx.ingress.kubernetes.io/enable-cors: "true"
+        nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+        nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+        tls:
+          - hosts:
+              - &host "paperless.${SECRET_DOMAIN}"
+            secretName: paperless-tls
+    nextcloud:
+      host: *host
+      extraEnvs:
+        REDIS_HOST: redis-master.infrastructure
+        REDIS_HOST_PASSWORD: "${SECRET_REDIS_PASSWORD}"
+      configs:
+        proxy.config.php: |-
+          <?php
+          $CONFIG = array (
+            'trusted_proxies' => array(
+              0 => '127.0.0.1',
+              1 => '10.0.0.0/8',
+            ),
+            'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+          );
+    internalDatabase:
+      enabled: false
+    externalDatabase:
+      enabled: true
+      type: postgres
+      host: postgres.infrastructure
+      database: nextcloud-test
+      existingSecret:
+        enabled: true
+        secretName: nextcloud-db-secret
+        usernameKey: username
+        passwordKey: password
+    # persistence:
+    #   enabled: true
+    #   existingClaim: nextcloud-data-v1
+    metrics:
+      enabled: false
+    resources:
+      requests:
+        memory: 0.5Gi
+        cpu: 100m
+      limits:
+        memory: 4Gi
