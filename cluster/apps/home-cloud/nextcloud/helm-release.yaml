@@ -34,8 +34,8 @@ spec:
         nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
       tls:
         - hosts:
-            - &host "paperless.${SECRET_DOMAIN}"
-          secretName: paperless-tls
+            - &host "nextcloud.${SECRET_DOMAIN}"
+          secretName: nextcloud-tls
     nextcloud:
       host: *host
       extraEnvs:
