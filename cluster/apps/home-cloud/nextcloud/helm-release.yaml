@@ -32,10 +32,10 @@ spec:
         nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
         nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
         nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
-        tls:
-          - hosts:
-              - &host "paperless.${SECRET_DOMAIN}"
-            secretName: paperless-tls
+      tls:
+        - hosts:
+            - &host "paperless.${SECRET_DOMAIN}"
+          secretName: paperless-tls
     nextcloud:
       host: *host
       extraEnvs:
