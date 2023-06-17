@@ -23,6 +23,7 @@ spec:
       "10200": "home-cloud/piper:tcp"
       "10300": "home-cloud/whisper:tcp"
       "32469": "media/plex:dlna-plex"
+      "51413": "media/transmission:utp-tcp"
     udp:
       "1900": "infrastructure/unifi:l2-discovery"
       "3478": "infrastructure/unifi:stun"
@@ -34,6 +35,7 @@ spec:
       "32412": "media/plex:gdm-discovery-2"
       "32413": "media/plex:gdm-discovery-3"
       "32414": "media/plex:gdm-discovery-4"
+      "51413": "media/transmission:utp-udp"
     controller:
       containerPort:
         piper-10200: 10200
@@ -46,6 +48,8 @@ spec:
         syncthing-disc: 21027
         syncthing-tcp: 22000
         syncthing-udp: 22000
+        transm-tcp: 51413
+        transm-udp: 51413
         unifi-1900: 1900
         unifi-3478: 3478
         unifi-5514: 5514

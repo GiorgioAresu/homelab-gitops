@@ -16,13 +16,13 @@ spec:
   interval: 5m0s
   values:
     tcp:
-      "51413": "media/transmission:utp-tcp"
+      # "51413": "media/transmission:utp-tcp"
     udp:
-      "51413": "media/transmission:utp-udp"
+      # "51413": "media/transmission:utp-udp"
     controller:
       containerPort:
-        transm-tcp: 51413
-        transm-udp: 51413
+        # transm-tcp: 51413
+        # transm-udp: 51413
       replicaCount: 1
       extraEnvs:
         - name: TZ
