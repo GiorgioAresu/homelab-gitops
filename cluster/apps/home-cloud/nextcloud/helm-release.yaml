@@ -63,7 +63,7 @@ spec:
           secretName: nextcloud-tls
     nextcloud:
       host: *host
-      extraEnvs:
+      extraEnv:
         REDIS_HOST: redis-master.infrastructure.svc.cluster.local
         REDIS_HOST_PASSWORD: "${SECRET_REDIS_PASSWORD}"
       configs:
