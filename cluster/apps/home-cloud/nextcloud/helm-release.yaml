@@ -99,8 +99,12 @@ spec:
         cpu: 100m
       limits:
         memory: 4Gi
+    livenessProbe:
+      enabled: false
+    readinessProbe:
+      enabled: false
     startupProbe:
-      enabled: true
+      enabled: false
     affinity:
       nodeAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
