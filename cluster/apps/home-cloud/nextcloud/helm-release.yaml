@@ -77,10 +77,10 @@ spec:
             'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
           );
     internalDatabase:
-      enabled: true
+      enabled: false
     externalDatabase:
       enabled: true
-      type: postgres
+      type: postgresql
       host: postgresql.infrastructure.svc.cluster.local
       database: nextcloud-test
       existingSecret:
