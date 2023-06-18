@@ -77,7 +77,7 @@ spec:
             'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
           );
     internalDatabase:
-      enabled: false
+      enabled: true
     externalDatabase:
       enabled: true
       type: postgres
