@@ -64,8 +64,10 @@ spec:
     nextcloud:
       host: *host
       extraEnv:
-        REDIS_HOST: redis-master.infrastructure.svc.cluster.local
-        REDIS_HOST_PASSWORD: "${SECRET_REDIS_PASSWORD}"
+        - name: REDIS_HOST
+          value: redis-master.infrastructure.svc.cluster.local
+        - name: REDIS_HOST_PASSWORD
+          value: "${SECRET_REDIS_PASSWORD}"
       configs:
         proxy.config.php: |-
           <?php
