@@ -38,11 +38,23 @@ spec:
           secretName: nextcloud-tls
     nextcloud:
       host: *host
+      existingSecret:
+        enabled: true
+        smtpUsernameKey: smtp-username
+        smtpPasswordKey: smtp-password
       extraEnv:
         - name: REDIS_HOST
           value: redis-master.infrastructure.svc.cluster.local
         - name: REDIS_HOST_PASSWORD
           value: "${SECRET_REDIS_PASSWORD}"
+      mail:
+        enabled: true
+        fromAddress: "${SECRET_EMAIL_USER}"
+        domain: "${SECRET_EMAIL_DOMAIN}"
+        smtp:
+          host: "${SECRET_EMAIL_SERVER}"
+          secure: ssl
+          port: 465
       configs:
         proxy.config.php: |-
           <?php
