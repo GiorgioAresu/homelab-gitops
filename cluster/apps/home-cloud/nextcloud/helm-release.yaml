@@ -76,15 +76,20 @@ spec:
       enabled: true
       type: postgresql
       host: postgresql.infrastructure.svc.cluster.local
-      database: nextcloud-test
+      database: nextcloud
       existingSecret:
         enabled: true
         secretName: nextcloud-db
         usernameKey: username
         passwordKey: password
-    # persistence:
-    #   enabled: true
-    #   existingClaim: nextcloud-data-v1
+    persistence:
+      enabled: true
+      existingClaim: nextcloud-config-v1
+      accessMode: ReadWriteMany
+      nextcloudData:
+        enabled: true
+        existingClaim: nextcloud-data-v1
+        accessMode: ReadWriteMany
     metrics:
       enabled: false
     resources:
