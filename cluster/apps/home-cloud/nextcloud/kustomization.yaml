@@ -6,3 +6,4 @@ resources:
   - data-pvc.yaml
   - helm-release.yaml
   - db-secret.sops.yaml
+  - nextcloud-secret.sops.yaml
