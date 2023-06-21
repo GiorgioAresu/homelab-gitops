@@ -84,8 +84,12 @@ spec:
         passwordKey: password
     persistence:
       enabled: true
-      existingClaim: nextcloud-data-v1
+      existingClaim: nextcloud-config-v1
       accessMode: ReadWriteMany
+      nextcloudData:
+        enabled: true
+        existingClaim: nextcloud-data-v1
+        accessMode: ReadWriteMany
     metrics:
       enabled: false
     resources:
