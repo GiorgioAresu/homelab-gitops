@@ -36,6 +36,8 @@ spec:
         - hosts:
             - &host "nextcloud.${SECRET_DOMAIN}"
           secretName: nextcloud-tls
+    cronjob:
+      enabled: true
     nextcloud:
       host: *host
       existingSecret:
