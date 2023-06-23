@@ -95,9 +95,10 @@ spec:
       config:
         enabled: true
         mountPath: /config
-        type: nfs
-        server: "${TRUENAS_ADDR}"
-        path: /mnt/tank/apps/plex
+        type: pvc
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        retain: true
         # type: pvc
         # existingClaim: plex-config-v1
       media:
