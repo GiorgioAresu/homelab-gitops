@@ -122,13 +122,20 @@ spec:
     affinity:
       nodeAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 1
+          - weight: 2
             preference:
               matchExpressions:
                 - key: feature.node.kubernetes.io/custom-intel-gpu
                   operator: In
                   values:
                     - "true"
+          - weight: 1
+            preference:
+              matchExpressions:
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                    - amd64
     resources:
       requests:
         cpu: 100m
