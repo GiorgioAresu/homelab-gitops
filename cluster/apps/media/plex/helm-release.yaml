@@ -68,7 +68,7 @@ spec:
           hajimari.io/icon: "plex"
           nginx.ingress.kubernetes.io/app-root: "/web" # Redirect / -> /web
         hosts:
-          - host: &host "music.${SECRET_DOMAIN}"
+          - host: &host "plex.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -83,7 +83,7 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
           nginx.ingress.kubernetes.io/app-root: "/web" # Redirect / -> /web
         hosts:
-          - host: &host "music.${SECRET_DOMAIN}"
+          - host: &host "plex.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -95,8 +95,11 @@ spec:
       config:
         enabled: true
         mountPath: /config
-        type: pvc
-        existingClaim: plex-config-v1
+        type: nfs
+        server: "${TRUENAS_ADDR}"
+        path: /mnt/tank/apps/plex
+        # type: pvc
+        # existingClaim: plex-config-v1
       media:
         enabled: true
         mountPath: /media
