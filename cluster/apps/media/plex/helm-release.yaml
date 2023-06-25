@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: lscr.io/linuxserver/plex
-      tag: version-1.32.0.6918-6f393eda1
+      tag: 1.32.4
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
