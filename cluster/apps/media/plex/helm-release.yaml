@@ -96,11 +96,7 @@ spec:
         enabled: true
         mountPath: /config
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 10Gi
-        retain: true
-        # type: pvc
-        # existingClaim: plex-config-v1
+        existingClaim: plex-config-v1
       media:
         enabled: true
         mountPath: /media
@@ -142,5 +138,5 @@ spec:
         cpu: 100m
         memory: 0.5G
       limits:
-        cpu: 1000m
+        # cpu: 1000m
         memory: 1G
