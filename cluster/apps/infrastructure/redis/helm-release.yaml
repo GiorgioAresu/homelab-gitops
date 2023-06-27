@@ -32,7 +32,7 @@ spec:
     replica:
       replicaCount: 0
     metrics:
-      enabled: false
+      enabled: true
     resources:
       requests:
         memory: 100Mi

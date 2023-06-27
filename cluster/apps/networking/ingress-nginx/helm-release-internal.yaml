@@ -83,15 +83,15 @@ spec:
         proxy-body-size: "100M"
         ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: "true"
-      # metrics:
-      #   enabled: true
-      #   serviceMonitor:
-      #     enabled: true
-      #     namespace: networking
-      #     namespaceSelector:
-      #       any: true
-      #   prometheusRule:
-      #     enabled: false
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+          namespace: networking
+          namespaceSelector:
+            any: true
+        prometheusRule:
+          enabled: true
       extraArgs:
         default-ssl-certificate: "networking/${SECRET_DOMAIN//./-}-tls"
       affinity:

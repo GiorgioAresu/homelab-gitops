@@ -35,7 +35,7 @@ spec:
         type: LoadBalancer
         loadBalancerIP: "${SVC_POSTGRESQL_ADDR}"
     metrics:
-      enabled: false
+      enabled: true
     resources:
       requests:
         memory: 100Mi

@@ -93,7 +93,7 @@ spec:
         existingClaim: nextcloud-data-v1
         accessMode: ReadWriteMany
     metrics:
-      enabled: false
+      enabled: true
     resources:
       requests:
         cpu: 100m
