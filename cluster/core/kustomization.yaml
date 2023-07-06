@@ -5,6 +5,7 @@ resources:
   - cert-manager
   - csi-driver-smb
   - csi-driver-nfs
+  - db-operator
   - kubernetes-dashboard
   - longhorn
   - metallb
