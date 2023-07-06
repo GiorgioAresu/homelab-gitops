@@ -20,6 +20,11 @@ Some of the interesting additions running on the cluster are:
 Access SMB shares, also supports dynamic provisioning.
 
 
+### [DB-Operator](https://github.com/kloeckner-i/db-operator)
+
+Creates PostgreSQL and MySQL databases and make them available in the cluster via Custom Resource
+
+
 ### [Descheduler](https://github.com/kubernetes-sigs/descheduler)
 
 Evicts pods based on different configurable policies.
