@@ -28,6 +28,9 @@ spec:
       PAPERLESS_TIME_ZONE: "${TIMEZONE}"
       PAPERLESS_URL: "https://paperless.${SECRET_DOMAIN}"
       PAPERLESS_CONSUMER_POLLING: 60
+    envFrom:
+      - secretRef:
+          name: paperless-db
     service:
       main:
         ports:
