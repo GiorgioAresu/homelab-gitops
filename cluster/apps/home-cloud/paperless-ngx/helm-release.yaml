@@ -31,6 +31,9 @@ spec:
     envFrom:
       - secretRef:
           name: paperless-db
+    controller:
+      annotations:
+        secret.reloader.stakater.com/reload: paperless-db
     service:
       main:
         ports:
