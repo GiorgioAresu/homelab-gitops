@@ -28,6 +28,9 @@ spec:
       PAPERLESS_TIME_ZONE: "${TIMEZONE}"
       PAPERLESS_URL: "https://paperless.${SECRET_DOMAIN}"
       PAPERLESS_CONSUMER_POLLING: 60
+      PAPERLESS_TIKA_ENABLED: 1
+      PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://localhost:3000
+      PAPERLESS_TIKA_ENDPOINT: http://localhost:9998
     envFrom:
       - secretRef:
           name: paperless-db
@@ -100,3 +103,16 @@ spec:
       readiness:
         spec:
           timeoutSeconds: 3
+    sidecars:
+      gotenberg:
+        image: gotenberg/gotenberg:7.8.3
+        ports:
+          - containerPort: 3000
+        command:
+          - "gotenberg"
+          - "--chromium-disable-javascript=true"
+          - "--chromium-allow-list=file:///tmp/.*"
+      tika:
+        image: ghcr.io/paperless-ngx/tika:2.7.0-minimal
+        ports:
+          - containerPort: 9998
