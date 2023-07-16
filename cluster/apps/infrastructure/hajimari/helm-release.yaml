@@ -38,8 +38,8 @@ spec:
           - monitoring
       name: You
       title: Hajimari
-      lightTheme: gazette
-      darkTheme: horizon
+      lightTheme: paper
+      darkTheme: espresso
       showGreeting: true
       showAppGroups: true
       showAppUrls: true
