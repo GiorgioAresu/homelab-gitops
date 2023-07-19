@@ -113,6 +113,6 @@ spec:
           - "--chromium-disable-javascript=true"
           - "--chromium-allow-list=file:///tmp/.*"
       tika:
-        image: ghcr.io/paperless-ngx/tika:2.7.0-minimal
+        image: ghcr.io/paperless-ngx/tika:2.8.0-minimal
         ports:
           - containerPort: 9998
