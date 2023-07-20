@@ -105,7 +105,7 @@ spec:
           timeoutSeconds: 3
     sidecars:
       gotenberg:
-        image: gotenberg/gotenberg:7.8.3
+        image: gotenberg/gotenberg:7.9.1
         ports:
           - containerPort: 3000
         command:
