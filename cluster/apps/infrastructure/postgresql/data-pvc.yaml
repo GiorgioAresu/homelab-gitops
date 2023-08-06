@@ -14,3 +14,19 @@ spec:
       storage: 2Gi
   storageClassName: longhorn-static
   volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgresql-backups-v1
+  namespace: infrastructure
+  annotations:
+    helm.sh/resource-policy: "keep"
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 500Gi
+  storageClassName: ""
+  volumeName: postgresql-backups-v1

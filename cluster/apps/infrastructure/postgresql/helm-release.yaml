@@ -34,6 +34,12 @@ spec:
       service:
         type: LoadBalancer
         loadBalancerIP: "${SVC_POSTGRESQL_ADDR}"
+    backup:
+      enabled: true
+      cronjob:
+        schedule: "@daily"
+        storage:
+          existingClaim: postgresql-backups-v1
     metrics:
       enabled: false
     resources:
