@@ -31,6 +31,7 @@ spec:
       PAPERLESS_TIKA_ENABLED: 1
       PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://localhost:3000
       PAPERLESS_TIKA_ENDPOINT: http://localhost:9998
+      PAPERLESS_WORKER_TIMEOUT: 3600 # 1h
     envFrom:
       - secretRef:
           name: paperless-db
