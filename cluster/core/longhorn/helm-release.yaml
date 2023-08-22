@@ -19,6 +19,7 @@ spec:
       enabled: true
       ingressClassName: "nginx-internal"
       annotations:
+        hajimari.io/appName: "longhorn"
         hajimari.io/enable: "true"
         hajimari.io/icon: "harddisk"
         nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
