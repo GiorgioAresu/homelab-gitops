@@ -39,6 +39,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/group: "media"
           hajimari.io/icon: "bookshelf"
+          hajimari.io/info: "Books"
         hosts:
           - host: &host "readarr.${SECRET_DOMAIN}"
             paths:

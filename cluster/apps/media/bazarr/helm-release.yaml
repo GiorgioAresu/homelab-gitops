@@ -39,6 +39,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/group: "media"
           hajimari.io/icon: "subtitles"
+          hajimari.io/info: "Subtitles"
         hosts:
           - host: &host "bazarr.${SECRET_DOMAIN}"
             paths:
