@@ -21,6 +21,7 @@ spec:
       annotations:
         hajimari.io/appName: "longhorn"
         hajimari.io/enable: "true"
+        hajimari.io/group: "admin"
         hajimari.io/icon: "harddisk"
         nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
         nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
