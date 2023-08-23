@@ -71,6 +71,7 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"
+          hajimari.io/group: "admin"
           hajimari.io/icon: "wifi"
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:

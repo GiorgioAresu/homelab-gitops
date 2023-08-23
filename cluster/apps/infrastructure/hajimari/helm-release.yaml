@@ -39,11 +39,11 @@ spec:
           - monitoring
       name: You
       title: Hajimari
-      lightTheme: paper
-      darkTheme: espresso
+      lightTheme: gazette
+      darkTheme: trone
       showGreeting: true
       showAppGroups: true
-      showAppUrls: true
+      showAppUrls: false
       showAppInfo: true
       showAppStatus: true
       defaultAppIcon: mdi:application
