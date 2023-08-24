@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: ghcr.io/paperless-ngx/paperless-ngx
-      tag: 1.17.1
+      tag: 1.17.2
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
