@@ -52,6 +52,17 @@ spec:
           value: redis-master.infrastructure.svc.cluster.local
         - name: REDIS_HOST_PASSWORD
           value: "${SECRET_REDIS_PASSWORD}"
+      extraVolumes:
+        - name: php-fpm-config
+          configMap:
+            name: nextcloud-php-fpm-config
+            items:
+              - key: zz-www.conf
+                path: zz-www.conf
+      extraVolumeMounts:
+        - name: php-fpm-config
+          mountPath: /usr/local/etc/php-fpm.d/zz-www.conf
+          subPath: zz-www.conf
       mail:
         enabled: true
         fromAddress: "${SECRET_EMAIL_USER}"
