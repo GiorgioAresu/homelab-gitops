@@ -23,6 +23,7 @@ spec:
       type: Recreate
     env:
       TZ: ${TIMEZONE}
+      ENABLE_PDF_EXPORT: "1"
     envFrom:
       - secretRef:
           name: tandoor-db
