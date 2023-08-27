@@ -9,4 +9,5 @@ resources:
   - piper
   - rss-bridge
   - syncthing
+  - tandoor
   - whisper
