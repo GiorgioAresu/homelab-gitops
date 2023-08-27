@@ -68,10 +68,10 @@ spec:
         enabled: true
         mountPath: /opt/recipes/staticfiles
         type: emptyDir
-      # django-js-reverse:
-      #   enabled: true
-      #   mountPath: /opt/recipes/cookbook/static/django_js_reverse
-      #   type: emptyDir
+      django-js-reverse:
+        enabled: true
+        mountPath: /opt/recipes/cookbook/static/django_js_reverse
+        type: emptyDir
     podSecurityContext:
       # -- Run as `nobody` user
       runAsUser: 65534
