@@ -79,6 +79,9 @@ spec:
           );
     nginx:
       enabled: true
+    deploymentAnnotations:
+      configmap.reloader.stataker.com/reload: "nextcloud-php-fpm-config"
+      secret.reloader.stataker.com/reload: "nextcloud,nextcloud-db"
     internalDatabase:
       enabled: false
     externalDatabase:
