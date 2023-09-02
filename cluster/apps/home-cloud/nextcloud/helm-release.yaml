@@ -67,10 +67,6 @@ spec:
         enabled: true
         fromAddress: "${SECRET_EMAIL_USER}"
         domain: "${SECRET_EMAIL_DOMAIN}"
-        smtp:
-          host: "${SECRET_EMAIL_SERVER}"
-          secure: ssl
-          port: 465
       configs:
         proxy.config.php: |-
           <?php
