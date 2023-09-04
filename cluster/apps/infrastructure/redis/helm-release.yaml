@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: bitnami/redis
-      tag: 7.0.11-debian-11-r7
+      tag: 7.2.0-debian-11-r7@sha256:acd9b289a84b03881f73eb05e3bfb3aab0ed5ccb10258bfbfac37b5d37a7a239
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
