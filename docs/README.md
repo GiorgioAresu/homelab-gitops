@@ -72,3 +72,14 @@ You can use something like this to do it in bulk:
 # This will label all Volumes named like plex-config-v1, you may want to double-check not to miss any important one
 kubectl -n longhorn-system get volume -o name | cut -d/ -f2 | grep -E '([[:alnum:]]+-)+[[:alpha:]]+-v[[:digit:]]+' | xargs -i kubectl -n longhorn-system label volume {} recurring-job-group.longhorn.io/default- recurring-job-group.longhorn.io/backup=enabled
 ```
+
+## Commit hooks
+
+This repo uses [pre-commit](https://pre-commit.com/).
+
+To install it w/o brew, make sure `python3-pip` and `python3-virtualenv`:
+
+```shell
+virtualenv venv
+. venv/bin/activate
+```
