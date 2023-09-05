@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: lscr.io/linuxserver/syncthing
-      tag: 1.23.7
+      tag: 1.24.0
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
