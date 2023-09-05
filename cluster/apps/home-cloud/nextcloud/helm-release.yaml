@@ -77,6 +77,27 @@ spec:
             ),
             'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
           );
+        previews.config.php: |-
+          <?php
+          $CONFIG = array(
+            'enabledPreviewProviders' =>
+              array (
+                'OC\Preview\AVI',
+                'OC\Preview\BMP',
+                'OC\Preview\GIF',
+                'OC\Preview\HEIC',
+                'OC\Preview\JPEG',
+                'OC\Preview\MarkDown',
+                'OC\Preview\MKV',
+                'OC\Preview\Movie',
+                'OC\Preview\MP3',
+                'OC\Preview\MP4',
+                'OC\Preview\PDF',
+                'OC\Preview\PNG',
+                'OC\Preview\TXT',
+                'OC\Preview\XBitmap',
+              ),
+          );
     nginx:
       enabled: true
     deploymentAnnotations:
