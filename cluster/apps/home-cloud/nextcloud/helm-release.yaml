@@ -53,6 +53,12 @@ spec:
         - name: REDIS_HOST_PASSWORD
           value: "${SECRET_REDIS_PASSWORD}"
       extraVolumes:
+        - name: cronjobs-config
+          configMap:
+            name: nextcloud-cronjobs-config
+            items:
+              - key: www-data
+                path: www-data
         - name: php-fpm-config
           configMap:
             name: nextcloud-php-fpm-config
@@ -60,6 +66,9 @@ spec:
               - key: zz-www.conf
                 path: zz-www.conf
       extraVolumeMounts:
+        - name: cronjobs-config
+          mountPath: /var/spool/cron/crontabs/www-data
+          subPath: www-data
         - name: php-fpm-config
           mountPath: /usr/local/etc/php-fpm.d/zz-www.conf
           subPath: zz-www.conf

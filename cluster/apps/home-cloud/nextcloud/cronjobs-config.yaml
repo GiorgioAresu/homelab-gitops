@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nextcloud-cronjobs-config
+  namespace: home-cloud
+data:
+  www-data: |
+    */5 * * * * php -f /var/www/html/cron.php # Preexisting line
+    0   8 * * * php -f /var/www/html/occ preview:pre-generate
