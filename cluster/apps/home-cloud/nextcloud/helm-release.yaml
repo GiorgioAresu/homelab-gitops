@@ -28,6 +28,7 @@ spec:
         cert-manager.io/cluster-issuer: "letsencrypt-prod"
         hajimari.io/enable: "true"
         hajimari.io/icon: "cloud"
+        nginx.ingress.kubernetes.io/proxy-body-size: 4G
         nginx.ingress.kubernetes.io/enable-cors: "true"
         nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
         # nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
