@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: nextcloud
-      tag: 27.0.2-fpm # or 25.0.7-fpm-alpine
+      tag: 27.0.2 # or 25.0.7-fpm-alpine
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
@@ -59,19 +59,10 @@ spec:
             items:
               - key: www-data
                 path: www-data
-        - name: php-fpm-config
-          configMap:
-            name: nextcloud-php-fpm-config
-            items:
-              - key: zz-www.conf
-                path: zz-www.conf
       extraVolumeMounts:
         - name: cronjobs-config
           mountPath: /var/spool/cron/crontabs/www-data
           subPath: www-data
-        - name: php-fpm-config
-          mountPath: /usr/local/etc/php-fpm.d/zz-www.conf
-          subPath: zz-www.conf
       mail:
         enabled: true
         fromAddress: "${SECRET_EMAIL_USER}"
@@ -112,10 +103,7 @@ spec:
           $CONFIG = array(
             'default_phone_region' => 'IT',
           );
-    nginx:
-      enabled: true
     deploymentAnnotations:
-      configmap.reloader.stataker.com/reload: "nextcloud-php-fpm-config"
       secret.reloader.stataker.com/reload: "nextcloud,nextcloud-db"
     internalDatabase:
       enabled: false

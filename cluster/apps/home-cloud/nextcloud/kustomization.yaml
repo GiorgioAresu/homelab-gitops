@@ -8,4 +8,3 @@ resources:
   - helm-release.yaml
   - db-secret.sops.yaml
   - nextcloud-secret.sops.yaml
-  - php-fpm-config.yaml
