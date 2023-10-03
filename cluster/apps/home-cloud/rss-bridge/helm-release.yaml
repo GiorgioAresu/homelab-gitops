@@ -40,6 +40,7 @@ spec:
             port: 80
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -58,6 +59,7 @@ spec:
             secretName: rss-bridge-tls
     persistence:
       config:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: rss-bridge-config-v1
         globalMounts:

@@ -52,6 +52,7 @@ spec:
             port: 8181
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -72,6 +73,7 @@ spec:
             secretName: tautulli-tls
     persistence:
       config:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: tautulli-config-v1
         globalMounts:

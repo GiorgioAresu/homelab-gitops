@@ -52,6 +52,7 @@ spec:
             port: 8686
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -72,11 +73,13 @@ spec:
             secretName: lidarr-tls
     persistence:
       config:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: lidarr-config-v1
         globalMounts:
           - path: /config
       music:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/media
@@ -84,6 +87,7 @@ spec:
           - path: /music
             subPath: Music
       downloads:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/downloads

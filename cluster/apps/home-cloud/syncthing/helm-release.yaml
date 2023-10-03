@@ -56,6 +56,7 @@ spec:
             protocol: UDP
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -74,6 +75,7 @@ spec:
             secretName: syncthing-tls
     persistence:
       data:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: syncthing-config-v1
         globalMounts:

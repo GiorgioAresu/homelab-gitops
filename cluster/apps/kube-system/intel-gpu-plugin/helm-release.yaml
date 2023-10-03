@@ -63,13 +63,16 @@ spec:
         enabled: false
     persistence:
       devfs:
+        enabled: true
         type: hostPath
         hostPath: "/dev/dri"
         readOnly: true
       sysfs:
+        enabled: true
         type: hostPath
         hostPath: "/sys/class/drm"
         readOnly: true
       kubeletsockets:
+        enabled: true
         type: hostPath
         hostPath: "/var/lib/kubelet/device-plugins"

@@ -52,6 +52,7 @@ spec:
             port: 7878
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -72,11 +73,13 @@ spec:
             secretName: radarr-tls
     persistence:
       config:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: radarr-config-v1
         globalMounts:
           - path: /config
       movies:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/media
@@ -84,6 +87,7 @@ spec:
         globalMounts:
           - path: /movies
       downloads:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/downloads

@@ -41,6 +41,7 @@ spec:
             port: 80
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -59,11 +60,13 @@ spec:
             secretName: freshrss-tls
     persistence:
       data:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: freshrss-data-v1
         globalMounts:
           - path: /var/www/FreshRSS/data
       extensions:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: freshrss-extensions-v1
         globalMounts:

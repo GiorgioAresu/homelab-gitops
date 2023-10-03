@@ -52,6 +52,7 @@ spec:
             port: 9696
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -71,6 +72,7 @@ spec:
             secretName: prowlarr-tls
     persistence:
       config:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: prowlarr-config-v1
         globalMounts:

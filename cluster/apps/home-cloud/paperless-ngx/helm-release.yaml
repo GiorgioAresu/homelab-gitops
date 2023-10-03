@@ -60,6 +60,7 @@ spec:
             port: 8000
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -81,18 +82,21 @@ spec:
     persistence:
       # -- Configure persistence for data.
       data:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: paperless-data-v1
         globalMounts:
           - path: /usr/src/paperless/data
       # -- Configure persistence for media.
       media:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: paperless-media-v1
         globalMounts:
           - path: /usr/src/paperless/media
       # -- Configure volume to monitor for new documents.
       consume:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/media
@@ -101,6 +105,7 @@ spec:
             subPath: Paperless/consume
       # -- Configure export volume.
       export:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/media

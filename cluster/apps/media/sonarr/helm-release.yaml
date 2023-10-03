@@ -52,6 +52,7 @@ spec:
             port: 8989
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -76,11 +77,13 @@ spec:
             secretName: sonarr-tls
     persistence:
       config:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: sonarr-config-v1
         globalMounts:
           - path: /config
       tv:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: "/mnt/tank/media"
@@ -88,6 +91,7 @@ spec:
           - path: /tv
             subPath: "TV Shows"
       downloads:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: "/mnt/tank/downloads"

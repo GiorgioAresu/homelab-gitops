@@ -45,6 +45,7 @@ spec:
             port: 80
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -71,6 +72,7 @@ spec:
             secretName: tandoor-tls
     persistence:
       media:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: tandoor-media-v1
         globalMounts:

@@ -68,6 +68,7 @@ spec:
             enabled: true
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -105,17 +106,20 @@ spec:
             secretName: plex-tls
     persistence:
       config:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: plex-config-v1
         globalMounts:
           - path: /config
       media:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/media
         globalMounts:
           - path: /media
       transcode:
+        enabled: true
         type: emptyDir
     defaultPodOptions:
       hostNetwork: true

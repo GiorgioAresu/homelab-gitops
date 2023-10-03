@@ -76,6 +76,7 @@ spec:
             protocol: UDP
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -113,6 +114,7 @@ spec:
     #         secretName: unifi-guest-tls
     persistence:
       data:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: unifi-config-v1
         globalMounts:

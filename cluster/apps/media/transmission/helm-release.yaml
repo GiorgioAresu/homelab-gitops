@@ -75,6 +75,7 @@ spec:
             protocol: UDP
     ingress:
       main:
+        enabled: true
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -94,11 +95,13 @@ spec:
             secretName: transmission-tls
     persistence:
       config:
+        enabled: true
         type: persistentVolumeClaim
         existingClaim: transmission-config-v1
         globalMounts:
           - path: /config
       downloads:
+        enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: "/mnt/tank/downloads"
