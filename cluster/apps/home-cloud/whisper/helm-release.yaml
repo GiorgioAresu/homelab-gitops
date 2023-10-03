@@ -43,6 +43,8 @@ spec:
     service:
       main:
         ports:
+          http:
+            enabled: false
           tcp:
             port: 10300
             protocol: TCP
