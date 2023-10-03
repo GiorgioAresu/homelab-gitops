@@ -23,32 +23,37 @@ spec:
               repository: ghcr.io/paperless-ngx/paperless-ngx
               tag: 1.17.4
               pullPolicy: IfNotPresent
+            env:
+              TZ: ${TIMEZONE}
+              PAPERLESS_OCR_LANGUAGE: ita+eng
+              PAPERLESS_REDIS: redis://:${SECRET_REDIS_PASSWORD}@redis-master.infrastructure:6379
+              PAPERLESS_TIME_ZONE: "${TIMEZONE}"
+              PAPERLESS_URL: "https://paperless.${SECRET_DOMAIN}"
+              PAPERLESS_CONSUMER_POLLING: 60
+              PAPERLESS_TIKA_ENABLED: 1
+              PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://localhost:3000
+              PAPERLESS_TIKA_ENDPOINT: http://localhost:9998
+              PAPERLESS_WORKER_TIMEOUT: 3600 # 1h
+            envFrom:
+              - secretRef:
+                  name: paperless-db
             probes:
               liveness:
                 spec:
                   timeoutSeconds: 3
               readiness:
                 spec:
-                  timeoutSeconds: 3
-    strategy:
-      type: Recreate
-    env:
-      TZ: ${TIMEZONE}
-      PAPERLESS_OCR_LANGUAGE: ita+eng
-      PAPERLESS_REDIS: redis://:${SECRET_REDIS_PASSWORD}@redis-master.infrastructure:6379
-      PAPERLESS_TIME_ZONE: "${TIMEZONE}"
-      PAPERLESS_URL: "https://paperless.${SECRET_DOMAIN}"
-      PAPERLESS_CONSUMER_POLLING: 60
-      PAPERLESS_TIKA_ENABLED: 1
-      PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://localhost:3000
-      PAPERLESS_TIKA_ENDPOINT: http://localhost:9998
-      PAPERLESS_WORKER_TIMEOUT: 3600 # 1h
-    envFrom:
-      - secretRef:
-          name: paperless-db
-    controller:
-      annotations:
-        secret.reloader.stakater.com/reload: paperless-db
+                timeoutSeconds: 3
+            resources:
+              requests:
+                memory: 0.5Gi
+                cpu: 100m
+              limits:
+                memory: 2Gi
+        strategy:
+          type: Recreate
+        annotations:
+          secret.reloader.stakater.com/reload: paperless-db
     service:
       main:
         ports:
@@ -103,12 +108,6 @@ spec:
         globalMounts:
           - path: /usr/src/paperless/export
             subPath: Paperless/export
-    resources:
-      requests:
-        memory: 0.5Gi
-        cpu: 100m
-      limits:
-        memory: 2Gi
     sidecars:
       gotenberg:
         image: gotenberg/gotenberg:7.9.2

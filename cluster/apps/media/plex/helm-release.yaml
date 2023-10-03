@@ -23,13 +23,19 @@ spec:
               repository: lscr.io/linuxserver/plex
               tag: 1.32.6
               pullPolicy: IfNotPresent
-    strategy:
-      type: Recreate
-    env:
-      TZ: ${TIMEZONE}
-      PUID: 568
-      PGID: 1003
-    hostNetwork: true
+            env:
+              TZ: ${TIMEZONE}
+              PUID: 568
+              PGID: 1003
+            resources:
+              requests:
+                cpu: 100m
+                memory: 0.5G
+              limits:
+                # cpu: 1000m
+                memory: 1G
+        strategy:
+          type: Recreate
     service:
       main:
         ports:
@@ -113,6 +119,7 @@ spec:
       transcode:
         type: emptyDir
     defaultPodOptions:
+      hostNetwork: true
       securityContext:
         # Hardware acceleration using an Intel iGPU w/ QuickSync
         # These IDs below should be matched to your `video` and `render` group on the host
@@ -140,10 +147,3 @@ spec:
                     operator: In
                     values:
                       - amd64
-    resources:
-      requests:
-        cpu: 100m
-        memory: 0.5G
-      limits:
-        # cpu: 1000m
-        memory: 1G

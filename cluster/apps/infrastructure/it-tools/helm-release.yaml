@@ -23,8 +23,14 @@ spec:
               repository: ghcr.io/corentinth/it-tools
               tag: 2023.5.14-77f2efc
               pullPolicy: IfNotPresent
-    strategy:
-      type: Recreate
+            resources:
+              requests:
+                memory: 10Mi
+                cpu: 10m
+              limits:
+                memory: 50Mi
+        strategy:
+          type: Recreate
     service:
       main:
         ports:
@@ -48,9 +54,3 @@ spec:
           - hosts:
               - *host
             secretName: it-tools-tls
-    resources:
-      requests:
-        memory: 10Mi
-        cpu: 10m
-      limits:
-        memory: 50Mi

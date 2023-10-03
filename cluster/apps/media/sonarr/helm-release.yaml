@@ -33,12 +33,19 @@ spec:
               startup:
                 spec:
                   timeoutSeconds: 2
-    strategy:
-      type: Recreate
-    env:
-      TZ: ${TIMEZONE}
-      PUID: 568
-      PGID: 1003
+            env:
+              TZ: ${TIMEZONE}
+              PUID: 568
+              PGID: 1003
+            resources:
+              requests:
+                cpu: 15m
+                memory: 0.5G
+              limits:
+                # cpu: 500m
+                memory: 1.5G
+        strategy:
+          type: Recreate
     service:
       main:
         ports:
@@ -88,10 +95,3 @@ spec:
         globalMounts:
           - path: /downloads
             subPath: "complete/tv"
-    resources:
-      requests:
-        cpu: 15m
-        memory: 0.5G
-      limits:
-        # cpu: 500m
-        memory: 1.5G

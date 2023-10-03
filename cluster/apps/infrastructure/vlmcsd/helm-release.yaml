@@ -23,8 +23,15 @@ spec:
               repository: mikolatero/vlmcsd
               tag: latest
               pullPolicy: Always
-    strategy:
-      type: Recreate
+            resources:
+              requests:
+                cpu: 10m
+                memory: 25Mi
+              limits:
+                cpu: 10m
+                memory: 250Mi
+        strategy:
+          type: Recreate
     service:
       main:
         type: LoadBalancer
@@ -32,10 +39,3 @@ spec:
         ports:
           http:
             port: 1688
-    resources:
-      requests:
-        cpu: 10m
-        memory: 25Mi
-      limits:
-        cpu: 10m
-        memory: 250Mi

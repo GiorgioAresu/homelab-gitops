@@ -23,12 +23,18 @@ spec:
               repository: lscr.io/linuxserver/syncthing
               tag: 1.25.0
               pullPolicy: IfNotPresent
-    strategy:
-      type: Recreate
-    env:
-      TZ: ${TIMEZONE}
-      PUID: 1000
-      PGID: 1000
+            env:
+              TZ: ${TIMEZONE}
+              PUID: 1000
+              PGID: 1000
+            resources:
+              requests:
+                memory: 100Mi
+                cpu: 100m
+              limits:
+                memory: 250Mi
+        strategy:
+          type: Recreate
     service:
       main:
         ports:
@@ -73,9 +79,3 @@ spec:
         existingClaim: syncthing-config-v1
         globalMounts:
           - path: /config
-    resources:
-      requests:
-        memory: 100Mi
-        cpu: 100m
-      limits:
-        memory: 250Mi

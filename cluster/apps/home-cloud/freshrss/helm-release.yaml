@@ -23,11 +23,18 @@ spec:
               repository: freshrss/freshrss
               tag: 1.21.0-arm
               pullPolicy: IfNotPresent
-    strategy:
-      type: Recreate
-    env:
-      TZ: ${TIMEZONE}
-      CRON_MIN: "1,31"
+            env:
+              TZ: ${TIMEZONE}
+              CRON_MIN: "1,31"
+            resources:
+              requests:
+                cpu: 15m
+                memory: 0.5G
+              limits:
+                # cpu: 500m
+                memory: 1G
+        strategy:
+          type: Recreate
     service:
       main:
         ports:
@@ -62,13 +69,6 @@ spec:
         existingClaim: freshrss-extensions-v1
         globalMounts:
           - path: /var/www/FreshRSS/extensions
-    resources:
-      requests:
-        cpu: 15m
-        memory: 0.5G
-      limits:
-        # cpu: 500m
-        memory: 1G
     defaultPodOptions:
       affinity:
         nodeAffinity:

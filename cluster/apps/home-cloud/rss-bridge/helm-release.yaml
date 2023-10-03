@@ -23,10 +23,17 @@ spec:
               repository: rssbridge/rss-bridge
               tag: latest
               pullPolicy: Always
-    strategy:
-      type: Recreate
-    env:
-      TZ: ${TIMEZONE}
+            env:
+              TZ: ${TIMEZONE}
+            resources:
+              requests:
+                cpu: 15m
+                memory: 0.5G
+              limits:
+                # cpu: 500m
+                memory: 1G
+        strategy:
+          type: Recreate
     service:
       main:
         ports:
@@ -56,10 +63,3 @@ spec:
         existingClaim: rss-bridge-config-v1
         globalMounts:
           - path: /config
-    resources:
-      requests:
-        cpu: 15m
-        memory: 0.5G
-      limits:
-        # cpu: 500m
-        memory: 1G

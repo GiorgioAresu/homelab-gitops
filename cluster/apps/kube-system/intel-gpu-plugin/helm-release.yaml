@@ -34,15 +34,15 @@ spec:
                 enabled: false
               startup:
                 enabled: false
-            # Refer to the [plugin documentation](https://github.com/intel/intel-device-plugins-for-kubernetes/blob/main/cmd/gpu_plugin/README.md) for more information.
-            args:
-              - -shared-dev-num
-              - "1"
             envValueFrom:
               # -- Sets the NODE_NAME env var to the name of the node where the pod is running. Do not modify unless you know what you are doing.
               NODE_NAME:
                 fieldRef:
                   fieldPath: spec.nodeName
+            # Refer to the [plugin documentation](https://github.com/intel/intel-device-plugins-for-kubernetes/blob/main/cmd/gpu_plugin/README.md) for more information.
+            args:
+              - -shared-dev-num
+              - "1"
     defaultPodOptions:
       affinity:
         nodeAffinity:

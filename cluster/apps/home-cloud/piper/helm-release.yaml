@@ -23,13 +23,13 @@ spec:
               repository: rhasspy/wyoming-piper
               tag: latest
               pullPolicy: Always
-    strategy:
-      type: Recreate
-    env:
-      TZ: ${TIMEZONE}
-    args:
-      - --voice
-      - it-riccardo_fasol-x-low
+            env:
+              TZ: ${TIMEZONE}
+            args:
+              - --voice
+              - it-riccardo_fasol-x-low
+        strategy:
+          type: Recreate
     service:
       main:
         ports:
