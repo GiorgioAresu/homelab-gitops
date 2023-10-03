@@ -94,10 +94,7 @@ spec:
         path: /mnt/tank/media
         globalMounts:
           - path: /usr/src/paperless/consume
-        advancedMounts:
-          main:
-            main:
-              - subPath: Paperless/consume
+            subPath: Paperless/consume
       # -- Configure export volume.
       export:
         type: nfs
@@ -105,10 +102,7 @@ spec:
         path: /mnt/tank/media
         globalMounts:
           - path: /usr/src/paperless/export
-        advancedMounts:
-          main:
-            main:
-              - subPath: Paperless/export
+            subPath: Paperless/export
     resources:
       requests:
         memory: 0.5Gi

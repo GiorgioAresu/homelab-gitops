@@ -80,20 +80,14 @@ spec:
         path: "/mnt/tank/media"
         globalMounts:
           - path: /tv
-        advancedMounts:
-          main:
-            main:
-              - subPath: "TV Shows"
+            subPath: "TV Shows"
       downloads:
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: "/mnt/tank/downloads"
         globalMounts:
           - path: /downloads
-        advancedMounts:
-          main:
-            main:
-              - subPath: "complete/tv"
+            subPath: "complete/tv"
     resources:
       requests:
         cpu: 15m

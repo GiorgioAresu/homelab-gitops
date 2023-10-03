@@ -76,20 +76,14 @@ spec:
         path: /mnt/tank/media
         globalMounts:
           - path: /music
-        advancedMounts:
-          main:
-            main:
-              - subPath: Music
+            subPath: Music
       downloads:
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/downloads
         globalMounts:
           - path: /downloads
-        advancedMounts:
-          main:
-            main:
-              - subPath: complete/music
+            subPath: complete/music
     resources:
       requests:
         cpu: 15m
