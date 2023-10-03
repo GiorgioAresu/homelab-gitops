@@ -50,6 +50,18 @@ spec:
                 cpu: 100m
               limits:
                 memory: 2Gi
+          gotenberg:
+            image: gotenberg/gotenberg:7.9.2
+            ports:
+              - containerPort: 3000
+            command:
+              - "gotenberg"
+              - "--chromium-disable-javascript=true"
+              - "--chromium-allow-list=file:///tmp/.*"
+          tika:
+            image: ghcr.io/paperless-ngx/tika:2.9.0-minimal
+            ports:
+              - containerPort: 9998
         strategy: Recreate
         annotations:
           secret.reloader.stakater.com/reload: paperless-db
@@ -112,16 +124,3 @@ spec:
         globalMounts:
           - path: /usr/src/paperless/export
             subPath: Paperless/export
-    sidecars:
-      gotenberg:
-        image: gotenberg/gotenberg:7.9.2
-        ports:
-          - containerPort: 3000
-        command:
-          - "gotenberg"
-          - "--chromium-disable-javascript=true"
-          - "--chromium-allow-list=file:///tmp/.*"
-      tika:
-        image: ghcr.io/paperless-ngx/tika:2.9.0-minimal
-        ports:
-          - containerPort: 9998
