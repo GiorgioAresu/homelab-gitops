@@ -51,7 +51,10 @@ spec:
               limits:
                 memory: 2Gi
           gotenberg:
-            image: gotenberg/gotenberg:7.9.2
+            image:
+              repository: gotenberg/gotenberg
+              tag: 7.9.2
+              pullPolicy: IfNotPresent
             ports:
               - containerPort: 3000
             command:
@@ -59,7 +62,10 @@ spec:
               - "--chromium-disable-javascript=true"
               - "--chromium-allow-list=file:///tmp/.*"
           tika:
-            image: ghcr.io/paperless-ngx/tika:2.9.0-minimal
+            image:
+              repository: ghcr.io/paperless-ngx/tika
+              tag: 2.9.0-minimal
+              pullPolicy: IfNotPresent
             ports:
               - containerPort: 9998
         strategy: Recreate
