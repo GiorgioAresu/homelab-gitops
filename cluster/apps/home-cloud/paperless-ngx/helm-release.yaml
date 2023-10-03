@@ -43,7 +43,7 @@ spec:
                   timeoutSeconds: 3
               readiness:
                 spec:
-                timeoutSeconds: 3
+                  timeoutSeconds: 3
             resources:
               requests:
                 memory: 0.5Gi
