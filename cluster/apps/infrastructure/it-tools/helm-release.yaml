@@ -29,8 +29,7 @@ spec:
                 cpu: 10m
               limits:
                 memory: 50Mi
-        strategy:
-          type: Recreate
+        strategy: Recreate
     service:
       main:
         ports:

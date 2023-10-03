@@ -38,8 +38,7 @@ spec:
               - small
               - --language
               - it
-        strategy:
-          type: Recreate
+        strategy: Recreate
     service:
       main:
         ports:

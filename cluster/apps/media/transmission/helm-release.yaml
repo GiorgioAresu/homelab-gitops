@@ -45,8 +45,7 @@ spec:
               limits:
                 # cpu: 500m
                 memory: 0.5Gi
-        strategy:
-          type: Recreate
+        strategy: Recreate
     # initContainers:
     #   custom-webui:
     #     name: custom-webui

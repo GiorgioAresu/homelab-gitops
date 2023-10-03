@@ -28,8 +28,7 @@ spec:
             args:
               - --voice
               - it-riccardo_fasol-x-low
-        strategy:
-          type: Recreate
+        strategy: Recreate
     service:
       main:
         ports:
