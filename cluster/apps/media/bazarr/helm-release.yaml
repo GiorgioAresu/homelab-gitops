@@ -66,7 +66,7 @@ spec:
             secretName: bazarr-tls
     persistence:
       config:
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: bazarr-config-v1
         globalMounts:
           - path: /config

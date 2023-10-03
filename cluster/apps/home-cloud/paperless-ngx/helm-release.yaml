@@ -77,13 +77,13 @@ spec:
     persistence:
       # -- Configure persistence for data.
       data:
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: paperless-data-v1
         globalMounts:
           - path: /usr/src/paperless/data
       # -- Configure persistence for media.
       media:
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: paperless-media-v1
         globalMounts:
           - path: /usr/src/paperless/media

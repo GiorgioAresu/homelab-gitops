@@ -66,7 +66,7 @@ spec:
             secretName: tautulli-tls
     persistence:
       config:
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: tautulli-config-v1
         globalMounts:
           - path: /config

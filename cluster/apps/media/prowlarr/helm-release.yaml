@@ -65,7 +65,7 @@ spec:
             secretName: prowlarr-tls
     persistence:
       config:
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: prowlarr-config-v1
         globalMounts:
           - path: /config

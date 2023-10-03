@@ -53,12 +53,12 @@ spec:
             secretName: freshrss-tls
     persistence:
       data:
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: freshrss-data-v1
         globalMounts:
           - path: /var/www/FreshRSS/data
       extensions:
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: freshrss-extensions-v1
         globalMounts:
           - path: /var/www/FreshRSS/extensions
