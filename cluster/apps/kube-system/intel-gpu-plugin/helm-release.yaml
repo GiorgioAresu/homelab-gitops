@@ -20,6 +20,7 @@ spec:
   values:
     controllers:
       main:
+        type: daemonset
         containers:
           main:
             image:
@@ -33,28 +34,33 @@ spec:
                 enabled: false
               startup:
                 enabled: false
-    controller:
-      type: daemonset
+            # Refer to the [plugin documentation](https://github.com/intel/intel-device-plugins-for-kubernetes/blob/main/cmd/gpu_plugin/README.md) for more information.
+            args:
+              - -shared-dev-num
+              - "1"
+            envValueFrom:
+              # -- Sets the NODE_NAME env var to the name of the node where the pod is running. Do not modify unless you know what you are doing.
+              NODE_NAME:
+                fieldRef:
+                  fieldPath: spec.nodeName
+    defaultPodOptions:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: feature.node.kubernetes.io/custom-intel-gpu
+                    operator: In
+                    values:
+                      - "true"
     serviceAccount:
       create: true
-    # Refer to the [plugin documentation](https://github.com/intel/intel-device-plugins-for-kubernetes/blob/main/cmd/gpu_plugin/README.md) for more information.
-    args:
-      - -shared-dev-num
-      - "1"
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: feature.node.kubernetes.io/custom-intel-gpu
-                  operator: In
-                  values:
-                    - "true"
-    envValueFrom:
-      # -- Sets the NODE_NAME env var to the name of the node where the pod is running. Do not modify unless you know what you are doing.
-      NODE_NAME:
-        fieldRef:
-          fieldPath: spec.nodeName
+    service:
+      main:
+        enabled: false
+    ingress:
+      main:
+        enabled: false
     persistence:
       devfs:
         type: hostPath
@@ -67,9 +73,3 @@ spec:
       kubeletsockets:
         type: hostPath
         hostPath: "/var/lib/kubelet/device-plugins"
-    ingress:
-      main:
-        enabled: false
-    service:
-      main:
-        enabled: false
