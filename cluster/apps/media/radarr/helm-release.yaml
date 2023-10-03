@@ -57,7 +57,9 @@ spec:
           - host: &host "radarr.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
