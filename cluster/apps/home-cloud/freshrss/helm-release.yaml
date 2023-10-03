@@ -8,17 +8,21 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.1
+      version: 2.0.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
   interval: 10m0s
   values:
-    image:
-      repository: freshrss/freshrss
-      tag: 1.21.0-arm
-      pullPolicy: IfNotPresent
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: freshrss/freshrss
+              tag: 1.21.0-arm
+              pullPolicy: IfNotPresent
     strategy:
       type: Recreate
     env:
@@ -31,8 +35,7 @@ spec:
             port: 80
     ingress:
       main:
-        enabled: true
-        ingressClassName: "nginx-internal"
+        className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"
@@ -41,22 +44,24 @@ spec:
           - host: &host "freshrss.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
             secretName: freshrss-tls
     persistence:
       data:
-        enabled: true
-        mountPath: /var/www/FreshRSS/data
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: freshrss-data-v1
+        globalMounts:
+          - path: /var/www/FreshRSS/data
       extensions:
-        enabled: true
-        mountPath: /var/www/FreshRSS/extensions
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: freshrss-extensions-v1
+        globalMounts:
+          - path: /var/www/FreshRSS/extensions
     resources:
       requests:
         cpu: 15m

@@ -8,17 +8,21 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.1
+      version: 2.0.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
   interval: 10m0s
   values:
-    image:
-      repository: rhasspy/wyoming-whisper
-      tag: latest
-      pullPolicy: Always
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: rhasspy/wyoming-whisper
+              tag: latest
+              pullPolicy: Always
     strategy:
       type: Recreate
     env:
@@ -42,15 +46,13 @@ spec:
           http:
             enabled: false
           tcp:
-            enabled: true
-            primary: true
             port: 10300
             protocol: TCP
     persistence:
       config:
-        enabled: true
-        mountPath: /data
         type: emptyDir
+        globalMounts:
+          - path: /data
     affinity:
       nodeAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:

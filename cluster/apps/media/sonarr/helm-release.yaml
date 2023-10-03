@@ -8,17 +8,31 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.1
+      version: 2.0.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
   interval: 10m0s
   values:
-    image:
-      repository: lscr.io/linuxserver/sonarr
-      tag: 3.0.10
-      pullPolicy: IfNotPresent
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: lscr.io/linuxserver/sonarr
+              tag: 3.0.10
+              pullPolicy: IfNotPresent
+            probes:
+              liveness:
+                spec:
+                  timeoutSeconds: 2
+              readiness:
+                spec:
+                  timeoutSeconds: 2
+              startup:
+                spec:
+                  timeoutSeconds: 2
     strategy:
       type: Recreate
     env:
@@ -32,8 +46,7 @@ spec:
             port: 8989
     ingress:
       main:
-        enabled: true
-        ingressClassName: "nginx-internal"
+        className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"
@@ -48,31 +61,39 @@ spec:
           - host: &host "sonarr.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
             secretName: sonarr-tls
     persistence:
       config:
-        enabled: true
-        mountPath: /config
-        type: pvc
+        type: persistentVolumeClaim
         existingClaim: sonarr-config-v1
+        globalMounts:
+          - path: /config
       tv:
-        enabled: true
-        mountPath: /tv
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: "/mnt/tank/media"
-        subPath: "TV Shows"
+        globalMounts:
+          - path: /tv
+        advancedMounts:
+          main:
+            main:
+              - subPath: "TV Shows"
       downloads:
-        enabled: true
-        mountPath: /downloads
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: "/mnt/tank/downloads"
-        subPath: "complete/tv"
+        globalMounts:
+          - path: /downloads
+        advancedMounts:
+          main:
+            main:
+              - subPath: "complete/tv"
     resources:
       requests:
         cpu: 15m
@@ -80,13 +101,3 @@ spec:
       limits:
         # cpu: 500m
         memory: 1.5G
-    probes:
-      liveness:
-        spec:
-          timeoutSeconds: 2
-      readiness:
-        spec:
-          timeoutSeconds: 2
-      startup:
-        spec:
-          timeoutSeconds: 2

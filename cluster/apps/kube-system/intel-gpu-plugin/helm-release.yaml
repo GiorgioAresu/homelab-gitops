@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.1
+      version: 2.0.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -18,10 +18,21 @@ spec:
     - name: node-feature-discovery
       namespace: kube-system
   values:
-    image:
-      repository: intel/intel-gpu-plugin
-      tag: 0.28.0
-      pullPolicy: IfNotPresent
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: intel/intel-gpu-plugin
+              tag: 0.28.0
+              pullPolicy: IfNotPresent
+            probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+              startup:
+                enabled: false
     controller:
       type: daemonset
     serviceAccount:
@@ -46,17 +57,14 @@ spec:
           fieldPath: spec.nodeName
     persistence:
       devfs:
-        enabled: true
         type: hostPath
         hostPath: "/dev/dri"
         readOnly: true
       sysfs:
-        enabled: true
         type: hostPath
         hostPath: "/sys/class/drm"
         readOnly: true
       kubeletsockets:
-        enabled: true
         type: hostPath
         hostPath: "/var/lib/kubelet/device-plugins"
     ingress:
@@ -64,11 +72,4 @@ spec:
         enabled: false
     service:
       main:
-        enabled: false
-    probes:
-      liveness:
-        enabled: false
-      readiness:
-        enabled: false
-      startup:
         enabled: false
