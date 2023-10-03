@@ -18,10 +18,21 @@ spec:
     - name: node-feature-discovery
       namespace: kube-system
   values:
-    image:
-      repository: intel/intel-gpu-plugin
-      tag: 0.28.0
-      pullPolicy: IfNotPresent
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: intel/intel-gpu-plugin
+              tag: 0.28.0
+              pullPolicy: IfNotPresent
+            probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+              startup:
+                enabled: false
     controller:
       type: daemonset
     serviceAccount:
@@ -64,11 +75,4 @@ spec:
         enabled: false
     service:
       main:
-        enabled: false
-    probes:
-      liveness:
-        enabled: false
-      readiness:
-        enabled: false
-      startup:
         enabled: false

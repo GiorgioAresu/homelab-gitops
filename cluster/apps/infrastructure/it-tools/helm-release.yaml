@@ -15,10 +15,14 @@ spec:
         namespace: flux-system
   interval: 10m0s
   values:
-    image:
-      repository: ghcr.io/corentinth/it-tools
-      tag: 2023.5.14-77f2efc
-      pullPolicy: IfNotPresent
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: ghcr.io/corentinth/it-tools
+              tag: 2023.5.14-77f2efc
+              pullPolicy: IfNotPresent
     strategy:
       type: Recreate
     service:
@@ -28,8 +32,7 @@ spec:
             port: 80
     ingress:
       main:
-        enabled: true
-        ingressClassName: "nginx-public"
+        className: "nginx-public"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"

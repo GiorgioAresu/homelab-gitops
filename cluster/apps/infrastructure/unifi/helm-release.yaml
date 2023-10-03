@@ -15,10 +15,14 @@ spec:
         namespace: flux-system
   interval: 5m0s
   values:
-    image:
-      repository: lscr.io/linuxserver/unifi-controller
-      tag: 7.5.176
-      pullPolicy: IfNotPresent
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: lscr.io/linuxserver/unifi-controller
+              tag: 7.5.176
+              pullPolicy: IfNotPresent
     strategy:
       type: Recreate
     env:
@@ -66,8 +70,7 @@ spec:
             protocol: UDP
     ingress:
       main:
-        enabled: true
-        ingressClassName: "nginx-internal"
+        className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"
@@ -78,14 +81,16 @@ spec:
           - host: &host "unifi.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
             secretName: unifi-tls
     # portal:
     #   enabled: false
-    #   ingressClassName: "nginx-internal"
+    #   className: "nginx-internal"
     #   annotations:
     #     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"

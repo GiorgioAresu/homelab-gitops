@@ -15,10 +15,14 @@ spec:
         namespace: flux-system
   interval: 10m0s
   values:
-    image:
-      repository: freshrss/freshrss
-      tag: 1.21.0-arm
-      pullPolicy: IfNotPresent
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: freshrss/freshrss
+              tag: 1.21.0-arm
+              pullPolicy: IfNotPresent
     strategy:
       type: Recreate
     env:
@@ -31,8 +35,7 @@ spec:
             port: 80
     ingress:
       main:
-        enabled: true
-        ingressClassName: "nginx-internal"
+        className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"

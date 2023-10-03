@@ -15,10 +15,21 @@ spec:
         namespace: flux-system
   interval: 10m0s
   values:
-    image:
-      repository: ghcr.io/paperless-ngx/paperless-ngx
-      tag: 1.17.4
-      pullPolicy: IfNotPresent
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: ghcr.io/paperless-ngx/paperless-ngx
+              tag: 1.17.4
+              pullPolicy: IfNotPresent
+            probes:
+              liveness:
+                spec:
+                  timeoutSeconds: 3
+              readiness:
+                spec:
+                  timeoutSeconds: 3
     strategy:
       type: Recreate
     env:
@@ -45,8 +56,7 @@ spec:
             port: 8000
     ingress:
       main:
-        enabled: true
-        ingressClassName: "nginx-internal"
+        className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hajimari.io/enable: "true"
@@ -97,13 +107,6 @@ spec:
         cpu: 100m
       limits:
         memory: 2Gi
-    probes:
-      liveness:
-        spec:
-          timeoutSeconds: 3
-      readiness:
-        spec:
-          timeoutSeconds: 3
     sidecars:
       gotenberg:
         image: gotenberg/gotenberg:7.9.2
