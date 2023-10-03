@@ -66,16 +66,16 @@ spec:
             secretName: bazarr-tls
     persistence:
       config:
-        enabled: true
-        mountPath: /config
         type: pvc
         existingClaim: bazarr-config-v1
+        globalMounts:
+          - path: /config
       media:
-        enabled: true
-        mountPath: /media
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/media
+        globalMounts:
+          - path: /media
     resources:
       requests:
         cpu: 15m

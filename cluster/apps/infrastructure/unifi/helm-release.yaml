@@ -107,10 +107,10 @@ spec:
     #         secretName: unifi-guest-tls
     persistence:
       data:
-        enabled: true
         type: pvc
         existingClaim: unifi-config-v1
-        mountPath: /config
+        globalMounts:
+          - path: /config
     resources:
       requests:
         cpu: 475m

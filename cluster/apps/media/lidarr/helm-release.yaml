@@ -66,24 +66,30 @@ spec:
             secretName: lidarr-tls
     persistence:
       config:
-        enabled: true
         type: pvc
         existingClaim: lidarr-config-v1
-        mountPath: /config
+        globalMounts:
+          - path: /config
       music:
-        enabled: true
-        mountPath: /music
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/media
-        subPath: Music
+        globalMounts:
+          - path: /music
+        advancedMounts:
+          main:
+            main:
+              - subPath: Music
       downloads:
-        enabled: true
-        mountPath: /downloads
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/downloads
-        subPath: complete/music
+        globalMounts:
+          - path: /downloads
+        advancedMounts:
+          main:
+            main:
+              - subPath: complete/music
     resources:
       requests:
         cpu: 15m

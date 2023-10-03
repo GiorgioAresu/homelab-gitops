@@ -65,10 +65,10 @@ spec:
             secretName: prowlarr-tls
     persistence:
       config:
-        enabled: true
-        mountPath: /config
         type: pvc
         existingClaim: prowlarr-config-v1
+        globalMounts:
+          - path: /config
     resources:
       requests:
         cpu: 15m

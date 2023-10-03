@@ -65,13 +65,11 @@ spec:
               - *host
             secretName: tandoor-tls
     persistence:
-      config:
-        enabled: false
       media:
-        enabled: true
-        mountPath: /opt/recipes/mediafiles
         type: pvc
         existingClaim: tandoor-media-v1
+        globalMounts:
+          - path: /opt/recipes/mediafiles
     resources:
       requests:
         memory: 100Mi

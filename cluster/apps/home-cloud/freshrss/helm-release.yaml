@@ -53,15 +53,15 @@ spec:
             secretName: freshrss-tls
     persistence:
       data:
-        enabled: true
-        mountPath: /var/www/FreshRSS/data
         type: pvc
         existingClaim: freshrss-data-v1
+        globalMounts:
+          - path: /var/www/FreshRSS/data
       extensions:
-        enabled: true
-        mountPath: /var/www/FreshRSS/extensions
         type: pvc
         existingClaim: freshrss-extensions-v1
+        globalMounts:
+          - path: /var/www/FreshRSS/extensions
     resources:
       requests:
         cpu: 15m

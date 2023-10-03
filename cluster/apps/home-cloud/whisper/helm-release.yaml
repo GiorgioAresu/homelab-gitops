@@ -48,9 +48,9 @@ spec:
             protocol: TCP
     persistence:
       config:
-        enabled: true
-        mountPath: /data
         type: emptyDir
+        globalMounts:
+          - path: /data
     affinity:
       nodeAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
