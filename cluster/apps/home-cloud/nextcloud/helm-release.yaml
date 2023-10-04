@@ -127,6 +127,7 @@ spec:
           <?php
           $CONFIG = array(
             'default_phone_region' => 'IT',
+            'overwrite.cli.url' => 'https://nextcloud.${SECRET_DOMAIN}'
           );
     deploymentAnnotations:
       secret.reloader.stataker.com/reload: "nextcloud,nextcloud-db"
