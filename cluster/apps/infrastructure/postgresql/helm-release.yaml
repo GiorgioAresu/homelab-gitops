@@ -35,7 +35,7 @@ spec:
         type: LoadBalancer
         loadBalancerIP: "${SVC_POSTGRESQL_ADDR}"
     diagnosticMode: # All probes will be disabled and the command will be overridden with sleep infinity
-      enabled: true
+      enabled: false
     backup:
       enabled: true
       cronjob:
