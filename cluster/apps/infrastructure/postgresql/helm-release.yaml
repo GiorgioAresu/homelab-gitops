@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: postgresql
-      version: 13.1.0
+      version: 13.0.0
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: bitnami/postgresql
-      tag: 16.0.0-debian-11-r7
+      tag: 15.3.0-debian-11-r7
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
