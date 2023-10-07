@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    path: /mnt/tank/kubernetes
+    path: /mnt/tank/kubernetes/postgres-backups
     server: ${TRUENAS_ADDR}
   mountOptions:
     - nfsvers=4.2
