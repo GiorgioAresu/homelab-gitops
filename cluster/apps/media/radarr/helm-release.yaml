@@ -83,14 +83,14 @@ spec:
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/media
-        subPath: Movies
         globalMounts:
           - path: /movies
+            subPath: Movies
       downloads:
         enabled: true
         type: nfs
         server: "${TRUENAS_ADDR}"
         path: /mnt/tank/downloads
-        subPath: complete/movies
         globalMounts:
           - path: /downloads
+            subPath: complete/movies
