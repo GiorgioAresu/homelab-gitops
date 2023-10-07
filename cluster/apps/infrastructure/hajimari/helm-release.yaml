@@ -89,6 +89,9 @@ spec:
               url: "https://opnsense.${SECRET_DOMAIN}"
               icon: "mdi:router-network"
               # info: This is a test app
+            - name: Proxmox
+              url: "https://pve-supermicro.${SECRET_DOMAIN}:8006"
+              icon: "mdi:server"
             - name: TrueNAS
               url: "https://truenas.${SECRET_DOMAIN}"
               icon: "mdi:nas"
