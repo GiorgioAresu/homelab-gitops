@@ -75,12 +75,21 @@ spec:
             port: 10001
             protocol: UDP
       direct:
+        controller: main
         type: LoadBalancer
         loadBalancerIP: ${SVC_UNIFIDIRECT_ADDR}
         ports:
+          device-comms:
+            enabled: true
+            port: 8080
+            protocol: TCP
           discovery:
             enabled: true
             port: 1900
+            protocol: UDP
+          ap-discovery:
+            enabled: true
+            port: 10001
             protocol: UDP
     ingress:
       main:
