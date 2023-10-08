@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: lscr.io/linuxserver/lidarr
-              tag: 1.3.5
+              tag: 1.4.5
               pullPolicy: IfNotPresent
             probes:
               liveness:
