@@ -83,3 +83,7 @@ To install it w/o brew, make sure `python3-pip` and `python3-virtualenv`:
 virtualenv venv
 . venv/bin/activate
 ```
+
+## Application-specific documentation
+
+See [apps folder](./apps/<appname>.md) for documentation/guides regarding specific application.
