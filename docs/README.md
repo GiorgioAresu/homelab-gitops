@@ -36,7 +36,7 @@ Install:
 
 ### Get kube config
 
-```bash
+```shell
 scp ubuntu@kube-master-p1:~/.kube/config ~/.kube/config
 ```
 
@@ -45,7 +45,7 @@ scp ubuntu@kube-master-p1:~/.kube/config ~/.kube/config
 
 Get an Personal Access Token from [GitHub](https://github.com/settings/tokens) and set the envs accordingly, then bootstrap flux:
 
-```
+```shell
 export GITHUB_USER=GiorgioAresu
 export GITHUB_TOKEN=new-token
 flux bootstrap github \
