@@ -86,4 +86,4 @@ virtualenv venv
 
 ## Application-specific documentation
 
-See [apps folder](./apps/<appname>.md) for documentation/guides regarding specific application.
+See [apps folder](./apps/) for documentation/guides regarding specific application.
