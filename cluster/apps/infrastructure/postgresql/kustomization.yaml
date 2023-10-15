@@ -5,3 +5,4 @@ resources:
   - data-pv.yaml
   - data-pvc.yaml
   - helm-release.yaml
+  - helm-release2.yaml
