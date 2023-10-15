@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: postgresql
-      version: 13.0.0
+      version: 13.1.5
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: bitnami/postgresql
-      tag: 15.3.0-debian-11-r7
+      tag: 16.0.0-debian-11-r7
       pullPolicy: IfNotPresent
     strategy:
       type: Recreate
@@ -35,7 +35,7 @@ spec:
         type: LoadBalancer
         loadBalancerIP: "${SVC_POSTGRESQL_ADDR}"
     diagnosticMode: # All probes will be disabled and the command will be overridden with sleep infinity
-      enabled: false
+      enabled: true
     backup:
       enabled: true
       cronjob:
