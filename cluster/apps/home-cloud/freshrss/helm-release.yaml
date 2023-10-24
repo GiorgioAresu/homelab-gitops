@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: freshrss/freshrss
-              tag: 1.21.0-arm
+              tag: 1.22.0-arm
               pullPolicy: IfNotPresent
             env:
               TZ: ${TIMEZONE}
