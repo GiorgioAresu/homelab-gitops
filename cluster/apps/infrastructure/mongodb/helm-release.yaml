@@ -1,0 +1,51 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mongodb
+  namespace: infrastructure
+spec:
+  chart:
+    spec:
+      chart: mongodb
+      version: 14.1.1
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  interval: 10m0s
+  values:
+    image:
+      repository: bitnami/mongodb
+      tag: 7.0.2-debian-11-r7
+      pullPolicy: IfNotPresent
+    strategy:
+      type: Recreate
+    architecture: standalone
+    clusterDomain: "${SECRET_DOMAIN}"
+    auth:
+      rootUser: root
+      rootPassword: "${SECRET_MONGODB_PASSWORD}"
+    persistence:
+      enabled: true
+      existingClaim: mongodb-primary-v1
+    service:
+      type: LoadBalancer
+      loadBalancerIP: "${SVC_MONGODB_ADDR}"
+    diagnosticMode: # All probes will be disabled and the command will be overridden with sleep infinity
+      enabled: false
+    backup:
+      enabled: true
+      cronjob:
+        schedule: "@daily"
+        storage:
+          existingClaim: mongodb-backups-v1
+    metrics:
+      enabled: false
+    resources:
+      requests:
+        memory: 100Mi
+        cpu: 10m
+      limits:
+        memory: 100Mi
+        cpu: 100m
