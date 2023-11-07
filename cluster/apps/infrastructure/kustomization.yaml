@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - hajimari
   - it-tools
+  - mongodb
   - postgresql
   - redis
   - unifi
