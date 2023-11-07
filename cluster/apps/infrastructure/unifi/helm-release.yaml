@@ -20,14 +20,17 @@ spec:
         containers:
           main:
             image:
-              repository: lscr.io/linuxserver/unifi-controller
+              repository: lscr.io/linuxserver/unifi-network-application
               tag: 7.5.187
               pullPolicy: IfNotPresent
             env:
               TZ: "${TIMEZONE}"
-              PUID: 999
-              PGID: 999
+              PUID: 1000
+              PGID: 1000
               MEM_LIMIT: "250"
+            envFrom:
+              - secretRef:
+                  name: unifi-mongo
             resources:
               requests:
                 cpu: 475m
@@ -133,6 +136,6 @@ spec:
       data:
         enabled: true
         type: persistentVolumeClaim
-        existingClaim: unifi-config-v1
+        existingClaim: unifi-config-v2
         globalMounts:
           - path: /config

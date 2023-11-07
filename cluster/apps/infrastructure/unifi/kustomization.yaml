@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - config-pvc.yaml
   - helm-release.yaml
+  - unifi-mongo-secret.sops.yaml
