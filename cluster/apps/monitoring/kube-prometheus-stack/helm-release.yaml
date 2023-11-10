@@ -107,11 +107,18 @@ spec:
         enabled: true
         pathType: Prefix
         ingressClassName: "nginx-internal"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          hajimari.io/appName: "grafana"
+          hajimari.io/enable: "true"
+          hajimari.io/group: "monitoring"
+          hajimari.io/icon: "monitor-dashboard"
         hosts:
-          - "grafana.${SECRET_DOMAIN}"
+          - &host "grafana.${SECRET_DOMAIN}"
         tls:
           - hosts:
-              - "grafana.${SECRET_DOMAIN}"
+              - *host
+            secretName: grafana-tls
     #   enabled: false
     #   forceDeployDashboards: true
     #   sidecar:
@@ -143,11 +150,18 @@ spec:
         enabled: true
         pathType: Prefix
         ingressClassName: "nginx-internal"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          hajimari.io/appName: "prometheus"
+          hajimari.io/enable: "true"
+          hajimari.io/group: "monitoring"
+          hajimari.io/icon: "database-clock"
         hosts:
-          - "prometheus.${SECRET_DOMAIN}"
+          - &host "prometheus.${SECRET_DOMAIN}"
         tls:
           - hosts:
-              - "prometheus.${SECRET_DOMAIN}"
+              - *host
+            secretName: prometheus-tls
     #   # thanosService:
     #   #   enabled: true
     #   # thanosServiceMonitor:
