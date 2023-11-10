@@ -40,7 +40,7 @@ spec:
       name: You
       title: Hajimari
       lightTheme: gazette
-      darkTheme: trone
+      darkTheme: tron
       showGreeting: true
       showAppGroups: true
       showAppUrls: false
