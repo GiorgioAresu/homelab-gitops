@@ -1,0 +1,87 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: netboot-xyz
+  namespace: infrastructure
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 2.2.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  interval: 5m0s
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: lscr.io/linuxserver/netbootxyz
+              tag: 0.6.9
+              pullPolicy: IfNotPresent
+            env:
+              TZ: "${TIMEZONE}"
+              PUID: 1000
+              PGID: 1000
+            # resources:
+            #   requests:
+            #     cpu: 475m
+            #     memory: 978M
+            #   limits:
+            #     cpu: 796m
+            #     memory: 1243M
+        strategy: Recreate
+    service:
+      main:
+        ports:
+          http:
+            port: 3000
+      pxe:
+        controller: main
+        type: LoadBalancer
+        loadBalancerIP: ${SVC_NETBOOTXYZ_ADDR}
+        ports:
+          tftp:
+            enabled: true
+            port: 69
+            protocol: UDP
+          # assets:
+          #   enabled: true
+          #   port: 80
+    ingress:
+      main:
+        enabled: true
+        className: "nginx-internal"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          hajimari.io/enable: "true"
+          hajimari.io/group: "admin"
+          hajimari.io/icon: "network-pos"
+        hosts:
+          - host: &host "netboot-xyz.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
+        tls:
+          - hosts:
+              - *host
+            secretName: netboot-xyz-tls
+    persistence:
+      config:
+        enabled: true
+        type: persistentVolumeClaim
+        existingClaim: netbootxyz-config-v1
+        globalMounts:
+          - path: /config
+      # assets:
+      #   enabled: true
+      #   type: persistentVolumeClaim
+      #   existingClaim: netbootxyz-assets-v1
+      #   globalMounts:
+      #     - path: /assets
