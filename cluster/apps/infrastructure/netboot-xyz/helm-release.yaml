@@ -27,6 +27,7 @@ spec:
               TZ: "${TIMEZONE}"
               PUID: 1000
               PGID: 1000
+              PORT_RANGE: 30000:30010
             # resources:
             #   requests:
             #     cpu: 475m
@@ -52,6 +53,39 @@ spec:
           # assets:
           #   enabled: true
           #   port: 80
+          tftp0:
+            enabled: true
+            port: 30000
+          tftp1:
+            enabled: true
+            port: 30001
+          tftp2:
+            enabled: true
+            port: 30002
+          tftp3:
+            enabled: true
+            port: 30003
+          tftp4:
+            enabled: true
+            port: 30004
+          tftp5:
+            enabled: true
+            port: 30005
+          tftp6:
+            enabled: true
+            port: 30006
+          tftp7:
+            enabled: true
+            port: 30007
+          tftp8:
+            enabled: true
+            port: 30008
+          tftp9:
+            enabled: true
+            port: 30009
+          tftp10:
+            enabled: true
+            port: 30010
     ingress:
       main:
         enabled: true
