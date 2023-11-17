@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: lscr.io/linuxserver/netbootxyz
-              tag: 0.6.9
+              tag: 0.7.0
               pullPolicy: IfNotPresent
             env:
               TZ: "${TIMEZONE}"
