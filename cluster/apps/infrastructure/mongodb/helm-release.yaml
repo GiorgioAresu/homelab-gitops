@@ -22,6 +22,7 @@ spec:
     strategy:
       type: Recreate
     architecture: standalone
+    useStatefulSet: true
     clusterDomain: "${SECRET_DOMAIN}"
     auth:
       rootUser: root
