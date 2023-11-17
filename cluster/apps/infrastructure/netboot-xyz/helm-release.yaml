@@ -45,6 +45,7 @@ spec:
         controller: main
         type: LoadBalancer
         loadBalancerIP: ${SVC_NETBOOTXYZ_ADDR}
+        externalTrafficPolicy: Local
         ports:
           tftp:
             enabled: true
