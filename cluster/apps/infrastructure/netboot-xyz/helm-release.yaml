@@ -36,8 +36,9 @@ spec:
             #     cpu: 796m
             #     memory: 1243M
         strategy: Recreate
-        hostNetwork: true
-        dnsPolicy: ClusterFirstWithHostNet
+        defaultPodOptions:
+          hostNetwork: true
+          dnsPolicy: ClusterFirstWithHostNet
     service:
       main:
         ports:
