@@ -36,9 +36,6 @@ spec:
             #     cpu: 796m
             #     memory: 1243M
         strategy: Recreate
-        defaultPodOptions:
-          hostNetwork: true
-          dnsPolicy: ClusterFirstWithHostNet
     service:
       main:
         ports:
@@ -123,3 +120,6 @@ spec:
       #   existingClaim: netbootxyz-assets-v1
       #   globalMounts:
       #     - path: /assets
+    defaultPodOptions:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
