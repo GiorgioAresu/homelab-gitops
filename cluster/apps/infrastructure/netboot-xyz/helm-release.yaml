@@ -37,6 +37,7 @@ spec:
             #     memory: 1243M
         strategy: Recreate
         hostNetwork: true
+        dnsPolicy: ClusterFirstWithHostNet
     service:
       main:
         ports:
