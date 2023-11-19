@@ -95,6 +95,11 @@ spec:
             - name: TrueNAS
               url: "https://truenas.${SECRET_DOMAIN}"
               icon: "mdi:nas"
+        - group: infrastructure
+          apps:
+            - name: OctoPrint
+              url: "http://octoprint.${SECRET_DOMAIN}"
+              icon: "mdi:printer-3d"
       globalBookmarks:
         - group: Communicate
           bookmarks:
