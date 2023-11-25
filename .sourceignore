@@ -1,6 +1,7 @@
 # See https://toolkit.fluxcd.io/components/source/gitrepositories/#excluding-files
 .github/
 .vscode/
+.editorconfig
 .gitattributes
 .gitignore
 .pre-commit-config.yaml

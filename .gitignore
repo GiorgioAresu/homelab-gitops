@@ -1,1 +1,5 @@
+# Trash
+.DS_Store
+Thumbs.db
+# k8s
 .decrypted~*
