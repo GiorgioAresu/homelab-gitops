@@ -1,6 +1,9 @@
 {
     "recommendations": [
+        "albert.TabOut",
         "britesnow.vscode-toggle-quotes",
+        "EditorConfig.editorconfig",
+        "fcrespo82.markdown-table-formatter",
         "mitchdenny.ecdc",
         "ms-kubernetes-tools.vscode-kubernetes-tools",
         "oderwat.indent-rainbow",
