@@ -13,9 +13,11 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
-      - id: trailing-whitespace
+      - id: check-merge-conflict
       - id: end-of-file-fixer
       - id: mixed-line-ending
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.4
     hooks:
@@ -29,11 +31,6 @@ repos:
     rev: v2.1.1
     hooks:
       - id: forbid-secrets
-        exclude: |
-          (?x)^(
-            cluster\/apps\/system-upgrade\/system-upgrade-controller\/ubuntu.yaml|
-            tmpl\/.*.sops\.ya?ml
-            )$
   - repo: https://github.com/zricethezav/gitleaks
     rev: v8.18.1
     hooks:
