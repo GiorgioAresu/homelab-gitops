@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: lscr.io/linuxserver/readarr
-              tag: 0.3.12-develop
+              tag: 0.3.13-develop
               pullPolicy: IfNotPresent
             probes:
               liveness:
