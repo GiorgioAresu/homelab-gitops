@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: lscr.io/linuxserver/syncthing
-              tag: 1.26.1
+              tag: 1.27.2
               pullPolicy: IfNotPresent
             env:
               TZ: ${TIMEZONE}
