@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: lscr.io/linuxserver/sonarr
-              tag: 3.0.10
+              tag: 4.0.1
               pullPolicy: IfNotPresent
             probes:
               liveness:
