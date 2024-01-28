@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: ghcr.io/paperless-ngx/paperless-ngx
-              tag: 1.17.4
+              tag: 2.4.3
               pullPolicy: IfNotPresent
             env:
               TZ: ${TIMEZONE}
