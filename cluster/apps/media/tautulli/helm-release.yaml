@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: lscr.io/linuxserver/tautulli
-              tag: 2.13.2
+              tag: 2.13.4
               pullPolicy: IfNotPresent
             probes:
               liveness:
