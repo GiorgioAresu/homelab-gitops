@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Link Checker
-        uses: lycheeverse/lychee-action@v1.8.0
+        uses: lycheeverse/lychee-action@v1.9.3
         id: lychee
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
