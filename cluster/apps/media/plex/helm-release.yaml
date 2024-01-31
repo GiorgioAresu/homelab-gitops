@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: lscr.io/linuxserver/plex
-              tag: 1.32.7
+              tag: 1.32.8
               pullPolicy: IfNotPresent
             env:
               TZ: ${TIMEZONE}
