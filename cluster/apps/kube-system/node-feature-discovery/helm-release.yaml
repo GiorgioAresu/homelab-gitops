@@ -42,6 +42,8 @@ spec:
               - device
           custom:
             - name: "zigbee"
+              labels:
+                - zigbee: "true"
               matchOn:
                 - usbId:
                     class: ["02"]
