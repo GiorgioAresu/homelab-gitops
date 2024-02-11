@@ -121,6 +121,12 @@ spec:
       transcode:
         enabled: true
         type: emptyDir
+      intel:
+        enabled: true
+        type: hostPath
+        hostPath: /dev/dri
+        globalMounts:
+          - path: /dev/dri
     defaultPodOptions:
       hostNetwork: true
       securityContext:
