@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: linuxserver/prowlarr
-              tag: version-1.8.6.3946
+              tag: version-1.13.3.4273
               pullPolicy: IfNotPresent
             probes:
               liveness:
