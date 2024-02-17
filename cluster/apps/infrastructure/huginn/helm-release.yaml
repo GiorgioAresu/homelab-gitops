@@ -36,7 +36,7 @@ spec:
                 memory: 10Mi
                 cpu: 10m
               limits:
-                memory: 200Mi
+                memory: 1Gi
         strategy: Recreate
     service:
       main:
