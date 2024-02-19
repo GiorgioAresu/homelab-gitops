@@ -32,6 +32,7 @@ spec:
                 cpu: 10m
               limits:
                 memory: 1Gi
+            replicas: 0
         strategy: Recreate
     service:
       main:
