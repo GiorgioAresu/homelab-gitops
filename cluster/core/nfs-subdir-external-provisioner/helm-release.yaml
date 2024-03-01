@@ -21,4 +21,5 @@ spec:
     storageClass:
       defaultClass: true
       name: nfs-storage
+      pathPattern: "${.PVC.namespace}/${.PVC.annotations.nfs.io/storage-path}"
       reclaimPolicy: Retain
