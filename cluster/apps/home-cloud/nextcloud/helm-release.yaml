@@ -15,10 +15,6 @@ spec:
         namespace: flux-system
   interval: 10m0s
   values:
-    image:
-      repository: nextcloud
-      tag: 28.0.4 # or 25.0.7-fpm-alpine
-      pullPolicy: IfNotPresent
     strategy:
       type: Recreate
     ingress:
