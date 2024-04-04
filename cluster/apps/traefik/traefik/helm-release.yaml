@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: traefik
-      version: 26.1.0
+      version: 27.0.0
       sourceRef:
         kind: HelmRepository
         name: traefik
@@ -45,4 +45,5 @@ spec:
         enabled: true
     ports:
       traefik:
-        espose: true
+        espose:
+          default: true
