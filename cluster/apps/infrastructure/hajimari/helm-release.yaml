@@ -156,8 +156,3 @@ spec:
             secretName: hajimari-tls
     podAnnotations:
       configmap.reloader.stakater.com/reload: "hajimari-settings"
-    persistence:
-      data:
-        enabled: false
-        # accessMode: ReadWriteOnce
-        # size: 1Gi

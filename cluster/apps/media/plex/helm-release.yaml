@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 2.6.0
+      version: 3.1.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -37,35 +37,29 @@ spec:
         strategy: Recreate
     service:
       main:
+        controller: main
         ports:
           http:
             port: 32400
             protocol: HTTP
-            enabled: true
           dlna:
             port: 1900
             protocol: UDP
-            enabled: true
           gdm-discovery-1:
             port: 32410
             protocol: UDP
-            enabled: true
           gdm-discovery-2:
             port: 32412
             protocol: UDP
-            enabled: true
           gdm-discovery-3:
             port: 32413
             protocol: UDP
-            enabled: true
           gdm-discovery-4:
             port: 32414
             protocol: UDP
-            enabled: true
           dlna-plex:
             port: 32469
             protocol: TCP
-            enabled: true
     ingress:
       main:
         enabled: true
@@ -81,7 +75,7 @@ spec:
             paths:
               - path: /
                 service:
-                  name: main
+                  identifier: main
                   port: http
         tls:
           - hosts:
@@ -98,7 +92,7 @@ spec:
             paths:
               - path: /
                 service:
-                  name: main
+                  identifier: main
                   port: http
         tls:
           - hosts:

@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 2.6.0
+      version: 3.1.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -34,11 +34,12 @@ spec:
                 enabled: false
               startup:
                 enabled: false
-            envValueFrom:
+            env:
               # -- Sets the NODE_NAME env var to the name of the node where the pod is running. Do not modify unless you know what you are doing.
               NODE_NAME:
-                fieldRef:
-                  fieldPath: spec.nodeName
+                valueFrom:
+                  fieldRef:
+                    fieldPath: spec.nodeName
             # Refer to the [plugin documentation](https://github.com/intel/intel-device-plugins-for-kubernetes/blob/main/cmd/gpu_plugin/README.md) for more information.
             args:
               - -shared-dev-num
@@ -55,23 +56,19 @@ spec:
                       - "true"
     serviceAccount:
       create: true
-    service:
-      main:
-        enabled: false
-    ingress:
-      main:
-        enabled: false
     persistence:
       devfs:
         enabled: true
         type: hostPath
         hostPath: "/dev/dri"
-        readOnly: true
+        globalMounts:
+          - readOnly: true
       sysfs:
         enabled: true
         type: hostPath
         hostPath: "/sys/class/drm"
-        readOnly: true
+        globalMounts:
+          - readOnly: true
       kubeletsockets:
         enabled: true
         type: hostPath
