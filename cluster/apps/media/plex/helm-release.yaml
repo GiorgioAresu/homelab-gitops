@@ -61,8 +61,7 @@ spec:
             port: 32469
             protocol: TCP
     ingress:
-      main:
-        enabled: true
+      internal:
         className: "nginx-internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -70,6 +69,8 @@ spec:
           hajimari.io/group: "media"
           hajimari.io/icon: "plex"
           nginx.ingress.kubernetes.io/app-root: "/web" # Redirect / -> /web
+        labels:
+          nginx.ingress.kubernetes.io/validation: "skip" # Custom label to skip duplicate host/path validation (split horizon dns)
         hosts:
           - host: &host "plex.${SECRET_DOMAIN}"
             paths:
@@ -82,11 +83,12 @@ spec:
               - *host
             secretName: plex-tls
       public:
-        enabled: true
         className: "nginx-public"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-prod"
           nginx.ingress.kubernetes.io/app-root: "/web" # Redirect / -> /web
+        labels:
+          nginx.ingress.kubernetes.io/validation: "skip" # Custom label to skip duplicate host/path validation (split horizon dns)
         hosts:
           - host: &host "plex.${SECRET_DOMAIN}"
             paths:
