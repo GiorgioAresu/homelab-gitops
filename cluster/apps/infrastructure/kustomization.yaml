@@ -5,10 +5,10 @@ resources:
   - browserless
   - hajimari
   - huginn
-  - it-tools
+  # - it-tools
   - mongodb
   - netboot-xyz
   - postgresql
   - redis
   - unifi
-  - vlmcsd
+  # - vlmcsd
