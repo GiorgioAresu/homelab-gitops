@@ -43,7 +43,7 @@ spec:
               OP_SESSION:
                 valueFrom:
                   secretKeyRef:
-                    name: onepassword-connect-secret
+                    name: onepassword-connect
                     key: 1password-credentials.json
             probes:
               liveness:
@@ -84,7 +84,7 @@ spec:
               OP_SESSION:
                 valueFrom:
                   secretKeyRef:
-                    name: onepassword-connect-secret
+                    name: onepassword-connect
                     key: 1password-credentials.json
             probes:
               liveness:
