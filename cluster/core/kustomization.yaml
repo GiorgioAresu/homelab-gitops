@@ -11,4 +11,4 @@ resources:
   - namespaces
   - nfs-subdir-external-provisioner
   - samba-operator
-  - system-upgrade
+  # - system-upgrade
