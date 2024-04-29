@@ -9,6 +9,7 @@ resources:
   - csi-driver-smb-charts.yaml
   - descheduler-charts.yaml
   - emberstack-charts.yaml
+  - external-secrets-charts.yaml
   - fairwinds-stable-charts.yaml
   - fission-charts.yaml
   - grafana-charts.yaml
