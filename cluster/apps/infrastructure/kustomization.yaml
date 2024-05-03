@@ -6,7 +6,7 @@ resources:
   - hajimari
   # - huginn
   # - it-tools
-  # - mongodb
+  - mongodb
   - netboot-xyz
   # - postgresql
   # - redis
