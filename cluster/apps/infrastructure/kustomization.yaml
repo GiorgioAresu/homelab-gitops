@@ -4,11 +4,11 @@ kind: Kustomization
 resources:
   - browserless
   - hajimari
-  - huginn
+  # - huginn
   # - it-tools
   # - mongodb
   - netboot-xyz
   # - postgresql
-  - redis
-  - unifi
+  # - redis
+  # - unifi
   # - vlmcsd
