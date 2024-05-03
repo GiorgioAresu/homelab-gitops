@@ -10,5 +10,5 @@ resources:
   - netboot-xyz
   # - postgresql
   # - redis
-  # - unifi
+  - unifi
   # - vlmcsd
