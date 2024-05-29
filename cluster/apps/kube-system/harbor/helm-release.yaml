@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: harbor
-      version: 19.9.0
+      version: 21.4.0
       sourceRef:
         kind: HelmRepository
         name: bitnami
