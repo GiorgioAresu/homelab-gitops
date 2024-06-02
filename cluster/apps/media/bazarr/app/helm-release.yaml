@@ -21,7 +21,7 @@ spec:
           main:
             image:
               repository: lscr.io/linuxserver/bazarr
-              tag: 1.4.2
+              tag: 1.4.3
               pullPolicy: IfNotPresent
             probes:
               liveness:
